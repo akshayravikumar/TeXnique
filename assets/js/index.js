@@ -41,8 +41,8 @@ $(document).ready(function() {
         timer();
 
         // load problem
-        // let target = problems[Math.floor(Math.random()*problems.length)];
-        let target = problems[problems.length-1];
+        let target = problems[Math.floor(Math.random()*problems.length)];
+        // let target = problems[problems.length-1];
         katex.render(target.latex, $("#target")[0], {
             throwOnError: false,
             displayMode: true
