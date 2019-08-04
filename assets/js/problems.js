@@ -223,5 +223,45 @@ let problems = [
 		"title": "Definition of convolution",
 		"description": "Shout out to 6.003",
 		"latex": String.raw`(f * g)(t) = \int_{-\infty}^\infty f(\tau) g(t - \tau) d\tau`
+	},
+	{
+		"title": "Definition of Kronecker Delta function",
+		"description": "{cases} ftw",
+		"latex": String.raw`\delta_{i,j} = \begin{cases} 0 & i \neq j \\ 1 & i = j \end{cases}`
+	},
+	{
+		"title": "Bayes' theorem",
+		"description": "bae's theorem",
+		"latex": String.raw`P(A | B) = \frac{P(B|A)P(A)}{P(B)}`
+	},
+	{
+		"title": "Probability density function of Student's t-distribution",
+		"description": "fun",
+		"latex": String.raw`f(t) = \frac{\Gamma \left ( \frac{\nu + 1}{2} \right )}{\sqrt{\nu \pi} \Gamma \left ( \frac{\nu}{2}\right)} \left ( 1 + \frac{t^2}{\nu} \right) ^{- \frac{\nu + 1}{2}}`
+	},
+	{
+		"title": "De Morgan's laws",
+		"description": "fun",
+		"latex": String.raw`\neg (P \wedge Q ) \vdash (\neg P) \vee (\neg Q)`
+	},
+	{
+		"title": "Principle of Inclusion-Exclusion",
+		"description": "for dummies",
+		"latex": String.raw`|A \cup B| = |A| + |B| - |A \cap B|`
+	},
+	{
+		"title": "General Principle of Inclusion-Exclusion",
+		"description": "for galaxy brains",
+		"latex": String.raw`\left | \bigcup_{i = 1}^n A_i \right | = \sum_{\emptyset \neq J \subseteq \{1, \dots, n\}} (-1)^{|J| + 1} \left | \bigcap_{j \in J} A_j \right |`
+	},
+	{
+		"title": "Determinant of a 2 x 2 matrix",
+		"description": "{matrix}",
+		"latex": String.raw`\det \begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc`
+	},
+	{
+		"title": "Sawtooth funnctionn",
+		"description": "mathbb cases floors, this has it all",
+		"latex": String.raw`S(x) = \begin{cases} x - \lfloor x \rfloor - 1/2, & x \in \mathbb{R} \setminus \mathbb{Z} \\ 0, & x \in \mathbb{Z} \end{cases}`
 	}
 ];
