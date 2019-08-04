@@ -1,12 +1,57 @@
-$(document).ready(function() {
-    let target = problems[Math.floor(Math.random()*problems.length)];
-    // let target = problems[problems.length-1];
-    katex.render(target.latex, $("#target")[0], {
-        throwOnError: false,
-        displayMode: true
-    });
+let seconds = 0;
+let t;
 
-    let oldVal = "";
+function add() {
+  seconds++;
+  $("#timer").text(seconds);
+  timer();
+}
+
+function timer() {
+  t = setTimeout(add, 1000);
+}
+
+function reset() {
+  seconds = 0;
+  $("#timer").text(seconds);
+}
+
+function stop() {
+  clearTimeout(t);
+}
+
+
+
+$(document).ready(function() {
+    let oldVal;
+
+    function loadProblem() {
+        // clear current work
+        $('#out').empty();
+        $('#user-input').val('');
+
+        // reset styling
+        $('#out').parent().removeClass("correct");
+        $('#timer').removeClass("done");
+        $('#user-input').prop("disabled", false);
+        $('#user-input').focus();
+
+        // Reset and start the timer
+        reset();
+        timer();
+
+        // load problem
+        // let target = problems[Math.floor(Math.random()*problems.length)];
+        let target = problems[problems.length-1];
+        katex.render(target.latex, $("#target")[0], {
+            throwOnError: false,
+            displayMode: true
+        });
+
+        oldVal = "";
+    };
+    loadProblem();
+
     $("#user-input").on("change keyup paste", function() {
         let currentVal = $(this).val();
         if(currentVal == oldVal) {
@@ -32,12 +77,17 @@ $(document).ready(function() {
                         let diff = pixelmatch(targetData.data, outData.data, undefined, width, height, {threshold: 0.1});
                         let result = "";
                         if (diff < 10) {
-                            result = "Nice! :D";
+                            // Styling changes
                             $('#out').parent().addClass("correct");
-                        } else {
-                            result = "Rip. :("
+                            $('#timer').addClass("done");
+                            $('#user-input').prop("disabled", true);
+
+                            // Stop the timer
+                            stop();
+
+                            // Load new problem
+                            setTimeout(loadProblem, 1500);
                         }
-                        // $("#result").text(result);
                     }
                 });
             }
