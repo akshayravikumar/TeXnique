@@ -42,7 +42,7 @@ let problems = [
 	{
 		"title": "Fourier Transform",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`f(\omega) = \int_\infty^\infty f(x) e^{-2\pi i x \omega} dx`
+		"latex": String.raw`f(\omega) = \int_{-\infty}^\infty f(x) e^{-2\pi i x \omega} dx`
 	},
 	{
 		"title": "Wave Equation",
@@ -125,7 +125,7 @@ let problems = [
 		"latex": String.raw`\tau = 2\pi`
 	},
 	{
-		"title": "Sophie Germainn Identity",
+		"title": "Sophie Germain Identity",
 		"description": "Simple.",
 		"latex": String.raw`a^4 + 4b^4 = (a^2 + 2ab + 2b^2)(a^2 -2ab + 2b^2)`
 	},
@@ -176,7 +176,7 @@ let problems = [
 	},
 	{
 		"title": "Irrationality of the square root of 2",
-		"description": "I just really wanted to keep usinng \\mathbb.",
+		"description": "I just really wanted to keep using \\mathbb.",
 		"latex": String.raw`\sqrt{2} \notin \mathbb{Q}`
 	},
 	{
@@ -214,4 +214,14 @@ let problems = [
 		"description": "Troll.",
 		"latex": String.raw`\sum_{n = 1}^\infty n = -\frac{1}{12}`
 	},
+	{
+		"title": "Inverse of a complex number",
+		"description": "Gotta know \\bar man",
+		"latex": String.raw`z^{-1} = \frac{\bar{z}}{|z|^2}, \forall z \neq 0`
+	},
+	{
+		"title": "Definition of convolution",
+		"description": "Shout out to 6.003",
+		"latex": String.raw`(f * g)(t) = \int_{-\infty}^\infty f(\tau) g(t - \tau) d\tau`
+	}
 ];
