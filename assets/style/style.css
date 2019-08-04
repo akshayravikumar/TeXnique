@@ -1,13 +1,40 @@
+main {
+	font-family: 'Noto Sans', sans-serif;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+}
+
+.latex {
+	height: 100px;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid 2px black;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.correct {
+	border-color: #0d0;
+}
+
 #target {
-	height: 50px;
+
 }
 
 #out {
-	height: 50px;
+
 }
 
 #user-input {
-	height: 50px;
+	font-family: 'Roboto Mono', monospace;
+	background-color: black;
+	font-size: 20px;
+	color: white;
+	height: 80px;
+	width: 100%;
 }
 
 #result {
