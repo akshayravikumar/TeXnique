@@ -37,7 +37,7 @@ let problems = [
 	{
 		"title": "Normal Distribution",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`\Phi(x) = \frac{1}{\sqrt{2\pi \sigma}} e^{\frac{(x - \mu)^2}{2\sigma^2}}`
+		"latex": String.raw`\Phi(x) = \frac{1}{\sqrt{2\pi \sigma}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}`
 	},
 	{
 		"title": "Fourier Transform",
