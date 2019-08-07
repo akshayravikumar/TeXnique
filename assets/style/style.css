@@ -5,20 +5,9 @@ main {
 	width: 70%;
 }
 
-#timer {
-	font-family: 'Noto Sans', sans-serif;
-	font-size: 20px;
-	text-align: center;
-	vertical-align: middle;
-	line-height: 40px;
-	position: absolute;
-	height: 40px;
-	width: 60px;
-	border-bottom: solid 2px black;
-	border-left: solid 2px black;
-	top: 0;
-	right: 0;
-}
+@font-face{font-family:KaTeX_Main; src:url('/assets/lib/katex/fonts/KaTeX_Main-Regular.woff2') format('woff');
+    font-weight:400;
+    font-style:normal}
 
 .centered-text {
 	margin: auto;
@@ -33,6 +22,39 @@ main {
 
 #subtitle {
 	font-size: 1.5em;
+}
+
+#skip-button {
+	background-color: white; 
+  	border: solid 2px black;
+  	padding: 10px;
+  	display: inline-block;
+  	float: left;
+}
+
+#top-row {
+	text-align: center;
+}
+
+#score-wrapper {
+	display: inline-block;
+  	width: 80px;
+  	left: 50% !important;
+}
+
+#timer-wrapper {
+	display: inline-block;
+  	float: right;
+}
+
+#score {
+	font-family: KaTeX_Main, serif;
+	font-size: 1.2em;
+}
+
+#timer {
+	font-family: KaTeX_Main, serif;
+	font-size: 1.2em;
 }
 
 .latex {

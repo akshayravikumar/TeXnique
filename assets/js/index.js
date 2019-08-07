@@ -3,7 +3,8 @@ let t;
 
 function add() {
   seconds++;
-  $("#timer").text(seconds);
+  var formattedTime = new Date(seconds * 1000).toISOString().substr(14, 5);
+  $("#timer").text(formattedTime);
   timer();
 }
 
@@ -13,7 +14,7 @@ function timer() {
 
 function reset() {
   seconds = 0;
-  $("#timer").text(seconds);
+  $("#timer").text("00:00");
 }
 
 function stop() {
@@ -24,6 +25,8 @@ $(document).ready(function() {
     loadBodyText();
     let oldVal;
     let problemNumber = 0;
+    let numCorrect = 0;
+    $("#score").text(0);
 
     function loadBodyText() {
         renderMathInElement(document.body, {
@@ -105,7 +108,8 @@ $(document).ready(function() {
                             $('#user-input').prop("disabled", true);
 
                             // Stop the timer
-                            stop();
+                            numCorrect += 1;
+                            $("#score").text(numCorrect);
 
                             // Load new problem
                             setTimeout(loadProblem, 1500);
@@ -115,6 +119,11 @@ $(document).ready(function() {
             }
         });
     }
+
+
+    $("#skip-button").click(function() {
+        loadProblem();
+    });
 
     loadProblem();
     $("#user-input").on("change keyup paste", function() {
