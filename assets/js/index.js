@@ -20,7 +20,6 @@ function stop() {
   clearTimeout(t);
 }
 
-
 $(document).ready(function() {
     loadBodyText();
     let oldVal;
