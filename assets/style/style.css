@@ -68,7 +68,7 @@ main {
 
 #container {
 	width: 70%;
-	margin-top: 20px;
+	margin-top: 50px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -84,7 +84,7 @@ main {
 	background-color: black;
 	font-size: 20px;
 	color: white;
-	height: 80px;
+	height: 100px;
 	width: 100%;
 }
 
