@@ -21,9 +21,19 @@ function stop() {
 }
 
 
-
 $(document).ready(function() {
+    loadBodyText();
     let oldVal;
+    let problemNumber = 0;
+
+    function loadBodyText() {
+        renderMathInElement(document.body, {
+            options: { 
+                throwOnError: false,
+                display: false
+            }
+        });
+    }
 
     function loadProblem() {
         // clear current work
@@ -42,7 +52,20 @@ $(document).ready(function() {
 
         // load problem
         let target = problems[Math.floor(Math.random()*problems.length)];
-        // let target = problems[problems.length-1];
+        problemNumber += 1;
+
+        // load problem text
+
+        katex.render(
+            "\\textbf{Problem " + problemNumber + ": " + target.title + "}", 
+            $("#problem-title")[0], 
+            {
+                throwOnError: false,
+                displayMode: false
+            }
+        );
+
+        // load problem body
         katex.render(target.latex, $("#target")[0], {
             throwOnError: false,
             displayMode: true
@@ -50,10 +73,9 @@ $(document).ready(function() {
 
         oldVal = "";
     };
-    loadProblem();
 
-    $("#user-input").on("change keyup paste", function() {
-        let currentVal = $(this).val();
+    function validateProblem() {
+        let currentVal = $("#user-input").val();
         if(currentVal == oldVal) {
             return; // check to prevent multiple simultaneous triggers
         }
@@ -76,6 +98,7 @@ $(document).ready(function() {
                         let outData = outCanvas.getContext("2d").getImageData(0, 0, width, height);
                         let diff = pixelmatch(targetData.data, outData.data, undefined, width, height, {threshold: 0.1});
                         let result = "";
+                        console.log("diff is " + diff)
                         if (diff < 10) {
                             // Styling changes
                             $('#out').parent().addClass("correct");
@@ -92,6 +115,10 @@ $(document).ready(function() {
                 });
             }
         });
+    }
 
+    loadProblem();
+    $("#user-input").on("change keyup paste", function() {
+        validateProblem()
     });
 });

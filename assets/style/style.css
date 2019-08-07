@@ -20,9 +20,23 @@ main {
 	right: 0;
 }
 
+.centered-text {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#title {
+	font-size: 2.2em;
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+#subtitle {
+	font-size: 1.5em;
+}
+
 .latex {
 	height: 100px;
-	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
 	border: solid 2px black;
@@ -44,6 +58,21 @@ main {
 	margin-right: auto;
 }
 
+@media only screen and (max-width : 992px) {
+  	#container {
+		width: 85%;
+		margin-left: auto;
+		margin-right: auto;
+  	}
+}
+
+#container {
+	width: 70%;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #out {
 	margin-left: auto;
 	margin-right: auto;
@@ -51,6 +80,7 @@ main {
 
 #user-input {
 	font-family: 'Roboto Mono', monospace;
+	resize: none;
 	background-color: black;
 	font-size: 20px;
 	color: white;

@@ -11,6 +11,7 @@
     <!-- js lib -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script defer src="assets/lib/katex/katex.min.js"></script>
+    <script defer src="assets/lib/katex/contrib/auto-render.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" integrity="sha256-c3RzsUWg+y2XljunEQS0LqWdQ04X1D3j22fd/8JCAKw=" crossorigin="anonymous"></script>
     <script src="https://bundle.run/pixelmatch@5.0.2"></script>
 
@@ -22,18 +23,30 @@
 <body>
   <div id="timer">0</div>
   <main>
-    <p>Try to make:</p>
-    <div class="latex">
-      <div id="target"></div>
-    </div>
+    <div id="container">
+        <span id="title" class="centered-text"> \(\text{Play\TeX}\) </span>
+        <br> <br>
+        <span id="subtitle" class="centered-text"> \(\text{A \LaTeX \, Typesetting Game}\) </span> 
+        <br> <br>
 
-    <p>You made:</p>
-    <div class="latex">
-      <div id="out"></div>
-    </div>
+        <p id="problem-title"></p>
 
-    <p>Edit code:</p>
-    <textarea id="user-input"></textarea>
+        <p> \(\text{Try create the following formula:}\) </p> 
+
+        <div class="latex">
+          <div id="target"></div>
+        </div>
+
+        <p>\(\text{This is what your output looks like:}\)</p>
+        
+        <div class="latex">
+          <div id="out"></div>
+        </div>
+
+        <p>\(\text{Edit your code here (no need to use \$\$):}\)</p>
+
+        <textarea id="user-input"></textarea>
+    </div>
   </main>
 </body>
 </html>
