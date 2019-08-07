@@ -1,88 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" integrity="sha256-c3RzsUWg+y2XljunEQS0LqWdQ04X1D3j22fd/8JCAKw=" crossorigin="anonymous"></script>
-	<script src="https://bundle.run/pixelmatch@5.0.2"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="assets/lib/katex/katex.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto+Mono&display=swap" rel="stylesheet">
 
-	<style type="text/css">
-		#target {
-			height: 50px;
-		}
+    <!-- custom css -->
+    <link rel="stylesheet" href="assets/style/style.css">
 
-		#out {
-			height: 50px;
-		}
+    <!-- js lib -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script defer src="assets/lib/katex/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" integrity="sha256-c3RzsUWg+y2XljunEQS0LqWdQ04X1D3j22fd/8JCAKw=" crossorigin="anonymous"></script>
+    <script src="https://bundle.run/pixelmatch@5.0.2"></script>
 
-		#user-input {
-			height: 50px;
-		}
-
-		#result {
-			height: 20px;
-		}
-	</style>
+    <!-- custom js -->
+    <script src="assets/js/problems.js"></script>
+    <script src="assets/js/index.js"></script>
 </head>
 
 <body>
-	<script>
-	$(document).ready(function() {
-		var target = String.raw`c = \sqrt{a^2 + b^2}`;
-		katex.render(target, $("#target")[0], {
-		    throwOnError: false
-		});
+  <div id="timer">0</div>
+  <main>
+    <p>Try to make:</p>
+    <div class="latex">
+      <div id="target"></div>
+    </div>
 
-		var oldVal = "";
-		$("#user-input").on("change keyup paste", function() {
-		    var currentVal = $(this).val();
-		    if(currentVal == oldVal) {
-		        return; //check to prevent multiple simultaneous triggers
-		    }
+    <p>You made:</p>
+    <div class="latex">
+      <div id="out"></div>
+    </div>
 
-		    oldVal = currentVal;
-		    //action to be performed on textarea changed
-		    katex.render(currentVal, $("#out")[0], {
-			    throwOnError: false
-			});
-
-		    html2canvas($('#target'),{
-                onrendered: function (targetCanvas) {  
-                	var width = targetCanvas.width;
-                	var height = targetCanvas.height;
-                	var targetData = targetCanvas.getContext("2d").getImageData(0, 0, width, height);
-                    html2canvas($('#out'),{
-		                onrendered: function (outCanvas) {  
-							var outData = outCanvas.getContext("2d").getImageData(0, 0, width, height); 
-							var diff = pixelmatch(targetData.data, outData.data, undefined, width, height, {threshold: 0.1});
-							var result = "";
-							if (diff < 10) {
-								result = "Nice! :D";
-							} else {
-								result = "Rip. :("
-							}
-							$("#result").text(result);
-		                }
-		            });      
-                }
-            });
-
-		});
-	});
-	</script>
-
-	<p>Try to make:</p>
-	<div id="target"></div>
-
-	<p>You made:</p>
-	<div id="out"></div>
-
-	<p>Result:</p>
-	<div id="result"></div>
-
-	<p>Edit code:</p>
-	<textarea id="user-input"></textarea>
-
+    <p>Edit code:</p>
+    <textarea id="user-input"></textarea>
+  </main>
 </body>
 </html>
