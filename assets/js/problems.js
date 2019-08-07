@@ -200,7 +200,7 @@ let problems = [
 		"latex": String.raw`\int_0^1 x^{-x} dx = \sum_{n=1}^\infty n^{-n}`
 	},
 	{
-		"title": "Sophomore's Dream",
+		"title": "Cool expression involving pi and e",
 		"description": "@InertialObservr",
 		"latex": String.raw`\prod_{n=2}^\infty e \left (1 - \frac{1}{n^2} \right)^{n^2} = \frac{\pi}{e \sqrt{e}}`
 	},
@@ -263,5 +263,85 @@ let problems = [
 		"title": "Sawtooth funnctionn",
 		"description": "mathbb cases floors, this has it all",
 		"latex": String.raw`S(x) = \begin{cases} x - \lfloor x \rfloor - 1/2, & x \in \mathbb{R} \setminus \mathbb{Z} \\ 0, & x \in \mathbb{Z} \end{cases}`
+	},
+	{
+		"title": "Definition of Graham's number",
+		"description": "G = g_{64}",
+		"latex": String.raw`g_n = \begin{cases} 3 \uparrow \uparrow \uparrow \uparrow 3, & n = 1 \\ 3 \uparrow^{g_{n-1}} 3, & n \ge 2,n \in \mathbb{N} \end{cases}`
+	},
+	{
+		"title": "Burnside's Lemma",
+		"description": "The Lemma that is not Burnside's",
+		"latex": String.raw`|X/G| = \frac{1}{|G|} \sum_{g \in G} |X^g|`
+	},
+	{
+		"title": "Continuum Hypothesis",
+		"description": "independent of ZFC!",
+		"latex": String.raw`\aleph_0 = |\mathbb{N}|, \ \mathfrak{c} = |\mathbb{R}| \\ \nexists A : \aleph_0 < |A| < \mathfrak{c}`
+	},
+	{
+		"title": "Spectral Decomposition of a matrix",
+		"description": "derived from memory",
+		"latex": String.raw`A = \begin{pmatrix} | & | & & | \\ \mathbf{v_1} & \mathbf{v_2} & \cdots & \mathbf{v_n} \\ | & | & & | \end{pmatrix} \begin{pmatrix} \lambda_1 & & & \\ & \lambda_2 & & \\ & & \ddots & \\ & & & \lambda_n \end{pmatrix} \begin{pmatrix} | & | & & | \\ \mathbf{v_1} & \mathbf{v_2} & \cdots & \mathbf{v_n} \\ | & | & & | \end{pmatrix} ^ {-1}`
+	},
+	{
+		"title": "Trigonometric identity",
+		"description": "basically just the Pythagorean theorem",
+		"latex": String.raw`\sin^2 \theta + \cos^2 \theta = 1`
+	},
+	{
+		"title": "Double angle formulae",
+		"description": "back to basics",
+		"latex": String.raw`\sin(2\theta) = 2\sin(\theta)\cos(\theta) \\  \cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)`
+	},
+	{
+		"title": "Fermat's Last Theorem",
+		"description": "have a marvelous proof, but this description's too small to contain it",
+		"latex": String.raw`\nexists \ \{x,y,z,n\} \in \mathbb{N}, n > 2 : x^n + y^n = z^n`
+	},
+	{
+		"title": "Fermat's Little Theorem",
+		"description": "fermat's itty bitty theorem",
+		"latex": String.raw`a^p \equiv a \pmod{p}`
+	},
+	{
+		"title": "Euler's Theorem",
+		"description": "totients",
+		"latex": String.raw`\gcd(a, n) = 1 \implies a^{\varphi(n)} \equiv 1 \pmod{n}`
+	},
+	{
+		"title": "QM-AM-GM-HM for 3 variables",
+		"description": "cool-looking",
+		"latex": String.raw`\sqrt{\frac{a^2 + b^2 + c^2}{3}} \ge \frac{a + b + c}{3} \ge \sqrt[3]{abc} \ge \frac{3}{\frac{1}{a} + \frac{1}{b} + \frac{1}{c}}`
+	},
+	{
+		"title": "Law of Sines",
+		"description": "threw in the circumradius as well",
+		"latex": String.raw`\frac{a}{\sin \angle A} = \frac{b}{\sin \angle B} = \frac{c}{\sin \angle C} = 2R`
+	},
+	{
+		"title": "Integration by parts",
+		"description": "it's just the product rule really",
+		"latex": String.raw`\int udv = uv - \int v du`
+	},
+	{
+		"title": "Definition of perfect numbers",
+		"description": "shrug",
+		"latex": String.raw`\left \{ n : \sum_{d | n}^{d<n} d  = n\right \}`
+	},
+	{
+		"title": "Definition of a limit",
+		"description": "good ol' delta and epsilon",
+		"latex": String.raw`\lim_{x \to c} f(x) = L \implies \forall \epsilon > 0, \ \exists \ \delta > 0: 0 < |x-c| < \delta \implies |f(x)-L| < \epsilon`
+	},
+	{
+		"title": "Area under error function",
+		"description": "classic trick",
+		"latex": String.raw`\int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\int_{-\infty}^\infty \int_{-\infty}^\infty  e^{-x^2 - y^2} dxdy} = \sqrt{\int_0^{2\pi} \int_0^\infty e^{-r^2}rdrd\theta } = \sqrt{\pi}`
+	},
+	{
+		"title": "Definition of an integral",
+		"description": "why not",
+		"latex": String.raw`\int_a^b f(x) dx = \lim_{k \to \infty} \left ( (b-a) \sum_{i = 1}^{k} \frac{f(a + i\frac{b-a}{k})}{k} \right )`
 	}
 ];
