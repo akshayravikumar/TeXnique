@@ -91,3 +91,7 @@ main {
 #result {
 	height: 20px;
 }
+
+#problem-title {
+	font-size: 1.5em;
+}
