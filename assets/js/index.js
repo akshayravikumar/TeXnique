@@ -1,10 +1,21 @@
-let seconds = 0;
+let totalSeconds = 0;
 let t;
 
+toHHMMSS = function(secs) {
+    var sec_num = parseInt(secs, 10)
+    var hours   = Math.floor(sec_num / 3600)
+    var minutes = Math.floor(sec_num / 60) % 60
+    var seconds = sec_num % 60
+
+    return [hours,minutes,seconds]
+        .map(v => v < 10 ? "0" + v : v)
+        .filter((v,i) => v !== "00" || i > 0)
+        .join(":")
+}
+
 function add() {
-  seconds++;
-  var formattedTime = new Date(seconds * 1000).toISOString().substr(14, 5);
-  $("#timer").text(formattedTime);
+  totalSeconds++;
+  $("#timer").text(toHHMMSS(totalSeconds));
   timer();
 }
 
@@ -13,8 +24,8 @@ function timer() {
 }
 
 function reset() {
-  seconds = 0;
-  $("#timer").text("00:00");
+  totalSeconds = 0;
+  $("#timer").text(toHHMMSS(totalSeconds));
 }
 
 function stop() {

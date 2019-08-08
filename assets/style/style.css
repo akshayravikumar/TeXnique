@@ -30,6 +30,7 @@ main {
   	padding: 10px;
   	display: inline-block;
   	float: left;
+  	margin-top: -10px;
 }
 
 #top-row {
