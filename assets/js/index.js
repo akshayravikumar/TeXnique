@@ -12,24 +12,18 @@ function loadBodyText() {
 }
 
 // A simple timer
-toHHMMSS = function(secs) {
-    var sec_num = parseInt(secs, 10)
-    var hours   = Math.floor(sec_num / 3600)
-    var minutes = Math.floor(sec_num / 60) % 60
-    var seconds = sec_num % 60
-
-    return [hours,minutes,seconds]
-        .map(v => v < 10 ? "0" + v : v)
-        .filter((v,i) => v !== "00" || i > 0)
-        .join(":")
+function displayTime(secs) {
+    let minutes = Math.floor(secs / 60) % 60;
+    let seconds = secs % 60;
+    let displayText = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+    $("#timer").text(displayText);
 }
 
 function startTimer(onTimeoutFunc) {
     secondsRemaining = TIMEOUT_SECONDS;
-    $("#timer").text(toHHMMSS(secondsRemaining));
     setInterval(function() {
         secondsRemaining--;
-        $("#timer").text(toHHMMSS(secondsRemaining));
+        displayTime(secondsRemaining);
         if (secondsRemaining == 0) {
             clearInterval();
             onTimeoutFunc();
@@ -63,7 +57,6 @@ function endGame(numCorrect) {
     $("#intro-window").hide();
     $("#game-window").hide();
     $("#ending-window").show();
-    $("#timer").text(toHHMMSS(TIMEOUT_SECONDS));
     loadBodyText();
 
     let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
@@ -91,6 +84,7 @@ function startGame() {
     let problemNumber = 0;
     let numCorrect = 0;
     $("#score").text(0);
+    displayTime(TIMEOUT_SECONDS);
 
     // Reset and start the timer
     loadProblem();
