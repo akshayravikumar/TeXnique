@@ -44,7 +44,7 @@ function showIntro() {
 
     loadBodyText();
 
-    let introText =  "\\text{This is a game to test your \\LaTeX \, skills." + 
+    let introText =  "\\text{This is a game to test your \\LaTeX \\, skills." + 
                      " Type as many formulas as you can in " + TIMEOUT_STRING + "!}";
 
     katex.render(introText, $("#intro-text")[0], 
