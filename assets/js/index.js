@@ -1,5 +1,5 @@
-let TIMEOUT_SECONDS = 60;
-let TIMEOUT_STRING = "one minute";
+let TIMEOUT_SECONDS = 300;
+let TIMEOUT_STRING = "five minutes";
 let secondsRemaining = TIMEOUT_SECONDS;
 
 function loadBodyText() {
