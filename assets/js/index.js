@@ -14,18 +14,18 @@ toHHMMSS = function(secs) {
 }
 
 function add() {
-  totalSeconds++;
-  $("#timer").text(toHHMMSS(totalSeconds));
-  timer();
+    totalSeconds++;
+    $("#timer").text(toHHMMSS(totalSeconds));
+    timer();
 }
 
 function timer() {
-  t = setTimeout(add, 1000);
+    t = setTimeout(add, 1000);
 }
 
 function reset() {
-  totalSeconds = 0;
-  $("#timer").text(toHHMMSS(totalSeconds));
+    totalSeconds = 0;
+    $("#timer").text(toHHMMSS(totalSeconds));
 }
 
 function stop() {
@@ -131,13 +131,13 @@ $(document).ready(function() {
         });
     }
 
-
     $("#skip-button").click(function() {
         loadProblem();
     });
 
-    loadProblem();
     $("#user-input").on("change keyup paste", function() {
         validateProblem()
     });
+
+    loadProblem();
 });
