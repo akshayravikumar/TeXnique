@@ -279,20 +279,25 @@ let problems = [
 		"description": "independent of ZFC!",
 		"latex": String.raw`\aleph_0 = |\mathbb{N}|, \ \mathfrak{c} = |\mathbb{R}| \\ \nexists A : \aleph_0 < |A| < \mathfrak{c}`
 	},
-	{
-		"title": "Spectral Decomposition of a matrix",
-		"description": "derived from memory",
-		"latex": String.raw`A = \begin{pmatrix} | & | & & | \\ \mathbf{v_1} & \mathbf{v_2} & \cdots & \mathbf{v_n} \\ | & | & & | \end{pmatrix} \begin{pmatrix} \lambda_1 & & & \\ & \lambda_2 & & \\ & & \ddots & \\ & & & \lambda_n \end{pmatrix} \begin{pmatrix} | & | & & | \\ \mathbf{v_1} & \mathbf{v_2} & \cdots & \mathbf{v_n} \\ | & | & & | \end{pmatrix} ^ {-1}`
-	},
+	// {
+	// 	"title": "Spectral Decomposition of a matrix",
+	// 	"description": "derived from memory",
+	// 	"latex": String.raw`A = \begin{pmatrix} | & | & & | \\ \mathbf{v_1} & \mathbf{v_2} & \cdots & \mathbf{v_n} \\ | & | & & | \end{pmatrix} \begin{pmatrix} \lambda_1 & & & \\ & \lambda_2 & & \\ & & \ddots & \\ & & & \lambda_n \end{pmatrix} \begin{pmatrix} | & | & & | \\ \mathbf{v_1} & \mathbf{v_2} & \cdots & \mathbf{v_n} \\ | & | & & | \end{pmatrix} ^ {-1}`
+	// },
 	{
 		"title": "Trigonometric identity",
 		"description": "basically just the Pythagorean theorem",
 		"latex": String.raw`\sin^2 \theta + \cos^2 \theta = 1`
 	},
 	{
-		"title": "Double angle formulae",
+		"title": "Double Angle V1",
 		"description": "back to basics",
-		"latex": String.raw`\sin(2\theta) = 2\sin(\theta)\cos(\theta) \\  \cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)`
+		"latex": String.raw`\sin(2\theta) = 2\sin(\theta)\cos(\theta)`
+	},
+	{
+		"title": "Double Angle V2",
+		"description": "back to basics",
+		"latex": String.raw`\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)`
 	},
 	{
 		"title": "Fermat's Last Theorem",
@@ -329,11 +334,11 @@ let problems = [
 		"description": "shrug",
 		"latex": String.raw`\left \{ n : \sum_{d | n}^{d<n} d  = n\right \}`
 	},
-	{
-		"title": "Definition of a limit",
-		"description": "good ol' delta and epsilon",
-		"latex": String.raw`\lim_{x \to c} f(x) = L \implies \forall \epsilon > 0, \ \exists \ \delta > 0: 0 < |x-c| < \delta \implies |f(x)-L| < \epsilon`
-	},
+	// {
+	// 	"title": "Definition of a limit",
+	// 	"description": "good ol' delta and epsilon",
+	// 	"latex": String.raw`\lim_{x \to c} f(x) = L \implies \forall \epsilon > 0, \ \exists \ \delta > 0: 0 < |x-c| < \delta \implies |f(x)-L| < \epsilon`
+	// },
 	{
 		"title": "Area under error function",
 		"description": "classic trick",
