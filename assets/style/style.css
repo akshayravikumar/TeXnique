@@ -1,10 +1,3 @@
-main {
-	font-family: 'Noto Sans', sans-serif;
-	margin-left: auto;
-	margin-right: auto;
-	width: 70%;
-}
-
 @font-face{font-family:KaTeX_Main; src:url('/assets/lib/katex/fonts/KaTeX_Main-Regular.woff2') format('woff');
     font-weight:400;
     font-style:normal}
@@ -14,24 +7,40 @@ main {
 	text-align: center;
 }
 
+#intro-window, #ending-window {
+	text-align: center;
+}
+
+#reset-button {
+	margin: auto;
+}
+
+#start-button {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #title {
-	font-size: 2.2em;
+	font-size: 2.4em;
 	margin-top: 5px;
 	margin-bottom: 15px;
 }
 
 #subtitle {
-	font-size: 1.5em;
+	font-size: 1.4em;
 }
 
-#skip-button {
+.latex-button {
 	background-color: white; 
   	border: solid 2px black;
   	padding: 10px;
   	display: inline-block;
-  	float: left;
-  	margin-top: -10px;
   	font-size: 1em;
+}
+
+#skip-button {
+	float: left;
+  	margin-top: -10px;
 }
 
 #top-row {
