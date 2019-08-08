@@ -20,7 +20,7 @@ function add() {
 }
 
 function timer() {
-    t = setTimeout(add, 1000);
+    setTimeout(add, 1000);
 }
 
 function reset() {
@@ -29,7 +29,7 @@ function reset() {
 }
 
 function stop() {
-  clearTimeout(t);
+    clearTimeout(t);
 }
 
 $(document).ready(function() {
@@ -55,13 +55,8 @@ $(document).ready(function() {
 
         // reset styling
         $('#out').parent().removeClass("correct");
-        $('#timer').removeClass("done");
         $('#user-input').prop("disabled", false);
         $('#user-input').focus();
-
-        // Reset and start the timer
-        reset();
-        timer();
 
         // load problem
         let target = problems[Math.floor(Math.random()*problems.length)];
@@ -113,13 +108,11 @@ $(document).ready(function() {
                         let result = "";
                         console.log("diff is " + diff)
                         if (diff < 10) {
+                            numCorrect += 1;
+
                             // Styling changes
                             $('#out').parent().addClass("correct");
-                            $('#timer').addClass("done");
                             $('#user-input').prop("disabled", true);
-
-                            // Stop the timer
-                            numCorrect += 1;
                             $("#score").text(numCorrect);
 
                             // Load new problem
@@ -139,5 +132,9 @@ $(document).ready(function() {
         validateProblem()
     });
 
+
+    // Reset and start the timer
+    reset();
+    timer();
     loadProblem();
 });
