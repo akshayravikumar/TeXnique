@@ -64,14 +64,8 @@ $(document).ready(function() {
 
         // load problem text
 
-        katex.render(
-            "\\textbf{Problem " + problemNumber + ": " + target.title + "}", 
-            $("#problem-title")[0], 
-            {
-                throwOnError: false,
-                displayMode: false
-            }
-        );
+        let titleText = "Problem " + problemNumber + ": " + target.title;
+        $("#problem-title").text(titleText);
 
         // load problem body
         katex.render(target.latex, $("#target")[0], {
