@@ -30,7 +30,7 @@ let problems = [
 		"latex": String.raw`e^{\pi i} + 1 = 0`
 	},
 	{
-		"title": "Euler's Troll Identity",
+		"title": "Euler's other Identity",
 		"description": "Troll.",
 		"latex": String.raw`\lceil e \rceil - \lfloor \pi \rfloor = 0`
 	},
@@ -100,12 +100,12 @@ let problems = [
 		"latex": String.raw`n! \approx \sqrt{2\pi n} \left ( \frac{n}{e}\right )^n`
 	},
 	{
-		"title": "Stokes' theorem",
+		"title": "Stokes' Theorem",
 		"description": "Fun",
 		"latex": String.raw`\iint_S \nabla \times \mathbf{F} \cdot d\mathbf{S} = \oint_\Gamma \mathbf{F} \cdot d \mathbf{\Gamma} `
 	},
 	{
-		"title": "Divergence theorem",
+		"title": "Divergence Theorem",
 		"description": "Fun",
 		"latex": String.raw`\iiint_V (\nabla \cdot \mathbf{F}) dV = \oiint_S (\mathbf{F} \cdot \mathbf{n}) dS`
 	},
@@ -115,7 +115,7 @@ let problems = [
 		"latex": String.raw`|\langle \mathbf{u}, \mathbf{v} \rangle|^2 \le \langle \mathbf{u}, \mathbf{u} \rangle \cdot \langle \mathbf{v} , \mathbf{v} \rangle`
 	},
 	{
-		"title": "Area of a circle",
+		"title": "Area of a Circle",
 		"description": "Simple",
 		"latex": String.raw`A = \pi r^2`
 	},
@@ -135,12 +135,12 @@ let problems = [
 		"latex": String.raw`\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}`
 	},
 	{
-		"title": "Hockey-stick identity",
+		"title": "Hockey-stick Identity",
 		"description": "Classic.",
 		"latex": String.raw`\sum_{i=r}^n \binom{i}{r} = \binom{n+1}{r+1}`
 	},
 	{
-		"title": "Vandermonde's identity",
+		"title": "Vandermonde's Identity",
 		"description": "Classic.",
 		"latex": String.raw`\binom{m + n}{r} = \sum_{k = 0}^r \binom{m}{k} \binom{n}{r-k}`
 	},
@@ -150,7 +150,7 @@ let problems = [
 		"latex": String.raw`\binom{n}{k} = \frac{n!}{k!(n-k)!}`
 	},
 	{
-		"title": "Hein's identity",
+		"title": "Hein's Identity",
 		"description": "No idea what this is. Looks cool tho.",
 		"latex": String.raw`\frac{1}{\sqrt{z - \cos \psi}} = \frac{\sqrt{2}}{\pi} \sum_{m = -\infty}^\infty Q_{m - \frac{1}{2}}(z) e^{im\psi}`
 	},
@@ -160,17 +160,17 @@ let problems = [
 		"latex": String.raw`(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k} y^k`
 	},
 	{
-		"title": "Hermite's identity",
+		"title": "Hermite's Identity",
 		"description": "Hadn't heard of this either.",
 		"latex": String.raw`\sum_{k=0}^{n-1} \left \lfloor x + \frac{k}{n} \right \rfloor = \lfloor nx \rfloor`
 	},
 	{
-		"title": "Matrix determinant lemma",
+		"title": "Matrix determinant Lemma",
 		"description": "Or this lmao.",
 		"latex": String.raw`\det (\mathbf{A} + \mathbf{u}\mathbf{v}^{\intercal}) = (1 + \mathbf{v}^\intercal \mathbf{A}^{-1} \mathbf{u}) \det (\mathbf{A})`
 	},
 	{
-		"title": "Euler product of Riemann-Zeta function",
+		"title": "Euler Product of the Riemann-Zeta function",
 		"description": "Classic.",
 		"latex": String.raw`\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \prod_{p \in \mathbb{P}} \frac{1}{1 - p^{-s}}`
 	},
@@ -190,7 +190,7 @@ let problems = [
 		"latex": String.raw`\Delta x \Delta p \approx \hbar`
 	},
 	{
-		"title": "Continuted Fraction for pi",
+		"title": "Continuted Fraction for pi/2",
 		"description": "@InertialObservr",
 		"latex": String.raw`\frac{\pi}{2} = 1 + \frac{1}{1 + \frac{1}{\frac{1}{2} + \frac{1}{\frac{1}{3} + \frac{1}{\frac{1}{4} + \ddots}}}}`
 	},
@@ -200,17 +200,17 @@ let problems = [
 		"latex": String.raw`\int_0^1 x^{-x} dx = \sum_{n=1}^\infty n^{-n}`
 	},
 	{
-		"title": "Cool expression involving pi and e",
+		"title": "Identity involving pi and e",
 		"description": "@InertialObservr",
 		"latex": String.raw`\prod_{n=2}^\infty e \left (1 - \frac{1}{n^2} \right)^{n^2} = \frac{\pi}{e \sqrt{e}}`
 	},
 	{
-		"title": "Nested square root representation of the golden ratio",
-		"description": "@InertialObservr",
+		"title": "Representation of the Golden Ratio",
+		"description": "Classic",
 		"latex": String.raw`\phi = \sqrt{1 + \sqrt{1 + \sqrt{1 + \sqrt{1 + \cdots}}}}`
 	},
 	{
-		"title": "The sum of all positive integers",
+		"title": "The Sum of all Positive Integers",
 		"description": "Troll.",
 		"latex": String.raw`\sum_{n = 1}^\infty n = -\frac{1}{12}`
 	},
@@ -220,22 +220,22 @@ let problems = [
 		"latex": String.raw`z^{-1} = \frac{\bar{z}}{|z|^2}, \forall z \neq 0`
 	},
 	{
-		"title": "Definition of convolution",
+		"title": "Definition of Convolution",
 		"description": "Shout out to 6.003",
 		"latex": String.raw`(f * g)(t) = \int_{-\infty}^\infty f(\tau) g(t - \tau) d\tau`
 	},
 	{
-		"title": "Definition of Kronecker Delta function",
+		"title": "Definition of the Kronecker Delta function",
 		"description": "{cases} ftw",
 		"latex": String.raw`\delta_{i,j} = \begin{cases} 0 & i \neq j \\ 1 & i = j \end{cases}`
 	},
 	{
-		"title": "Bayes' theorem",
+		"title": "Bayes' Theorem",
 		"description": "bae's theorem",
 		"latex": String.raw`P(A | B) = \frac{P(B|A)P(A)}{P(B)}`
 	},
 	{
-		"title": "Probability density function of Student's t-distribution",
+		"title": "Probability Density Function of the Student's t-distribution",
 		"description": "fun",
 		"latex": String.raw`f(t) = \frac{\Gamma \left ( \frac{\nu + 1}{2} \right )}{\sqrt{\nu \pi} \Gamma \left ( \frac{\nu}{2}\right)} \left ( 1 + \frac{t^2}{\nu} \right) ^{- \frac{\nu + 1}{2}}`
 	},
@@ -260,12 +260,12 @@ let problems = [
 		"latex": String.raw`\det \begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc`
 	},
 	{
-		"title": "Sawtooth funnctionn",
+		"title": "Sawtooth Functionn",
 		"description": "mathbb cases floors, this has it all",
 		"latex": String.raw`S(x) = \begin{cases} x - \lfloor x \rfloor - 1/2, & x \in \mathbb{R} \setminus \mathbb{Z} \\ 0, & x \in \mathbb{Z} \end{cases}`
 	},
 	{
-		"title": "Definition of Graham's number",
+		"title": "Definition of Graham's Number",
 		"description": "G = g_{64}",
 		"latex": String.raw`g_n = \begin{cases} 3 \uparrow \uparrow \uparrow \uparrow 3, & n = 1 \\ 3 \uparrow^{g_{n-1}} 3, & n \ge 2,n \in \mathbb{N} \end{cases}`
 	},
@@ -280,17 +280,17 @@ let problems = [
 		"latex": String.raw`\aleph_0 = |\mathbb{N}|, \ \mathfrak{c} = |\mathbb{R}| \\ \nexists A : \aleph_0 < |A| < \mathfrak{c}`
 	},
 	{
-		"title": "Spectral Decomposition of a matrix",
+		"title": "Spectral Decomposition",
 		"description": "derived from memory",
 		"latex": String.raw`A = \begin{pmatrix} | & | & & | \\ \mathbf{v_1} & \mathbf{v_2} & \cdots & \mathbf{v_n} \\ | & | & & | \end{pmatrix} \begin{pmatrix} \lambda_1 & & & \\ & \lambda_2 & & \\ & & \ddots & \\ & & & \lambda_n \end{pmatrix} \begin{pmatrix} | & | & & | \\ \mathbf{v_1} & \mathbf{v_2} & \cdots & \mathbf{v_n} \\ | & | & & | \end{pmatrix} ^ {-1}`
 	},
 	{
-		"title": "Trigonometric identity",
+		"title": "Pythagorean Identity",
 		"description": "basically just the Pythagorean theorem",
 		"latex": String.raw`\sin^2 \theta + \cos^2 \theta = 1`
 	},
 	{
-		"title": "Double angle formulae",
+		"title": "Double Angle Formulae",
 		"description": "back to basics",
 		"latex": String.raw`\sin(2\theta) = 2\sin(\theta)\cos(\theta) \\  \cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)`
 	},
@@ -310,38 +310,58 @@ let problems = [
 		"latex": String.raw`\gcd(a, n) = 1 \implies a^{\varphi(n)} \equiv 1 \pmod{n}`
 	},
 	{
-		"title": "QM-AM-GM-HM for 3 variables",
+		"title": "QM-AM-GM-HM Inequality over 3 variables",
 		"description": "cool-looking",
 		"latex": String.raw`\sqrt{\frac{a^2 + b^2 + c^2}{3}} \ge \frac{a + b + c}{3} \ge \sqrt[3]{abc} \ge \frac{3}{\frac{1}{a} + \frac{1}{b} + \frac{1}{c}}`
 	},
 	{
-		"title": "Law of Sines",
+		"title": "Extended Law of Sines",
 		"description": "threw in the circumradius as well",
 		"latex": String.raw`\frac{a}{\sin \angle A} = \frac{b}{\sin \angle B} = \frac{c}{\sin \angle C} = 2R`
 	},
 	{
-		"title": "Integration by parts",
+		"title": "Integration by Parts",
 		"description": "it's just the product rule really",
 		"latex": String.raw`\int udv = uv - \int v du`
 	},
 	{
-		"title": "Definition of perfect numbers",
+		"title": "Definition of Perfect Numbers",
 		"description": "shrug",
 		"latex": String.raw`\left \{ n : \sum_{d | n}^{d<n} d  = n\right \}`
 	},
 	{
-		"title": "Definition of a limit",
+		"title": "Definition of a Limit",
 		"description": "good ol' delta and epsilon",
 		"latex": String.raw`\lim_{x \to c} f(x) = L \implies \forall \epsilon > 0, \ \exists \ \delta > 0: 0 < |x-c| < \delta \implies |f(x)-L| < \epsilon`
 	},
 	{
-		"title": "Area under error function",
+		"title": "Area under the Error Function",
 		"description": "classic trick",
 		"latex": String.raw`\int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\int_{-\infty}^\infty \int_{-\infty}^\infty  e^{-x^2 - y^2} dxdy} = \sqrt{\int_0^{2\pi} \int_0^\infty e^{-r^2}rdrd\theta } = \sqrt{\pi}`
 	},
 	{
-		"title": "Definition of an integral",
+		"title": "Definition of an Integral",
 		"description": "why not",
 		"latex": String.raw`\int_a^b f(x) dx = \lim_{k \to \infty} \left ( (b-a) \sum_{i = 1}^{k} \frac{f(a + i\frac{b-a}{k})}{k} \right )`
+	},
+	{
+		"title": "Quantum Fourier transform",
+		"description": "bra ket notation is fun",
+		"latex": String.raw`|x\rangle \mapsto \frac{1}{\sqrt{N}} \sum_{k = 0}^{N-1} \omega_x^k |k\rangle`
+	},
+	{
+		"title": "Recursive definition of the Hadamard transform",
+		"description": "matrix in cases",
+		"latex": String.raw`H_m = \begin{cases} 1 & m = 0 \\ \frac{1}{\sqrt{2}}\begin{pmatrix} H_{m-1} & H_{m-1} \\ H_{m-1} & -H_{m-1}\end{pmatrix} & m > 0\end{cases}`
+	},
+	{
+		"title": "Wigner Transform of the Density Matrix",
+		"description": "I know some of these words",
+		"latex": String.raw`W(x,p) = \frac{1}{\pi \hbar} \int_{-\infty}^\infty \langle x + y | \hat{\rho} | x - y \rangle e^{-2ipy/\hbar} dy`
+	},
+	{
+		"title": "Axiom of Choice",
+		"description": "~~controversial~~",
+		"latex": String.raw`\forall X \left [ \varnothing \notin X \implies \exists f:X \to \bigcup X \  \forall A \in X (f(A) \in A) \right]`
 	}
 ];
