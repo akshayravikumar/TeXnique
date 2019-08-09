@@ -1,6 +1,17 @@
-@font-face{font-family:KaTeX_Main; src:url('/assets/lib/katex/fonts/KaTeX_Main-Regular.woff2') format('woff');
-    font-weight:400;
-    font-style:normal}
+@font-face{
+	font-family: KaTeX_Main; 
+	src: url('/assets/lib/katex/fonts/KaTeX_Main-Regular.woff2') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+main {
+	font-family: Katex_Main, serif;
+}
+
+.katex {  
+	font-size: 1.1em;
+}
 
 .centered-text {
 	margin: auto;
@@ -31,16 +42,16 @@
 }
 
 .latex-button {
+	font-family: Katex_Main, serif;
 	background-color: white; 
   	border: solid 2px black;
   	padding: 10px;
-  	display: inline-block;
-  	font-size: 1em;
 }
 
 #skip-button {
 	float: left;
   	margin-top: -10px;
+  	display: inline-block;
 }
 
 #top-row {
@@ -60,12 +71,10 @@
 
 #score {
 	font-family: KaTeX_Main, serif;
-	font-size: 1.2em;
 }
 
 #timer {
 	font-family: KaTeX_Main, serif;
-	font-size: 1.2em;
 }
 
 .latex {
@@ -127,4 +136,5 @@
 
 #problem-title {
 	font-size: 1.5em;
+	font-weight: bold;
 }
