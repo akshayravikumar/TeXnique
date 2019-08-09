@@ -302,7 +302,7 @@ let problems = [
 	{
 		"title": "Fermat's Last Theorem",
 		"description": "have a marvelous proof, but this description's too small to contain it",
-		"latex": String.raw`\nexists \ \{x,y,z,n\} \in \mathbb{N}, n > 2 : x^n + y^n = z^n`
+		"latex": String.raw`\nexists \{x,y,z,n\} \in \mathbb{N}, n > 2 : x^n + y^n = z^n`
 	},
 	{
 		"title": "Fermat's Little Theorem",
@@ -358,10 +358,10 @@ let problems = [
 		"title": "Wigner Transform of the Density Matrix",
 		"description": "I know some of these words",
 		"latex": String.raw`W(x,p) = \frac{1}{\pi \hbar} \int_{-\infty}^\infty \langle x + y | \hat{\rho} | x - y \rangle e^{-2ipy/\hbar} dy`
-	},
-	{
-		"title": "Axiom of Choice",
-		"description": "~~controversial~~",
-		"latex": String.raw`\forall X \left [ \varnothing \notin X \implies \exists f:X \to \bigcup X \  \forall A \in X (f(A) \in A) \right]`
 	}
+	// {
+	// 	"title": "Axiom of Choice",
+	// 	"description": "~~controversial~~",
+	// 	"latex": String.raw`\forall X \left [ \varnothing \notin X \implies \exists f:X \to \bigcup X \  \forall A \in X (f(A) \in A) \right]`
+	// }
 ];
