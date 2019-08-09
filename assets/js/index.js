@@ -5,10 +5,18 @@ let secondsRemaining = TIMEOUT_SECONDS;
 let oldVal;
 let problemNumber = 0;
 let numCorrect = 0;
+let problemsOrder;
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
 function displayLaTeXInBody() {
     renderMathInElement(document.body, {
-        options: { 
+        options: {
             throwOnError: false,
             display: false
         }
@@ -31,7 +39,7 @@ function startTimer(onTimeoutFunc) {
         if (secondsRemaining == 0) {
             clearInterval(timer);
             onTimeoutFunc();
-        } 
+        }
     }, 1000);
 }
 
@@ -40,7 +48,7 @@ function showIntro() {
     $("#ending-window").hide();
     $("#intro-window").show();
 
-    let introText =  "This is a game to test your \\(\\LaTeX\\) skills." + 
+    let introText =  "This is a game to test your \\(\\LaTeX\\) skills." +
                      " Type as many formulas as you can in " + TIMEOUT_STRING + "!";
     $("#intro-text").text(introText);
 
@@ -63,6 +71,8 @@ function startGame() {
     problemNumber = 0;
     numCorrect = 0;
     oldVal = "";
+    problemsOrder = [...Array(problems.length).keys()];
+    shuffleArray(problemsOrder);
 
     $("#intro-window").hide();
     $("#ending-window").hide();
@@ -92,7 +102,7 @@ function loadProblem() {
     $('#user-input').focus();
 
     // load problem
-    let target = problems[Math.floor(Math.random()*problems.length)];
+    let target = problems[problemsOrder[problemNumber]];
     problemNumber += 1;
 
     // load problem text
