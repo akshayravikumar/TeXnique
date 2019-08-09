@@ -120,7 +120,7 @@ let problems = [
 		"latex": String.raw`A = \pi r^2`
 	},
 	{
-		"title": "Definition of tau",
+		"title": String.raw`Definition of \(\tau\)`,
 		"description": "Troll.",
 		"latex": String.raw`\tau = 2\pi`
 	},
@@ -165,7 +165,7 @@ let problems = [
 		"latex": String.raw`\sum_{k=0}^{n-1} \left \lfloor x + \frac{k}{n} \right \rfloor = \lfloor nx \rfloor`
 	},
 	{
-		"title": "Matrix determinant Lemma",
+		"title": "Matrix Determinant Lemma",
 		"description": "Or this lmao.",
 		"latex": String.raw`\det (\mathbf{A} + \mathbf{u}\mathbf{v}^{\intercal}) = (1 + \mathbf{v}^\intercal \mathbf{A}^{-1} \mathbf{u}) \det (\mathbf{A})`
 	},
@@ -175,7 +175,7 @@ let problems = [
 		"latex": String.raw`\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \prod_{p \in \mathbb{P}} \frac{1}{1 - p^{-s}}`
 	},
 	{
-		"title": "Irrationality of the square root of 2",
+		"title": "Irrationality of the Square Root of 2",
 		"description": "I just really wanted to keep using \\mathbb.",
 		"latex": String.raw`\sqrt{2} \notin \mathbb{Q}`
 	},
@@ -190,7 +190,7 @@ let problems = [
 		"latex": String.raw`\Delta x \Delta p \approx \hbar`
 	},
 	{
-		"title": "Continuted Fraction for pi/2",
+		"title": String.raw`Continued Fraction for \(\pi/2\)`,
 		"description": "@InertialObservr",
 		"latex": String.raw`\frac{\pi}{2} = 1 + \frac{1}{1 + \frac{1}{\frac{1}{2} + \frac{1}{\frac{1}{3} + \frac{1}{\frac{1}{4} + \ddots}}}}`
 	},
@@ -200,7 +200,7 @@ let problems = [
 		"latex": String.raw`\int_0^1 x^{-x} dx = \sum_{n=1}^\infty n^{-n}`
 	},
 	{
-		"title": "Identity involving pi and e",
+		"title": String.raw`Identity involving \(\pi\) and \(e\)`,
 		"description": "@InertialObservr",
 		"latex": String.raw`\prod_{n=2}^\infty e \left (1 - \frac{1}{n^2} \right)^{n^2} = \frac{\pi}{e \sqrt{e}}`
 	},
@@ -235,7 +235,7 @@ let problems = [
 		"latex": String.raw`P(A | B) = \frac{P(B|A)P(A)}{P(B)}`
 	},
 	{
-		"title": "Probability Density Function of the Student's t-distribution",
+		"title": String.raw`Probability Density Function of the Student's \(t\)-distribution`,
 		"description": "fun",
 		"latex": String.raw`f(t) = \frac{\Gamma \left ( \frac{\nu + 1}{2} \right )}{\sqrt{\nu \pi} \Gamma \left ( \frac{\nu}{2}\right)} \left ( 1 + \frac{t^2}{\nu} \right) ^{- \frac{\nu + 1}{2}}`
 	},
@@ -255,7 +255,7 @@ let problems = [
 		"latex": String.raw`\left | \bigcup_{i = 1}^n A_i \right | = \sum_{\emptyset \neq J \subseteq \{1, \dots, n\}} (-1)^{|J| + 1} \left | \bigcap_{j \in J} A_j \right |`
 	},
 	{
-		"title": "Determinant of a 2 x 2 matrix",
+		"title": String.raw`Determinant of a \(2 \times 2\) matrix`,
 		"description": "{matrix}",
 		"latex": String.raw`\det \begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc`
 	},
