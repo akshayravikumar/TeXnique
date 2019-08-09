@@ -1,3 +1,6 @@
+// Have a problem to add? Feel free to submit a pull request or email us at
+// playtex@gmail.com
+
 let problems = [
 	{
 		"title": "Quadratic Formula",
