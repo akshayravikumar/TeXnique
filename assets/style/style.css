@@ -1,5 +1,5 @@
 @font-face{
-	font-family: KaTeX_Main; 
+	font-family: KaTeX_Main;
 	src: url('/assets/lib/katex/fonts/KaTeX_Main-Regular.woff2') format('woff');
     font-weight: 400;
     font-style: normal;
@@ -9,7 +9,7 @@ main {
 	font-family: Katex_Main, serif;
 }
 
-.katex {  
+.katex {
 	font-size: 1.1em;
 }
 
@@ -43,10 +43,28 @@ main {
 
 .latex-button {
 	font-family: Katex_Main, serif;
-	background-color: white; 
-  	border: solid 2px black;
-  	padding: 10px;
+	font-size: 1em;
+	background-color: white;
+	border: solid 2px black;
+	padding: 10px;
 }
+
+.latex-button:hover {
+	cursor: pointer;
+	background-color: #eee;
+}
+
+.latex-button:focus {
+	outline: none;
+	background-color: #eee;
+}
+
+.latex-button:active {
+	outline: none;
+	background-color: #ccc;
+}
+
+
 
 #skip-button {
 	float: left;
