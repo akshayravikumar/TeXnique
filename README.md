@@ -1,2 +1,5 @@
-# pLayTeX
-LaTeX speed-typesetting game. How many formulas can you recreate in 4 minutes?
+# PlayTeX
+
+A LaTeX speed-typesetting game. How many formulas can you recreate in three minutes?
+
+Contributors are welcome!
