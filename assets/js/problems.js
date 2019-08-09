@@ -280,7 +280,7 @@ let problems = [
 	{
 		"title": "Continuum Hypothesis",
 		"description": "independent of ZFC!",
-		"latex": String.raw`\aleph_0 = |\mathbb{N}|, \ \mathfrak{c} = |\mathbb{R}| \\ \nexists A : \aleph_0 < |A| < \mathfrak{c}`
+		"latex": String.raw`\aleph_0 = |\mathbb{N}|, \mathfrak{c} = |\mathbb{R}| \\ \nexists A : \aleph_0 < |A| < \mathfrak{c}`
 	},
 	{
 		"title": "Spectral Decomposition",
@@ -293,12 +293,12 @@ let problems = [
 		"latex": String.raw`\sin^2 \theta + \cos^2 \theta = 1`
 	},
 	{
-		"title": "Double Angle V1",
+		"title": "Double Angle v1",
 		"description": "back to basics",
 		"latex": String.raw`\sin(2\theta) = 2\sin(\theta)\cos(\theta)`
 	},
 	{
-		"title": "Double Angle V2",
+		"title": "Double Angle v2",
 		"description": "back to basics",
 		"latex": String.raw`\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)`
 	},
