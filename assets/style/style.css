@@ -103,6 +103,9 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	overflow-x: auto;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .correct {
