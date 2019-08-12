@@ -361,6 +361,36 @@ let problems = [
 		"title": "Wigner Transform of the Density Matrix",
 		"description": "I know some of these words",
 		"latex": String.raw`W(x,p) = \frac{1}{\pi \hbar} \int_{-\infty}^\infty \langle x + y | \hat{\rho} | x - y \rangle e^{-2ipy/\hbar} dy`
+	},
+	{
+		"title": "Imaginary numbers",
+		"description": "Just gonna add some simple formulas",
+		"latex": String.raw`i^2 = -1`
+	},
+	{
+		"title": "Sum of cubes",
+		"description": "Simple",
+		"latex": String.raw`a^3 + b^3 = (a+b)(a^2 - ab + b^2)`
+	},
+	{
+		"title": "RSA Decryption Algorithm",
+		"description": "good ol' rivest",
+		"latex": String.raw`m = c^{e^{-1}\mod \phi(n)} \mod n`
+	},
+	{
+		"title": "Contrapositive",
+		"description": "logic yo",
+		"latex": String.raw`(p \implies q) \iff (\neg q \implies \neg p)`
+	},
+	{
+		"title": "Contrapositive",
+		"description": "logic yo",
+		"latex": String.raw`(p \implies q) \iff (\neg q \implies \neg p)`
+	},
+	{
+		"title": "Equation of a spring",
+		"description": "Gonna use dots like the physicists do",
+		"latex": String.raw`m \ddot{x} = -kx`
 	}
 	// {
 	// 	"title": "Axiom of Choice",
