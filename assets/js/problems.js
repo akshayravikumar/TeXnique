@@ -383,14 +383,14 @@ let problems = [
 		"latex": String.raw`(p \implies q) \iff (\neg q \implies \neg p)`
 	},
 	{
-		"title": "Contrapositive",
-		"description": "logic yo",
-		"latex": String.raw`(p \implies q) \iff (\neg q \implies \neg p)`
-	},
-	{
 		"title": "Equation of a spring",
 		"description": "Gonna use dots like the physicists do",
 		"latex": String.raw`m \ddot{x} = -kx`
+	},
+	{
+		"title": String.raw`Sum of reciprocals of partial sums of \(\mathbb{N}\)`,
+		"description": "Credit to @IntertialObservr",
+		"latex": String.raw`\sum_{i = 2}^\infty \frac{1}{\sum_{j = 1}^i j} = 1`
 	}
 	// {
 	// 	"title": "Axiom of Choice",
