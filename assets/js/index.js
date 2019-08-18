@@ -53,6 +53,7 @@ function showIntro() {
     $("#intro-text").text(introText);
 
     displayLaTeXInBody();
+    $("#container").show();
 }
 
 function endGame() {
