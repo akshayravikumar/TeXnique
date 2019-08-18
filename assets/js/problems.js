@@ -388,9 +388,19 @@ let problems = [
 		"latex": String.raw`m \ddot{x} = -kx`
 	},
 	{
-		"title": String.raw`Sum of reciprocals of partial sums of \(\mathbb{N}\)`,
+		"title": String.raw`Sum of reciprocals of partial sums of \(\ \mathbb{N}\)`,
 		"description": "Credit to @IntertialObservr",
 		"latex": String.raw`\sum_{i = 2}^\infty \frac{1}{\sum_{j = 1}^i j} = 1`
+	},
+	{
+		"title": "Binet's Formula",
+		"description": "Classic",
+		"latex": String.raw`F_n = \frac{1}{\sqrt{5}} \left ( \varphi^n  - \frac{(-1)^n}{\varphi^n}\right )`
+	},
+	{
+		"title": "Sum of Cubes",
+		"description": "Classic",
+		"latex": String.raw`\sum_{k = 0}^n k^3 = \left ( \sum_{k = 0}^n k\right )^2`
 	}
 	// {
 	// 	"title": "Axiom of Choice",
