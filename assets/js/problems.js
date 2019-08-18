@@ -401,6 +401,11 @@ let problems = [
 		"title": "Sum of Cubes",
 		"description": "Classic",
 		"latex": String.raw`\sum_{k = 0}^n k^3 = \left ( \sum_{k = 0}^n k\right )^2`
+	},
+	{
+		"title": "The Basel Problem",
+		"description": "Classic",
+		"latex": String.raw`\sum_{n = 1}^\infty \dfrac{1}{n^2} = \dfrac{\pi^2}{6}`
 	}
 	// {
 	// 	"title": "Axiom of Choice",
