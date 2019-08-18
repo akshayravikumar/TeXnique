@@ -134,6 +134,7 @@ main {
 	margin-top: 50px;
 	margin-left: auto;
 	margin-right: auto;
+	display: none;
 }
 
 #out {
