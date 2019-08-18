@@ -263,7 +263,7 @@ let problems = [
 		"latex": String.raw`\det \begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc`
 	},
 	{
-		"title": "Sawtooth Functionn",
+		"title": "Sawtooth Function",
 		"description": "mathbb cases floors, this has it all",
 		"latex": String.raw`S(x) = \begin{cases} x - \lfloor x \rfloor - 1/2, & x \in \mathbb{R} \setminus \mathbb{Z} \\ 0, & x \in \mathbb{Z} \end{cases}`
 	},
