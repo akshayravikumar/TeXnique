@@ -406,6 +406,11 @@ let problems = [
 		"title": "The Basel Problem",
 		"description": "Classic",
 		"latex": String.raw`\sum_{n = 1}^\infty \dfrac{1}{n^2} = \dfrac{\pi^2}{6}`
+	},
+	{
+		"title": "Root Mean Square",
+		"description": "how could i forget",
+		"latex": String.raw`f_{\text{rms}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [f(t)]^2 dt}`
 	}
 	// {
 	// 	"title": "Axiom of Choice",
