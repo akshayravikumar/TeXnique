@@ -13,7 +13,7 @@ let problems = [
 		"latex": String.raw`c = \sqrt{a^2+b^2}`
 	},
 	{
-		"title": "Sum of Squares",
+		"title": String.raw`Sum of first \(n\) Squares`,
 		"description": "Classic.",
 		"latex": String.raw`\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}`
 	},
@@ -293,7 +293,7 @@ let problems = [
 		"latex": String.raw`\sin^2 \theta + \cos^2 \theta = 1`
 	},
 	{
-		"title": "Double Angle v1",
+		"title": "Double Angle for \sin",
 		"description": "back to basics",
 		"latex": String.raw`\sin(2\theta) = 2\sin(\theta)\cos(\theta)`
 	},
@@ -368,7 +368,7 @@ let problems = [
 		"latex": String.raw`i^2 = -1`
 	},
 	{
-		"title": "Sum of cubes",
+		"title": "Sum of Cubes",
 		"description": "Simple",
 		"latex": String.raw`a^3 + b^3 = (a+b)(a^2 - ab + b^2)`
 	},
@@ -378,7 +378,7 @@ let problems = [
 		"latex": String.raw`m = c^{e^{-1}\mod \phi(n)} \mod n`
 	},
 	{
-		"title": "Contrapositive",
+		"title": "Contraposition",
 		"description": "logic yo",
 		"latex": String.raw`(p \implies q) \iff (\neg q \implies \neg p)`
 	},
@@ -398,7 +398,7 @@ let problems = [
 		"latex": String.raw`F_n = \frac{1}{\sqrt{5}} \left ( \varphi^n  - \frac{(-1)^n}{\varphi^n}\right )`
 	},
 	{
-		"title": "Sum of Cubes",
+		"title": String.raw`Sum of first \(n\) Cubes`,
 		"description": "Classic",
 		"latex": String.raw`\sum_{k = 0}^n k^3 = \left ( \sum_{k = 0}^n k\right )^2`
 	},
