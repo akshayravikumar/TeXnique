@@ -7,6 +7,7 @@ let problemNumber = 0;
 let numCorrect = 0;
 let problemsOrder;
 let debug = false;
+let lastTarget = '';
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -148,6 +149,7 @@ function validateProblem() {
         let width = targetCanvas.width;
         let height = targetCanvas.height;
         let targetData = targetCanvas.getContext("2d").getImageData(0, 0, width, height);
+        let curTarget = $('#problem-title').text();
         html2canvas($('#out')[0], {}).then(function (outCanvas) {
             if (outCanvas.width != width || outCanvas.height != height) {
               console.log("doesn't match");
@@ -158,6 +160,10 @@ function validateProblem() {
             let result = "";
             console.log("diff is " + diff)
             if (diff < 10) {
+                if (lastTarget == curTarget) {
+                  return;
+                }
+                lastTarget = curTarget;
                 numCorrect += 1;
 
                 // Styling changes
