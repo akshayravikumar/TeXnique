@@ -149,6 +149,10 @@ function validateProblem() {
         let height = targetCanvas.height;
         let targetData = targetCanvas.getContext("2d").getImageData(0, 0, width, height);
         html2canvas($('#out')[0], {}).then(function (outCanvas) {
+            if (outCanvas.width != width || outCanvas.height != height) {
+              console.log("doesn't match");
+              return;
+            }
             let outData = outCanvas.getContext("2d").getImageData(0, 0, width, height);
             let diff = pixelmatch(targetData.data, outData.data, undefined, width, height, {threshold: 0.1});
             let result = "";
