@@ -127,7 +127,7 @@ function loadProblem() {
 
 function validateProblem() {
     let currentVal = $("#user-input").val();
-    if(currentVal == oldVal) {
+    if (currentVal == oldVal) {
         return; // check to prevent multiple simultaneous triggers
     }
 
@@ -137,6 +137,11 @@ function validateProblem() {
         throwOnError: false,
         displayMode: true
     });
+
+    if (currentVal == '') {
+      // Defensively return if the input is empty.
+      return;
+    }
 
     html2canvas($('#target')[0], {}).then(function (targetCanvas) {
         $('#out').parent().removeClass("correct");
