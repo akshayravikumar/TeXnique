@@ -6,6 +6,7 @@ let oldVal;
 let problemNumber = 0;
 let numCorrect = 0;
 let problemsOrder;
+let debug = true;
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -104,6 +105,9 @@ function loadProblem() {
 
     // load problem
     let target = problems[problemsOrder[problemNumber]];
+    if (debug) {
+      target = problems[1];
+    }
     problemNumber += 1;
 
     // load problem text
@@ -134,32 +138,28 @@ function validateProblem() {
         displayMode: true
     });
 
-    html2canvas($('#target'),{
-        onrendered: function (targetCanvas) {
-            $('#out').parent().removeClass("correct");
-            let width = targetCanvas.width;
-            let height = targetCanvas.height;
-            let targetData = targetCanvas.getContext("2d").getImageData(0, 0, width, height);
-            html2canvas($('#out'),{
-                onrendered: function (outCanvas) {
-                    let outData = outCanvas.getContext("2d").getImageData(0, 0, width, height);
-                    let diff = pixelmatch(targetData.data, outData.data, undefined, width, height, {threshold: 0.1});
-                    let result = "";
-                    console.log("diff is " + diff)
-                    if (diff < 10) {
-                        numCorrect += 1;
+    html2canvas($('#target')[0], {}).then(function (targetCanvas) {
+        $('#out').parent().removeClass("correct");
+        let width = targetCanvas.width;
+        let height = targetCanvas.height;
+        let targetData = targetCanvas.getContext("2d").getImageData(0, 0, width, height);
+        html2canvas($('#out')[0], {}).then(function (outCanvas) {
+            let outData = outCanvas.getContext("2d").getImageData(0, 0, width, height);
+            let diff = pixelmatch(targetData.data, outData.data, undefined, width, height, {threshold: 0.1});
+            let result = "";
+            console.log("diff is " + diff)
+            if (diff < 10) {
+                numCorrect += 1;
 
-                        // Styling changes
-                        $('#out').parent().addClass("correct");
-                        $('#user-input').prop("disabled", true);
-                        $("#score").text(numCorrect);
+                // Styling changes
+                $('#out').parent().addClass("correct");
+                $('#user-input').prop("disabled", true);
+                $("#score").text(numCorrect);
 
-                        // Load new problem
-                        setTimeout(loadProblem, 1500);
-                    }
-                }
-            });
-        }
+                // Load new problem
+                setTimeout(loadProblem, 1500);
+            }
+        });
     });
 }
 
