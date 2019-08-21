@@ -6,7 +6,7 @@ let oldVal;
 let problemNumber = 0;
 let numCorrect = 0;
 let problemsOrder;
-let debug = true;
+let debug = false;
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
