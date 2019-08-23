@@ -144,6 +144,13 @@ function validateProblem() {
       return;
     }
 
+    let targetWidth = $("#target").width();
+    let outWidth = $("#out").width();
+    if (Math.abs(targetWidth - outWidth) > 0.01 * targetWidth) {
+        // Return if the element widths are different.
+        return;
+    }
+
     html2canvas($('#target')[0], {}).then(function (targetCanvas) {
         $('#out').parent().removeClass("correct");
         let width = targetCanvas.width;
