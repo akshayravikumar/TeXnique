@@ -144,9 +144,8 @@ function validateProblem() {
       return;
     }
 
-    let targetWidth = $("#target").width();
-    let outWidth = $("#out").width();
-    if (Math.abs(targetWidth - outWidth) > 0.01 * targetWidth) {
+
+    if ($("#target").width() != $("#out").width()) {
         // Return if the element widths are different.
         return;
     }
@@ -166,7 +165,7 @@ function validateProblem() {
             let diff = pixelmatch(targetData.data, outData.data, undefined, width, height, {threshold: 0.1});
             let result = "";
             console.log("diff is " + diff)
-            if (diff < 2) {
+            if (diff == 0) {
                 if (lastTarget == curTarget) {
                   return;
                 }
