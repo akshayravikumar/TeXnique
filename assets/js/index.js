@@ -166,7 +166,7 @@ function validateProblem() {
             let diff = pixelmatch(targetData.data, outData.data, undefined, width, height, {threshold: 0.1});
             let result = "";
             console.log("diff is " + diff)
-            if (diff < 10) {
+            if (diff < 2) {
                 if (lastTarget == curTarget) {
                   return;
                 }
