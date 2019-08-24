@@ -411,6 +411,36 @@ let problems = [
 		"title": "Root Mean Square",
 		"description": "how could i forget",
 		"latex": String.raw`f_{\text{rms}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [f(t)]^2 dt}`
+	},
+	{
+		"title": "Hölder's Inequality",
+		"description": "Styled like the OTIS handouts by Evan Chen",
+		"latex": String.raw`\left(\sum_{i = 1}^n a_i\right)^p\left(\sum_{i = 1}^n b_i\right)^q \ge \left(\sum_{i = 1}^n \sqrt[p+q]{a_i^p b_i^q}\right)^{p+q}`
+	},
+	{
+		"title": "Rearrangement Inequality",
+		"description": "kinda cool",
+		"latex": String.raw`a_1 < a_2 < \cdots < a_n, b_1 < b_2 < \cdots < b_n \implies a_1b_1 + a_2b_2 + \cdots a_nb_n \ge a_{\sigma(1)}b_2 + a_{\sigma(2)}b_2 + \cdots + a_{\sigma(n)}b_n \ge a_1b_n + a_2b_{n-1} + \cdots a_nb_1 `
+	},
+	{
+		"title": "Power Mean",
+		"description": "like RMS-AM-GM-HM but like generalized",
+		"latex": String.raw`M_r(x_1,x_2,\cdots,x_n) = \begin{cases} \left(\frac{1}{n}\sum_{i=1}^n x_i^r\right)^{1/r} & r \ne 0, \\ \sqrt[n]{\prod_{i=1}^n x_i} & r = 0 \end{cases}`
+	},
+	{
+		"title": "Law of Tangents",
+		"description": "yes this actually exists",
+		"latex": String.raw`\frac{a-b}{a+b} = \frac{\tan\left(\frac{\angle A - \angle B}{2}\right)}{\tan\left(\frac{\angle A + \angle B}{2}\right)}`
+	},
+	{
+		"title": "Euler's Arctangent Identity",
+		"description": "dammit euler OP",
+		"latex": String.raw`\tan^{-1} \left(\frac{1}{x}\right) =  \tan^{-1} \left(\frac{1}{x+y}\right) + \tan^{-1}\left(\frac{y}{x^2 + xy + 1}\right)`
+	},
+	{
+		"title": "The Dirichlet Convolution",
+		"description": "bruh",
+		"latex": String.raw`(f \ast g)(n) = \sum_{d | n} f(d)g\left(\frac{n}{d}\right)`
 	}
 	// {
 	// 	"title": "Axiom of Choice",
