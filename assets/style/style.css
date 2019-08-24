@@ -50,8 +50,11 @@ main {
 
 #hint-list {
 	padding-inline-start: 30px;
-  list-style-type: square;
 	margin-top:6px;
+}
+
+#hint-list li {
+	margin-top: 7px;
 }
 
 .latex-button {
