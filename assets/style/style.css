@@ -41,6 +41,19 @@ main {
 	font-size: 1.4em;
 }
 
+#hint-text {
+	width: fit-content;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#hint-list {
+	padding-inline-start: 30px;
+  list-style-type: square;
+	margin-top:6px;
+}
+
 .latex-button {
 	font-family: Katex_Main, serif;
 	font-size: 1em;
