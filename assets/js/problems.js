@@ -441,6 +441,11 @@ let problems = [
 		"title": "The Dirichlet Convolution",
 		"description": "bruh",
 		"latex": String.raw`(f \ast g)(n) = \sum_{d | n} f(d)g\left(\frac{n}{d}\right)`
+	},
+	{
+		"title": "Sum of row in Pascal's Triangle",
+		"description": "not sure how else to word it",
+		"latex": String.raw`\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \cdots + \binom{n}{n} = 2^n`
 	}
 	// {
 	// 	"title": "Axiom of Choice",
