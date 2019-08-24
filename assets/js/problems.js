@@ -33,7 +33,7 @@ let problems = [
 		"latex": String.raw`e^{\pi i} + 1 = 0`
 	},
 	{
-		"title": "Euler's other Identity",
+		"title": "Euler's Lesser-Known Identity",
 		"description": "Troll.",
 		"latex": String.raw`\lceil e \rceil - \lfloor \pi \rfloor = 0`
 	},
@@ -411,7 +411,23 @@ let problems = [
 		"title": "Root Mean Square",
 		"description": "how could i forget",
 		"latex": String.raw`f_{\text{rms}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [f(t)]^2 dt}`
-	}
+	},
+  {
+    "title": "The Gaussian Integral",
+    "description": "More integrals!",
+    "latex": String.raw`\int^\infty_\infty e^{-x^2} dx = \sqrt{\pi}`
+  },
+  {
+    "title": "The Harmonic Series",
+    "description": "Classic",
+    "latex": String.raw`\sum^\infty_{n=1} \frac{1}{n} = \infty`
+  },
+  {
+    "title": "Tupper's Self-Referential Formula",
+    "description": "Troll",
+    "latex": String.raw`\frac{1}{2}<\left\lfloor\bmod\left(\left\lfloor\frac{y}{17}\right\rfloor 2^{-17\lfloor x \rfloor - \bmod(\lfloor y \rfloor,17)},2\right)\right\rfloor`
+  }
+
 	// {
 	// 	"title": "Axiom of Choice",
 	// 	"description": "~~controversial~~",
