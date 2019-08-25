@@ -88,6 +88,7 @@ function endGame() {
 function startGame() {
     problemNumber = 0;
     currentScore = 0;
+    numCorrect = 0;
     oldVal = "";
     problemsOrder = [...Array(problems.length).keys()];
     shuffleArray(problemsOrder);
