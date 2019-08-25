@@ -45,7 +45,7 @@ let problems = [
 	{
 		"title": "Fourier Transform",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`f(\omega) = \int_{-\infty}^\infty f(x) e^{-2\pi i x \omega} dx`
+		"latex": String.raw`\hat{f}(\omega) = \int_{-\infty}^\infty f(x) e^{-2\pi i x \omega} dx`
 	},
 	{
 		"title": "Wave Equation",
@@ -60,7 +60,7 @@ let problems = [
 	{
 		"title": "Schrodinger's Equation",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`ih\frac{\partial}{\partial t} \Psi = H \Psi`
+		"latex": String.raw`i\hbar\frac{\partial}{\partial t} \Psi = H \Psi`
 	},
 	{
 		"title": "Black-Scholes Equation",
