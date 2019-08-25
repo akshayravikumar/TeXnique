@@ -420,7 +420,7 @@ let problems = [
 	{
 		"title": "Rearrangement Inequality",
 		"description": "kinda cool",
-		"latex": String.raw`a_1 < a_2 < \cdots < a_n, b_1 < b_2 < \cdots < b_n \implies a_1b_1 + a_2b_2 + \cdots a_nb_n \ge a_{\sigma(1)}b_2 + a_{\sigma(2)}b_2 + \cdots + a_{\sigma(n)}b_n \ge a_1b_n + a_2b_{n-1} + \cdots a_nb_1 `
+		"latex": String.raw`a_1 \le a_2 \le \cdots \le a_n, b_1 \le b_2 \le \cdots \le b_n \implies \sum_{i=1}^n a_ib_i \ge \sum_{i=1}^n a_{\sigma(i)}b_i \ge \sum_{i=1}^n a_ib_{n+1-i}`
 	},
 	{
 		"title": "Power Mean",
