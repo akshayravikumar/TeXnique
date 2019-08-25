@@ -411,6 +411,11 @@ let problems = [
 		"title": "Root Mean Square",
 		"description": "how could i forget",
 		"latex": String.raw`f_{\text{rms}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [f(t)]^2 dt}`
+	},
+	{
+		"title": "Alternating Harmonic Series",
+		"description": "First use of \ln",
+		"latex": String.raw`1 - \frac 12 + \frac 13 - \frac 14 + \frac 15 - \cdots = \ln 2`
 	}
 	// {
 	// 	"title": "Axiom of Choice",
