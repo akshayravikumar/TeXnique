@@ -3,7 +3,6 @@
 	src: url('../lib/katex/fonts/KaTeX_Main-Regular.woff2') format('woff');
     font-weight: 400;
     font-style: normal;
-    font-size: 16px;
 }
 
 main {
