@@ -4,7 +4,8 @@ let secondsRemaining = TIMEOUT_SECONDS;
 
 let oldVal;
 let problemNumber = 0;
-let numCorrect = 0;
+let problemPoints = 0;
+let currentScore = 0;
 let problemsOrder;
 let debug = false;
 let lastTarget = '';
@@ -64,7 +65,7 @@ function endGame() {
     $("#ending-window").show();
     displayLaTeXInBody();
 
-    let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
+    let problemsText = currentScore + ((currentScore == 1) ? " problem" : " problems");
     let endingText = "You finished " + problemsText + " in " + TIMEOUT_STRING + "!";
     $("#ending-text").text(endingText);
 }
@@ -72,7 +73,7 @@ function endGame() {
 
 function startGame() {
     problemNumber = 0;
-    numCorrect = 0;
+    currentScore = 0;
     oldVal = "";
     problemsOrder = [...Array(problems.length).keys()];
     shuffleArray(problemsOrder);
@@ -90,7 +91,7 @@ function startGame() {
     // Reset and start the timer
     loadProblem();
     startTimer(function() {
-        endGame(numCorrect);
+        endGame(currentScore);
     });
 }
 
@@ -105,7 +106,7 @@ function loadProblem() {
     $('#user-input').focus();
 
     // load problem
-    let target = problems[problemsOrder[problemNumber]];
+    let target = problems[problemsOrder[problemNumber % problems.length]];
     if (debug) {
       target = problems[1];
     }
@@ -114,6 +115,9 @@ function loadProblem() {
     // load problem text
     let problemText = "Problem " + problemNumber + ": " + target.title;
     $("#problem-title").text(problemText);
+    problemPoints = Math.ceil(target.latex.length / 10.0); 
+    let pointsText = "(" + problemPoints + ((problemPoints == 1) ? " point)" : " points)");
+    $("#problem-points").text(pointsText);
 
     displayLaTeXInBody();
 
@@ -170,12 +174,12 @@ function validateProblem() {
                   return;
                 }
                 lastTarget = curTarget;
-                numCorrect += 1;
+                currentScore += problemPoints;
 
                 // Styling changes
                 $('#out').parent().addClass("correct");
                 $('#user-input').prop("disabled", true);
-                $("#score").text(numCorrect);
+                $("#score").text(currentScore);
 
                 // Load new problem
                 setTimeout(loadProblem, 1500);
