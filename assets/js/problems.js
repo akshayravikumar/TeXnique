@@ -375,7 +375,7 @@ let problems = [
 	{
 		"title": "RSA Decryption Algorithm",
 		"description": "good ol' rivest",
-		"latex": String.raw`m = c^{e^{-1}\mod \phi(n)} \mod n`
+		"latex": String.raw`m = c^{e^{-1}\bmod \phi(n)} \pmod n`
 	},
 	{
 		"title": "Contraposition",
