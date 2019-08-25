@@ -6,6 +6,7 @@ let oldVal;
 let problemNumber = 0;
 let problemPoints = 0;
 let currentScore = 0;
+let numCorrect = 0;
 let problemsOrder;
 let debug = false;
 let lastTarget = '';
@@ -65,8 +66,9 @@ function endGame() {
     $("#ending-window").show();
     displayLaTeXInBody();
 
-    let problemsText = currentScore + ((currentScore == 1) ? " problem" : " problems");
-    let endingText = "You finished " + problemsText + " in " + TIMEOUT_STRING + "!";
+    let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
+    let endingText = "You finished " + problemsText + " in " + TIMEOUT_STRING + 
+                     ", for a total score of " + currentScore + "!";
     $("#ending-text").text(endingText);
 }
 
@@ -175,6 +177,7 @@ function validateProblem() {
                 }
                 lastTarget = curTarget;
                 currentScore += problemPoints;
+                numCorrect += 1;
 
                 // Styling changes
                 $('#out').parent().addClass("correct");
