@@ -45,7 +45,7 @@ let problems = [
 	{
 		"title": "Fourier Transform",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`f(\omega) = \int_{-\infty}^\infty f(x) e^{-2\pi i x \omega} dx`
+		"latex": String.raw`\hat{f}(\omega) = \int_{-\infty}^\infty f(x) e^{-2\pi i x \omega} dx`
 	},
 	{
 		"title": "Wave Equation",
@@ -60,7 +60,7 @@ let problems = [
 	{
 		"title": "Schrodinger's Equation",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`ih\frac{\partial}{\partial t} \Psi = H \Psi`
+		"latex": String.raw`i\hbar\frac{\partial}{\partial t} \Psi = H \Psi`
 	},
 	{
 		"title": "Black-Scholes Equation",
@@ -375,7 +375,7 @@ let problems = [
 	{
 		"title": "RSA Decryption Algorithm",
 		"description": "good ol' rivest",
-		"latex": String.raw`m = c^{e^{-1}\mod \phi(n)} \mod n`
+		"latex": String.raw`m = c^{e^{-1}\bmod \phi(n)} \pmod n`
 	},
 	{
 		"title": "Contraposition",
@@ -446,10 +446,10 @@ let problems = [
 		"title": "Sum of a Row of Pascal's Triangle",
 		"description": "not sure how else to word it",
 		"latex": String.raw`\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \cdots + \binom{n}{n} = 2^n`
+	},
+	{
+		"title": "Alternating Harmonic Series",
+		"description": "First use of \ln",
+		"latex": String.raw`1 - \frac 12 + \frac 13 - \frac 14 + \frac 15 - \cdots = \ln 2`
 	}
-	// {
-	// 	"title": "Axiom of Choice",
-	// 	"description": "~~controversial~~",
-	// 	"latex": String.raw`\forall X \left [ \varnothing \notin X \implies \exists f:X \to \bigcup X \  \forall A \in X (f(A) \in A) \right]`
-	// }
 ];
