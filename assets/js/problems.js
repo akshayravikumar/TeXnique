@@ -45,7 +45,7 @@ let problems = [
 	{
 		"title": "Fourier Transform",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`f(\omega) = \int_{-\infty}^\infty f(x) e^{-2\pi i x \omega} dx`
+		"latex": String.raw`\hat{f}(\omega) = \int_{-\infty}^\infty f(x) e^{-2\pi i x \omega} dx`
 	},
 	{
 		"title": "Wave Equation",
@@ -60,7 +60,7 @@ let problems = [
 	{
 		"title": "Schrodinger's Equation",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`ih\frac{\partial}{\partial t} \Psi = H \Psi`
+		"latex": String.raw`i\hbar\frac{\partial}{\partial t} \Psi = H \Psi`
 	},
 	{
 		"title": "Black-Scholes Equation",
@@ -375,7 +375,7 @@ let problems = [
 	{
 		"title": "RSA Decryption Algorithm",
 		"description": "good ol' rivest",
-		"latex": String.raw`m = c^{e^{-1}\mod \phi(n)} \mod n`
+		"latex": String.raw`m = c^{e^{-1}\bmod \phi(n)} \pmod n`
 	},
 	{
 		"title": "Contraposition",
@@ -413,11 +413,6 @@ let problems = [
 		"latex": String.raw`f_{\text{rms}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [f(t)]^2 dt}`
 	},
   {
-    "title": "The Gaussian Integral",
-    "description": "More integrals!",
-    "latex": String.raw`\int^\infty_\infty e^{-x^2} dx = \sqrt{\pi}`
-  },
-  {
     "title": "The Harmonic Series",
     "description": "Classic",
     "latex": String.raw`\sum^\infty_{n=1} \frac{1}{n} = \infty`
@@ -433,4 +428,45 @@ let problems = [
 	// 	"description": "~~controversial~~",
 	// 	"latex": String.raw`\forall X \left [ \varnothing \notin X \implies \exists f:X \to \bigcup X \  \forall A \in X (f(A) \in A) \right]`
 	// }
+
+	{
+		"title": "Hölder's Inequality",
+		"description": "Styled like the OTIS handouts by Evan Chen",
+		"latex": String.raw`\left(\sum_{i = 1}^n a_i\right)^p\left(\sum_{i = 1}^n b_i\right)^q \ge \left(\sum_{i = 1}^n \sqrt[p+q]{a_i^p b_i^q}\right)^{p+q}`
+	},
+	{
+		"title": "Rearrangement Inequality",
+		"description": "kinda cool",
+		"latex": String.raw`a_1 \le a_2 \le \cdots \le a_n, b_1 \le b_2 \le \cdots \le b_n \implies \sum_{i=1}^n a_ib_i \ge \sum_{i=1}^n a_{\sigma(i)}b_i \ge \sum_{i=1}^n a_{n+1-i}b_i`
+	},
+	{
+		"title": "Power Mean",
+		"description": "like RMS-AM-GM-HM but like generalized",
+		"latex": String.raw`M_r(x_1,x_2,\cdots,x_n) = \begin{cases} \left(\frac{1}{n}\sum_{i=1}^n x_i^r\right)^{1/r} & r \ne 0, \\ \sqrt[n]{\prod_{i=1}^n x_i} & r = 0 \end{cases}`
+	},
+	{
+		"title": "Law of Tangents",
+		"description": "yes this actually exists",
+		"latex": String.raw`\frac{a-b}{a+b} = \frac{\tan\left(\frac{\angle A - \angle B}{2}\right)}{\tan\left(\frac{\angle A + \angle B}{2}\right)}`
+	},
+	{
+		"title": "Euler's Arctangent Identity",
+		"description": "dammit euler OP",
+		"latex": String.raw`\tan^{-1} \left(\frac{1}{x}\right) =  \tan^{-1} \left(\frac{1}{x+y}\right) + \tan^{-1}\left(\frac{y}{x^2 + xy + 1}\right)`
+	},
+	{
+		"title": "The Dirichlet Convolution",
+		"description": "bruh",
+		"latex": String.raw`(f \ast g)(n) = \sum_{d | n} f(d)g\left(\frac{n}{d}\right)`
+	},
+	{
+		"title": "Sum of a Row of Pascal's Triangle",
+		"description": "not sure how else to word it",
+		"latex": String.raw`\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \cdots + \binom{n}{n} = 2^n`
+	},
+	{
+		"title": "Alternating Harmonic Series",
+		"description": "First use of \ln",
+		"latex": String.raw`1 - \frac 12 + \frac 13 - \frac 14 + \frac 15 - \cdots = \ln 2`
+	}
 ];
