@@ -338,7 +338,7 @@ let problems = [
 		"latex": String.raw`\left \{ n : \sum_{d | n}^{d<n} d  = n\right \}`
 	},
 	{
-		"title": "Area under the Error Function",
+		"title": "Gaussian Integral",
 		"description": "classic trick",
 		"latex": String.raw`\int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\int_{-\infty}^\infty \int_{-\infty}^\infty  e^{-x^2 - y^2} dxdy} = \sqrt{\int_0^{2\pi} \int_0^\infty e^{-r^2}rdrd\theta } = \sqrt{\pi}`
 	},
