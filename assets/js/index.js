@@ -64,7 +64,7 @@ function showIntro() {
     $("#intro-text").text(introText);
 
     if (mobileCheck()) {
-      $("#hint-list").prepend("<li style=\"color:red\"><b>Consider switching to a desktop browser</b></li>")
+      $("#hint-list").prepend("<li><span style=\"color:red\"><b>Consider switching to a desktop browser</b></span></li>")
       mobile = true;
     }
 
