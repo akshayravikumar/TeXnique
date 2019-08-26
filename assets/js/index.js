@@ -80,7 +80,7 @@ function endGame() {
 
     let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
     let endingText = "You finished " + problemsText + " in " + TIMEOUT_STRING +
-                     ", for a total score of " + currentScore + "!";
+                     ", for a total score of " + currentScore + "! (not a factorial)";
     $("#ending-text").text(endingText);
 }
 
