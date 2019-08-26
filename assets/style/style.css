@@ -50,7 +50,7 @@ main {
 
 #hint-list {
 	padding-inline-start: 30px;
-	margin-top:6px;
+	margin-top: 6px;
 }
 
 #hint-list li {
@@ -172,7 +172,10 @@ main {
 	height: 20px;
 }
 
-#problem-title {
+#problem-header {
 	font-size: 1.5em;
+}
+
+#problem-title {
 	font-weight: bold;
 }
