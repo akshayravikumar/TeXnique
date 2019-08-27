@@ -430,7 +430,7 @@ let problems = [
 	// }
 
 	{
-		"title": "Hölder's Inequality",
+		"title": String.raw`H\(\ddot\textbf{o}\)lder's Inequality`,
 		"description": "Styled like the OTIS handouts by Evan Chen",
 		"latex": String.raw`\left(\sum_{i = 1}^n a_i\right)^p\left(\sum_{i = 1}^n b_i\right)^q \ge \left(\sum_{i = 1}^n \sqrt[p+q]{a_i^p b_i^q}\right)^{p+q}`
 	},
@@ -468,5 +468,20 @@ let problems = [
 		"title": "Alternating Harmonic Series",
 		"description": "First use of \ln",
 		"latex": String.raw`1 - \frac 12 + \frac 13 - \frac 14 + \frac 15 - \cdots = \ln 2`
+	},
+	{
+		"title": "Definitions of Catalan's Constant",
+		"description": "Credit to /u/heropup",
+		"latex": String.raw`G = \beta(2) = \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)^2} = \iint_{[0,1]^2} \frac{dx dy}{1 + x^2 y^2}`
+	},
+	{
+		"title": String.raw`Series Representation of Ap\(\acute\textbf{e}\)ry's Constant`,
+		"description": "Credit to /u/heropup",
+		"latex": String.raw`\zeta(3) = \frac{5}{2} \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^3 \binom{2n}{n}}`
+	},
+	{
+		"title": "Definition of the Euler-Mascheroni Constant",
+		"description": "Credit to /u/heropup",
+		"latex": String.raw`\gamma = \lim_{n \to \infty} \left(\sum_{k=1}^n \frac{1}{k} - \ln n \right) = \int_1^\infty  \left(\frac{1}{\lfloor x \rfloor } - \frac{1}{x} \right) dx`
 	}
 ];
