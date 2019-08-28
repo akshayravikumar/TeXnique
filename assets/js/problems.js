@@ -285,7 +285,7 @@ let problems = [
 	{
 		"title": "Spectral Decomposition",
 		"description": "derived from memory",
-		"latex": String.raw`A = \begin{pmatrix} | & | & & | \\ \mathbf{v_1} & \mathbf{v_2} & \cdots & \mathbf{v_n} \\ | & | & & | \end{pmatrix} \begin{pmatrix} \lambda_1 & & & \\ & \lambda_2 & & \\ & & \ddots & \\ & & & \lambda_n \end{pmatrix} \begin{pmatrix} | & | & & | \\ \mathbf{v_1} & \mathbf{v_2} & \cdots & \mathbf{v_n} \\ | & | & & | \end{pmatrix} ^ {-1}`
+		"latex": String.raw`A = \begin{pmatrix} | & | & & | \\ \mathbf v_1 & \mathbf v_2 & \cdots & \mathbf v_n \\ | & | & & | \end{pmatrix} \begin{pmatrix} \lambda_1 & & & \\ & \lambda_2 & & \\ & & \ddots & \\ & & & \lambda_n \end{pmatrix} \begin{pmatrix} | & | & & | \\ \mathbf v_1 & \mathbf v_2 & \cdots & \mathbf v_n \\ | & | & & | \end{pmatrix} ^ {-1}`
 	},
 	{
 		"title": "Pythagorean Identity",
