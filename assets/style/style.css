@@ -13,6 +13,18 @@ main {
 	font-size: 1.1em;
 }
 
+#username-error {
+	height: 50px;
+	color: red;
+}
+
+#username-input {
+	font-family: KaTeX_Main;
+	border: solid 2px black;
+	padding: 10px;
+	font-size: 1em;
+}
+
 .centered-text {
 	margin: auto;
 	text-align: center;

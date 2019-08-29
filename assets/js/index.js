@@ -1,8 +1,10 @@
-let TIMEOUT_SECONDS = 180;
+let TIMEOUT_SECONDS = 10;
 let TIMEOUT_STRING = "three minutes";
 let secondsRemaining = TIMEOUT_SECONDS;
 
+let db;
 let oldVal;
+let currentUsername;
 let problemNumber = 0;
 let problemPoints = 0;
 let currentScore = 0;
@@ -11,6 +13,7 @@ let problemsOrder;
 let debug = false;
 let lastTarget = '';
 let mobile = false;
+
 
 function mobileCheck() {
   var check = false;
@@ -82,6 +85,21 @@ function endGame() {
     let endingText = "You finished " + problemsText + " in " + TIMEOUT_STRING +
                      ", for a total score of " + currentScore + "!";
     $("#ending-text").text(endingText);
+
+    let gameMetadata = {
+        name: currentUsername,
+        score: currentScore,
+        numCorrect: numCorrect,
+        endimgTime: firebase.firestore.FieldValue.serverTimestamp()
+    };
+
+    firebase.firestore().collection("games").add(gameMetadata)
+    .then(function(docRef) {
+        $("#ending-message").text("Added to leaderboard!");
+    })
+    .catch(function(error) {
+        $("#ending-message").text("Couldn't add to leaderboard. :(");
+    });
 }
 
 
@@ -90,7 +108,10 @@ function startGame() {
     currentScore = 0;
     numCorrect = 0;
     oldVal = "";
+
     problemsOrder = [...Array(problems.length).keys()];
+
+
     shuffleArray(problemsOrder);
 
     $("#intro-window").hide();
@@ -210,7 +231,16 @@ function validateProblem() {
 $(document).ready(function() {
     // Handlers
     $("#start-button").click(function() {
-        startGame();
+        let usernameInput = $("#username-input").val().trim();
+        if (!usernameInput.match(/^[a-zA-Z0-9_-]{3,15}$/)) {
+            $("#username-error").text("Invalid username.");
+            setTimeout(function() { 
+                $("#username-error").text("");
+            }, 1000);
+        } else {
+            currentUsername = usernameInput;
+            startGame();
+        }
     });
 
     $("#reset-button").click(function() {

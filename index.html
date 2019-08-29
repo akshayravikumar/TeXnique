@@ -29,6 +29,26 @@
     <script defer src="assets/lib/html2canvas.min.js"></script>
     <script src="https://bundle.run/pixelmatch@5.0.2"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script>
+    <script>
+        // const firebase = require("firebase");
+        // // Required for side-effects
+        // require("firebase/firestore");
+        var firebaseConfig = {
+            apiKey: "AIzaSyCMYa6WedYs30eNxrLyJUjAwxgwpCcy8x0",
+            authDomain: "texnique-b1956.firebaseapp.com",
+            databaseURL: "https://texnique-b1956.firebaseio.com",
+            projectId: "texnique-b1956",
+            storageBucket: "texnique-b1956.appspot.com",
+            messagingSenderId: "267583059089",
+            appId: "1:267583059089:web:8678f2eedb61f196"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
     <!-- custom js -->
     <script src="assets/js/problems.js"></script>
     <script src="assets/js/index.js"></script>
@@ -49,8 +69,11 @@
         <div id="intro-window">
             <p id="intro-text"></p>
 
-            <br><br>
+            <br>
 
+            <p> Enter a username (3-15 characters, only using letters, numbers, hyphens, and periods). </p>
+            <input id="username-input">
+            <p id="username-error"></p>
             <button id="start-button" class="latex-button">Start Game</button>
 
             <br><br><br>
@@ -71,7 +94,9 @@
         <div id="ending-window">
             <p id="ending-text"></p>
 
-            <br><br>
+            <p id="ending-message"></p>
+
+            <br>
 
             <button id="reset-button" class="latex-button">Play Again</button>
         </div>
