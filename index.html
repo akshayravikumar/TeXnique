@@ -32,9 +32,6 @@
     <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script>
     <script>
-        // const firebase = require("firebase");
-        // // Required for side-effects
-        // require("firebase/firestore");
         var firebaseConfig = {
             apiKey: "AIzaSyCMYa6WedYs30eNxrLyJUjAwxgwpCcy8x0",
             authDomain: "texnique-b1956.firebaseapp.com",
@@ -66,13 +63,14 @@
         <br>
         <br>
 
+        <!-- INTRO WINDOW -->
         <div id="intro-window">
             <p id="intro-text"></p>
 
             <br>
 
             <p> Enter a username (3-15 characters, only using letters, numbers, hyphens, and periods). </p>
-            <input id="username-input">
+            <input id="username-input" value="anonymous">
             <p id="username-error"></p>
             <button id="start-button" class="latex-button">Start Game</button>
 
@@ -91,6 +89,7 @@
             </div>
         </div>
 
+        <!-- ENDING WINDOW -->
         <div id="ending-window">
             <p id="ending-text"></p>
 
@@ -101,6 +100,15 @@
             <button id="reset-button" class="latex-button">Play Again</button>
         </div>
 
+        <div id="leaderboard-window">
+            <p id="leaderboard-title" class="header"> Leaderboard </p>
+
+
+            <div id="leaderboard">
+            </div>
+        </div>
+
+        <!-- GAME WINDOW -->
         <div id="game-window">
             <div id="top-row">
                 <button id="skip-button" class="latex-button">Skip This Problem</button>
@@ -110,7 +118,7 @@
 
             <br><br>
 
-            <p id="problem-header"><span id="problem-title"></span>&nbsp;<span id="problem-points"></span></p>
+            <p id="problem-header" class="header"><span id="problem-title"></span>&nbsp;<span id="problem-points"></span></p>
 
             <p> Try to create the following formula: </p>
 

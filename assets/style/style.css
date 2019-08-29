@@ -13,6 +13,19 @@ main {
 	font-size: 1.1em;
 }
 
+.leaderboard-table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.leaderboard-table th, td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	min-width: 20px;
+}
+
 #username-error {
 	height: 50px;
 	color: red;
@@ -30,7 +43,7 @@ main {
 	text-align: center;
 }
 
-#intro-window, #ending-window {
+#intro-window, #ending-window, #leaderboard-window {
 	text-align: center;
 }
 
@@ -186,6 +199,10 @@ main {
 
 #problem-header {
 	font-size: 1.5em;
+}
+
+#leaderboard-title{
+	font-size: 2em;
 }
 
 #problem-title {

@@ -14,6 +14,21 @@ let debug = false;
 let lastTarget = '';
 let mobile = false;
 
+function createLeaderboard(elementId, limit) {
+    firebase.firestore().collection("games").orderBy("score", "desc").limit(limit).get()
+    .then(function(leaders) {
+        let content = "<table rules='rows' class='leaderboard-table'>";
+        content += "<tr><th>Username</th><th>Score</th></tr>";
+         leaders.forEach(function(leader) {
+            content += "<tr><td>" + leader.data().username + "</td><td>" + leader.data().score + "</td></tr>";
+        });
+        content += "</table>";
+        $("#" + elementId).append(content);
+    })
+    .catch(function(error) {
+        $("#" + elementId).text("Error getting leaderboard.");
+    });   
+}
 
 function mobileCheck() {
   var check = false;
@@ -64,6 +79,9 @@ function showIntro() {
 
     let introText =  "This is a game to test your \\(\\LaTeX\\) skills." +
                      " Type as many formulas as you can in " + TIMEOUT_STRING + "!";
+
+    createLeaderboard("leaderboard", 10);
+
     $("#intro-text").text(introText);
 
     if (mobileCheck()) {
@@ -90,7 +108,7 @@ function endGame() {
         name: currentUsername,
         score: currentScore,
         numCorrect: numCorrect,
-        endimgTime: firebase.firestore.FieldValue.serverTimestamp()
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
     };
 
     firebase.firestore().collection("games").add(gameMetadata)
