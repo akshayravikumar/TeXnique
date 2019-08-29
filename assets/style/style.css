@@ -82,6 +82,12 @@ main {
 	margin-top: 7px;
 }
 
+.nav-button {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
 .latex-button {
 	font-family: Katex_Main, serif;
 	font-size: 1em;
@@ -201,7 +207,7 @@ main {
 	font-size: 1.5em;
 }
 
-#leaderboard-title{
+.leaderboard-title {
 	font-size: 2em;
 }
 

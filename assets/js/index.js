@@ -23,11 +23,19 @@ function createLeaderboard(elementId, limit) {
             content += "<tr><td>" + leader.data().username + "</td><td>" + leader.data().score + "</td></tr>";
         });
         content += "</table>";
-        $("#" + elementId).append(content);
+        $("#" + elementId).html(content);
     })
     .catch(function(error) {
         $("#" + elementId).text("Error getting leaderboard.");
-    });   
+    });
+}
+
+function showLeaderboard() {
+  $("#game-window").hide();
+  $("#ending-window").hide();
+  $("#intro-window").hide();
+  createLeaderboard("leaderboard", 100);
+  $("#leaderboard-window").show();
 }
 
 function mobileCheck() {
@@ -75,6 +83,7 @@ function startTimer(onTimeoutFunc) {
 function showIntro() {
     $("#game-window").hide();
     $("#ending-window").hide();
+    $("#leaderboard-window").hide();
     $("#intro-window").show();
 
     let introText =  "This is a game to test your \\(\\LaTeX\\) skills." +
@@ -118,6 +127,8 @@ function endGame() {
     .catch(function(error) {
         $("#ending-message").text("Couldn't add to leaderboard. :(");
     });
+
+    createLeaderboard("leaderboard-snippet", 5);
 }
 
 
@@ -252,7 +263,7 @@ $(document).ready(function() {
         let usernameInput = $("#username-input").val().trim();
         if (!usernameInput.match(/^[a-zA-Z0-9_-]{3,15}$/)) {
             $("#username-error").text("Invalid username.");
-            setTimeout(function() { 
+            setTimeout(function() {
                 $("#username-error").text("");
             }, 1000);
         } else {
@@ -261,13 +272,11 @@ $(document).ready(function() {
         }
     });
 
-    $("#reset-button").click(function() {
-        startGame();
-    });
-
-    $("#skip-button").click(function() {
-        loadProblem();
-    });
+    $("#reset-button").click(startGame);
+    $("#skip-button").click(loadProblem);
+    $("#leaderboard-button-intro").click(showLeaderboard);
+    $("#leaderboard-button-end").click(showLeaderboard);
+    $("#home-button").click(showIntro);
 
     $("#user-input").on("change keyup paste", function() {
         validateProblem()

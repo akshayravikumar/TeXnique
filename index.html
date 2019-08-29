@@ -41,7 +41,7 @@
             messagingSenderId: "267583059089",
             appId: "1:267583059089:web:8678f2eedb61f196"
         };
-        
+
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
@@ -65,14 +65,19 @@
 
         <!-- INTRO WINDOW -->
         <div id="intro-window">
+            <button id="leaderboard-button-intro" class="latex-button nav-button">Leaderboard</button>
             <p id="intro-text"></p>
 
             <br>
 
+
+            <button id="start-button" class="latex-button">Start Game</button>
+
+            <br>
+
+            <p id="username-error"></p>
             <p> Enter a username (3-15 characters, only using letters, numbers, hyphens, and periods). </p>
             <input id="username-input" value="anonymous">
-            <p id="username-error"></p>
-            <button id="start-button" class="latex-button">Start Game</button>
 
             <br><br><br>
 
@@ -91,6 +96,7 @@
 
         <!-- ENDING WINDOW -->
         <div id="ending-window">
+            <button id="leaderboard-button-end" class="latex-button nav-button">Leaderboard</button>
             <p id="ending-text"></p>
 
             <p id="ending-message"></p>
@@ -98,10 +104,22 @@
             <br>
 
             <button id="reset-button" class="latex-button">Play Again</button>
+
+            <br><br>
+
+            <div id="leaderboard-snippet-sub-window">
+                <p class="leaderboard-title header">Leaderboard (top 5)</p>
+
+
+                <div id="leaderboard-snippet">
+                </div>
+            </div>
         </div>
 
+        <!-- LEADERBOARD WINDOW -->
         <div id="leaderboard-window">
-            <p id="leaderboard-title" class="header"> Leaderboard </p>
+            <button id="home-button" class="latex-button nav-button">Home</button>
+            <p class="leaderboard-title header">Leaderboard</p>
 
 
             <div id="leaderboard">
