@@ -114,7 +114,7 @@ function endGame() {
     $("#ending-text").text(endingText);
 
     let gameMetadata = {
-        name: currentUsername,
+        username: currentUsername,
         score: currentScore,
         numCorrect: numCorrect,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
