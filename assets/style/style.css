@@ -32,10 +32,16 @@ main {
 }
 
 #username-input {
-	font-family: KaTeX_Main;
-	border: solid 2px black;
+	font-family: 'Roboto Mono', monospace;
+	resize: none;
+	background-color: black;
+	border: none;
+	text-align: center;
+	font-size: 20px;
+	color: white;
 	padding: 10px;
 	font-size: 1em;
+	width: 150px;
 }
 
 .centered-text {
