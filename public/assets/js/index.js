@@ -125,7 +125,7 @@ function loadProblem() {
     // load problem
     let target = problems[problemsOrder[problemNumber % problems.length]];
     if (debug) {
-      target = problems[problems.length-1];
+      target = problems[35];
     }
     problemNumber += 1;
 
@@ -147,8 +147,15 @@ function loadProblem() {
     oldVal = "";
 };
 
+function normalize(input) {
+  normalizations.forEach(
+    rule => input = input.replace(rule["rule"], rule["replacement"])
+  );
+  return input;
+}
+
 function validateProblem() {
-    let currentVal = $("#user-input").val();
+    let currentVal = normalize($("#user-input").val());
     if (currentVal == oldVal) {
         return; // check to prevent multiple simultaneous triggers
     }
