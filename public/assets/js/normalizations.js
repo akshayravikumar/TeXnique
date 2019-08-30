@@ -36,7 +36,7 @@ let normalizations = [
     "replacement": String.raw`\implies`
   },
   {
-    "rule": /\\ /,
+    "rule": /(?<!\\)\\ /g,
     "replacement": " "
   }
 ];
