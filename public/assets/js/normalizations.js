@@ -34,9 +34,16 @@ let normalizations = [
   {
     "rule": /\\Longrightarrow(?!\w)/g,
     "replacement": String.raw`\implies`
-  },
-  {
-    "rule": /(?<!\\)\\ /g,
-    "replacement": " "
   }
 ];
+
+try {
+  let space_rule = new RegExp("(?<!\\\\)\\\\ ", "g");
+  normalizations.push({
+    "rule": space_rule,
+    "replacement": " "
+  })
+}
+catch(error) {
+  console.log(error);
+}
