@@ -143,6 +143,11 @@ function loadProblem() {
         throwOnError: false,
         displayMode: true
     });
+    // load problem body
+    katex.render(target.latex, $("#shadow-target")[0], {
+        throwOnError: false,
+        displayMode: true
+    });
 
     oldVal = "";
 };
