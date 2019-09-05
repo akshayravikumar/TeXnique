@@ -180,3 +180,21 @@ main {
 #problem-title {
 	font-weight: bold;
 }
+
+.out-container {
+  position: relative;
+}
+#shadow-target {
+  opacity: 1;
+  z-index: 0;
+  color: yellow;
+}
+.latex.out {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.latex {
+	box-sizing: border-box;
+}
