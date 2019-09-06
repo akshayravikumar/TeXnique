@@ -187,7 +187,7 @@ main {
 #shadow-target {
   opacity: 1;
   z-index: 0;
-  color: yellow;
+  color: #ccc;
 }
 .latex.out {
   position: absolute;
