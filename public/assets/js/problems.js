@@ -44,7 +44,7 @@ let problems = [
 	{
 		"title": "Fourier Transform",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`\hat{f}(\omega) = \int_{-\infty}^\infty f(x) e^{-2\pi i x \omega} dx`
+		"latex": String.raw`\hat{f}(\omega) = \int_{-\infty}^\infty f(x) e^{-2\pi i x \omega} \mathrm dx`
 	},
 	{
 		"title": "Wave Equation",
@@ -79,7 +79,7 @@ let problems = [
 	{
 		"title": "Definition of the Derivative",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`\frac{df}{dx} = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h}`
+		"latex": String.raw`\frac{\mathrm df}{\mathrm dx} = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h}`
 	},
 	{
 		"title": "Euler's Formula for Polyhedra",
@@ -104,12 +104,12 @@ let problems = [
 	{
 		"title": "Stokes' Theorem",
 		"description": "Fun",
-		"latex": String.raw`\iint_S \nabla \times \mathbf{F} \cdot d\mathbf{S} = \oint_\Gamma \mathbf{F} \cdot d \mathbf{\Gamma} `
+		"latex": String.raw`\iint_S \nabla \times \mathbf{F} \cdot \mathrm d\mathbf{S} = \oint_\Gamma \mathbf{F} \cdot \mathrm d \mathbf{\Gamma} `
 	},
 	{
 		"title": "Divergence Theorem",
 		"description": "Fun",
-		"latex": String.raw`\iiint_V (\nabla \cdot \mathbf{F}) dV = \oiint_S (\mathbf{F} \cdot \mathbf{n}) dS`
+		"latex": String.raw`\iiint_V (\nabla \cdot \mathbf{F}) \mathrm dV = \oiint_S (\mathbf{F} \cdot \mathbf{n}) \mathrm dS`
 	},
 	{
 		"title": "Cauchy-Schwarz Inequality",
@@ -199,7 +199,7 @@ let problems = [
 	{
 		"title": "Sophomore's Dream",
 		"description": "Cool.",
-		"latex": String.raw`\int_0^1 x^{-x} dx = \sum_{n=1}^\infty n^{-n}`
+		"latex": String.raw`\int_0^1 x^{-x} \mathrm dx = \sum_{n=1}^\infty n^{-n}`
 	},
 	{
 		"title": String.raw`Identity involving \(\pi\) and \(e\)`,
@@ -224,7 +224,7 @@ let problems = [
 	{
 		"title": "Definition of Convolution",
 		"description": "Shout out to 6.003",
-		"latex": String.raw`(f * g)(t) = \int_{-\infty}^\infty f(\tau) g(t - \tau) d\tau`
+		"latex": String.raw`(f * g)(t) = \int_{-\infty}^\infty f(\tau) g(t - \tau) \mathrm d\tau`
 	},
 	{
 		"title": "Definition of the Kronecker Delta function",
@@ -329,7 +329,7 @@ let problems = [
 	{
 		"title": "Integration by Parts",
 		"description": "it's just the product rule really",
-		"latex": String.raw`\int udv = uv - \int v du`
+		"latex": String.raw`\int u\mathrm dv = uv - \int v \mathrm du`
 	},
 	{
 		"title": "Definition of Perfect Numbers",
@@ -339,12 +339,12 @@ let problems = [
 	{
 		"title": "Area under the Error Function",
 		"description": "classic trick",
-		"latex": String.raw`\int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\int_{-\infty}^\infty \int_{-\infty}^\infty  e^{-x^2 - y^2} dxdy} = \sqrt{\int_0^{2\pi} \int_0^\infty e^{-r^2}rdrd\theta } = \sqrt{\pi}`
+		"latex": String.raw`\int_{-\infty}^\infty e^{-x^2} \mathrm dx = \sqrt{\int_{-\infty}^\infty \int_{-\infty}^\infty  e^{-x^2 - y^2} \mathrm dx\mathrm dy} = \sqrt{\int_0^{2\pi} \int_0^\infty e^{-r^2}r\mathrm dr\mathrm d\theta } = \sqrt{\pi}`
 	},
 	{
 		"title": "Definition of an Integral",
 		"description": "why not",
-		"latex": String.raw`\int_a^b f(x) dx = \lim_{k \to \infty} \left ( (b-a) \sum_{i = 1}^{k} \frac{f(a + i\frac{b-a}{k})}{k} \right )`
+		"latex": String.raw`\int_a^b f(x) \mathrm dx = \lim_{k \to \infty} \left ( (b-a) \sum_{i = 1}^{k} \frac{f(a + i\frac{b-a}{k})}{k} \right )`
 	},
 	{
 		"title": "Quantum Fourier transform",
@@ -359,7 +359,7 @@ let problems = [
 	{
 		"title": "Wigner Transform of the Density Matrix",
 		"description": "I know some of these words",
-		"latex": String.raw`W(x,p) = \frac{1}{\pi \hbar} \int_{-\infty}^\infty \langle x + y | \hat{\rho} | x - y \rangle e^{-2ipy/\hbar} dy`
+		"latex": String.raw`W(x,p) = \frac{1}{\pi \hbar} \int_{-\infty}^\infty \langle x + y | \hat{\rho} | x - y \rangle e^{-2ipy/\hbar} \mathrm dy`
 	},
 	{
 		"title": "Imaginary numbers",
@@ -409,7 +409,7 @@ let problems = [
 	{
 		"title": "Root Mean Square",
 		"description": "how could i forget",
-		"latex": String.raw`f_{\text{rms}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [f(t)]^2 dt}`
+		"latex": String.raw`f_{\text{rms}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [f(t)]^2 \mathrm dt}`
 	},
 	{
 		"title": String.raw`H\(\ddot\textbf{o}\)lder's Inequality`,
@@ -454,7 +454,7 @@ let problems = [
 	{
 		"title": "Definitions of Catalan's Constant",
 		"description": "Credit to /u/heropup",
-		"latex": String.raw`G = \beta(2) = \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)^2} = \iint_{[0,1]^2} \frac{dx dy}{1 + x^2 y^2}`
+		"latex": String.raw`G = \beta(2) = \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)^2} = \iint_{[0,1]^2} \frac{\mathrm dx \mathrm dy}{1 + x^2 y^2}`
 	},
 	{
 		"title": String.raw`Series Representation of Ap\(\acute\textbf{e}\)ry's Constant`,
@@ -464,6 +464,6 @@ let problems = [
 	{
 		"title": "Definition of the Euler-Mascheroni Constant",
 		"description": "Credit to /u/heropup",
-		"latex": String.raw`\gamma = \lim_{n \to \infty} \left(\sum_{k=1}^n \frac{1}{k} - \ln n \right) = \int_1^\infty  \left(\frac{1}{\lfloor x \rfloor } - \frac{1}{x} \right) dx`
+		"latex": String.raw`\gamma = \lim_{n \to \infty} \left(\sum_{k=1}^n \frac{1}{k} - \ln n \right) = \int_1^\infty  \left(\frac{1}{\lfloor x \rfloor } - \frac{1}{x} \right) \mathrm dx`
 	}
 ];
