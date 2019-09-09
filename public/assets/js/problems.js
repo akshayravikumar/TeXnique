@@ -424,7 +424,7 @@ let problems = [
 	{
 		"title": "Power Mean",
 		"description": "like RMS-AM-GM-HM but like generalized",
-		"latex": String.raw`M_r(x_1,x_2,\cdots,x_n) = \begin{cases} \left(\frac{1}{n}\sum_{i=1}^n x_i^r\right)^{1/r} & r \ne 0, \\ \sqrt[n]{\prod_{i=1}^n x_i} & r = 0 \end{cases}`
+		"latex": String.raw`M_r(x_1,x_2,\dots,x_n) = \begin{cases} \left(\frac{1}{n}\sum_{i=1}^n x_i^r\right)^{1/r} & r \ne 0, \\ \sqrt[n]{\prod_{i=1}^n x_i} & r = 0 \end{cases}`
 	},
 	{
 		"title": "Law of Tangents",
