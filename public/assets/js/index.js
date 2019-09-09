@@ -11,6 +11,7 @@ let problemsOrder;
 let debug = false;
 let lastTarget = '';
 let mobile = false;
+let showShadow = false;
 
 function mobileCheck() {
   var check = false;
@@ -143,6 +144,11 @@ function loadProblem() {
         throwOnError: false,
         displayMode: true
     });
+    // load problem body
+    katex.render(target.latex, $("#shadow-target")[0], {
+        throwOnError: false,
+        displayMode: true
+    });
 
     oldVal = "";
 };
@@ -230,6 +236,17 @@ $(document).ready(function() {
 
     $("#user-input").on("change keyup paste", function() {
         validateProblem()
+    });
+
+    $("#shadow-checkbox").change(_ => {
+        $("#shadow-target").toggle();
+    });
+
+    $("#l-shadow-checkbox").keydown(e => {
+      if (e.which == 13 /* enter */) {
+        $("#shadow-checkbox").prop("checked", !$("#shadow-checkbox").prop("checked"));
+        $("#shadow-target").toggle();
+      }
     });
 
     showIntro();
