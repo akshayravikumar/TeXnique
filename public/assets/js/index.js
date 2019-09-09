@@ -81,8 +81,9 @@ function endGame() {
 
     let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
     let endingText = "You finished " + problemsText + " in " + TIMEOUT_STRING +
-                     ", for a total score of " + currentScore + "!";
+                     ", for a total score of " + currentScore;
     $("#ending-text").text(endingText);
+    $("#ending-text").append("<a style='text-decoration: none;' href='https://www.reddit.com/r/unexpectedfactorial/'>!</a>");
 }
 
 
