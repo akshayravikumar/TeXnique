@@ -420,14 +420,7 @@ let problems = [
     "title": "Tupper's Self-Referential Formula",
     "description": "Troll",
     "latex": String.raw`\frac{1}{2}<\left\lfloor\bmod\left(\left\lfloor\frac{y}{17}\right\rfloor 2^{-17\lfloor x \rfloor - \bmod(\lfloor y \rfloor,17)},2\right)\right\rfloor`
-  }
-
-	// {
-	// 	"title": "Axiom of Choice",
-	// 	"description": "~~controversial~~",
-	// 	"latex": String.raw`\forall X \left [ \varnothing \notin X \implies \exists f:X \to \bigcup X \  \forall A \in X (f(A) \in A) \right]`
-	// }
-
+  },
 	{
 		"title": String.raw`H\(\ddot\textbf{o}\)lder's Inequality`,
 		"description": "Styled like the OTIS handouts by Evan Chen",
