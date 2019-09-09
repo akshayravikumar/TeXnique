@@ -100,8 +100,14 @@
 
             <p> This is what your output looks like: </p>
 
-            <div class="latex">
-              <div id="out"></div>
+            <div class="out-container">
+                <div class="latex">
+                  <div id="shadow-target"></div>
+                </div>
+
+                <div class="latex out">
+                  <div id="out"></div>
+                </div>
             </div>
 
             <br>
@@ -109,6 +115,14 @@
             <p> Edit your code here: </p>
 
             <textarea id="user-input"></textarea>
+
+            <br><br>
+
+            <div id="options-container">
+              <input type="checkbox" class="checkbox" id="shadow-checkbox"></input>
+              <label id="l-shadow-checkbox" for="shadow-checkbox" tabindex="0"></label>
+              <p id="toggle-shadow-desc">Toggle Shadow</p>
+            </div>
         </div>
     </div>
   </main>
