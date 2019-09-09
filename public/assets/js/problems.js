@@ -104,12 +104,12 @@ let problems = [
 	{
 		"title": "Stokes' Theorem",
 		"description": "Fun",
-		"latex": String.raw`\iint_S \nabla \times \mathbf{F} \cdot d\mathbf{S} = \oint_\Gamma \mathbf{F} \cdot d \mathbf{\Gamma} `
+		"latex": String.raw`\iint_S \nabla \times \mathbf{F} \cdot \mathrm d\mathbf{S} = \oint_\Gamma \mathbf{F} \cdot \mathrm d \mathbf{\Gamma} `
 	},
 	{
 		"title": "Divergence Theorem",
 		"description": "Fun",
-		"latex": String.raw`\iiint_V (\nabla \cdot \mathbf{F}) dV = \oiint_S (\mathbf{F} \cdot \mathbf{n}) dS`
+		"latex": String.raw`\iiint_V (\nabla \cdot \mathbf{F}) \mathrm dV = \oiint_S (\mathbf{F} \cdot \mathbf{n}) \mathrm dS`
 	},
 	{
 		"title": "Cauchy-Schwarz Inequality",
@@ -359,7 +359,7 @@ let problems = [
 	{
 		"title": "Wigner Transform of the Density Matrix",
 		"description": "I know some of these words",
-		"latex": String.raw`W(x,p) = \frac{1}{\pi \hbar} \int_{-\infty}^\infty \langle x + y | \hat{\rho} | x - y \rangle e^{-2ipy/\hbar} dy`
+		"latex": String.raw`W(x,p) = \frac{1}{\pi \hbar} \int_{-\infty}^\infty \langle x + y | \hat{\rho} | x - y \rangle e^{-2ipy/\hbar} \mathrm dy`
 	},
 	{
 		"title": "Imaginary numbers",
@@ -409,7 +409,7 @@ let problems = [
 	{
 		"title": "Root Mean Square",
 		"description": "how could i forget",
-		"latex": String.raw`f_{\text{rms}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [f(t)]^2 dt}`
+		"latex": String.raw`f_{\text{rms}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [f(t)]^2 \mathrm dt}`
 	},
   {
     "title": "The Harmonic Series",
