@@ -152,7 +152,7 @@ let problems = [
 		"latex": String.raw`\binom{n}{k} = \frac{n!}{k!(n-k)!}`
 	},
 	{
-		"title": "Hein's Identity",
+		"title": "Heine's Identity",
 		"description": "No idea what this is. Looks cool tho.",
 		"latex": String.raw`\frac{1}{\sqrt{z - \cos \psi}} = \frac{\sqrt{2}}{\pi} \sum_{m = -\infty}^\infty Q_{m - \frac{1}{2}}(z) e^{im\psi}`
 	},
