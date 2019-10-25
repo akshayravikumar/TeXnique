@@ -264,12 +264,12 @@ let problems = [
 	{
 		"title": "Sawtooth Function",
 		"description": "mathbb cases floors, this has it all",
-		"latex": String.raw`S(x) = \begin{cases} x - \lfloor x \rfloor - 1/2, & x \in \mathbb{R} \setminus \mathbb{Z} \\ 0, & x \in \mathbb{Z} \end{cases}`
+		"latex": String.raw`S(x) = \begin{cases} x - \lfloor x \rfloor - 1/2 & x \in \mathbb{R} \setminus \mathbb{Z} \\ 0 & x \in \mathbb{Z} \end{cases}`
 	},
 	{
 		"title": "Definition of Graham's Number",
 		"description": "G = g_{64}",
-		"latex": String.raw`g_n = \begin{cases} 3 \uparrow \uparrow \uparrow \uparrow 3, & n = 1 \\ 3 \uparrow^{g_{n-1}} 3, & n \ge 2,n \in \mathbb{N} \end{cases}`
+		"latex": String.raw`g_n = \begin{cases} 3 \uparrow \uparrow \uparrow \uparrow 3 & n = 1 \\ 3 \uparrow^{g_{n-1}} 3 & n \ge 2,n \in \mathbb{N} \end{cases}`
 	},
 	{
 		"title": "Burnside's Lemma",
@@ -434,7 +434,7 @@ let problems = [
 	{
 		"title": "Power Mean",
 		"description": "like RMS-AM-GM-HM but like generalized",
-		"latex": String.raw`M_r(x_1,x_2,\dots,x_n) = \begin{cases} \left(\frac{1}{n}\sum_{i=1}^n x_i^r\right)^{1/r} & r \ne 0, \\ \sqrt[n]{\prod_{i=1}^n x_i} & r = 0 \end{cases}`
+		"latex": String.raw`M_r(x_1,x_2,\dots,x_n) = \begin{cases} \left(\frac{1}{n}\sum_{i=1}^n x_i^r\right)^{1/r} & r \ne 0 \\ \sqrt[n]{\prod_{i=1}^n x_i} & r = 0 \end{cases}`
 	},
 	{
 		"title": "Law of Tangents",
