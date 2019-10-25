@@ -79,6 +79,10 @@
             <br><br>
 
             <button id="reset-button" class="latex-button">Play Again</button>
+            <button id="show-skipped-button" class="latex-button">Show Skipped</button>
+
+            <div id="skipped-problems">
+            </div>
         </div>
 
         <div id="game-window">
@@ -90,7 +94,7 @@
 
             <br><br>
 
-            <p id="problem-header"><span id="problem-title"></span>&nbsp;<span id="problem-points"></span></p>
+            <p class="problem-header"><span id="problem-title" class="title"></span>&nbsp;<span id="problem-points"></span></p>
 
             <p> Try to create the following formula: </p>
 
@@ -116,7 +120,7 @@
 
             <p> Edit your code here: </p>
 
-            <textarea id="user-input"></textarea>
+            <textarea id="user-input" class="latex-source"></textarea>
 
             <br><br>
 
