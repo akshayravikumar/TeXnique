@@ -1,4 +1,4 @@
-let TIMEOUT_SECONDS = 18;
+let TIMEOUT_SECONDS = 180;
 let TIMEOUT_STRING = "three minutes";
 let secondsRemaining = TIMEOUT_SECONDS;
 
@@ -12,6 +12,8 @@ let debug = false;
 let lastTarget = '';
 let mobile = false;
 let showShadow = false;
+let skippedProblems = [];
+let showSkipped = false;
 
 function mobileCheck() {
   var check = false;
@@ -55,6 +57,12 @@ function startTimer(onTimeoutFunc) {
     }, 1000);
 }
 
+function toggleShowSkipped() {
+  $("#skipped-problems").toggle();
+  showSkipped = !showSkipped;
+  $("#show-skipped-button").text(showSkipped ? "Hide Skipped" : "Show Skipped");
+}
+
 function showIntro() {
     $("#game-window").hide();
     $("#ending-window").hide();
@@ -84,6 +92,33 @@ function endGame() {
                      ", for a total score of " + currentScore;
     $("#ending-text").text(endingText);
     $("#ending-text").append("<a style='text-decoration: none;' href='https://www.reddit.com/r/unexpectedfactorial/'>!</a>");
+
+    skippedProblems.forEach(idx => {
+      let target = problems[problemsOrder[idx % problems.length]];
+      let targetId = 'skipTarget' + idx;
+      let skippedProblemsHtml = `
+        <p class="problem-header"><span class="title">${target.title}</span></p>
+        <div class="latex">
+          <div id="${targetId}"></div>
+        </div>
+        <br>
+        <div disabled class="latex-source answer">${target.latex}</div>
+        <br><br>
+      `;
+        $("#skipped-problems").append(skippedProblemsHtml);
+
+        katex.render(target.latex, $("#" + targetId)[0], {
+            throwOnError: false,
+            displayMode: true
+        });
+    });
+    displayLaTeXInBody();
+
+    if (skippedProblems.length > 0) {
+      $("#show-skipped-button").show();
+    } else {
+      $("#show-skipped-button").hide();
+    }
 }
 
 
@@ -94,10 +129,13 @@ function startGame() {
     oldVal = "";
     problemsOrder = [...Array(problems.length).keys()];
     shuffleArray(problemsOrder);
+    skippedProblems = [];
 
     $("#intro-window").hide();
     $("#ending-window").hide();
     $("#game-window").show();
+    $("#skipped-problems").html("");
+    $("#skipped-problems").hide();
 
     displayLaTeXInBody();
 
@@ -232,8 +270,13 @@ $(document).ready(function() {
     });
 
     $("#skip-button").click(function() {
+        skippedProblems.push(problemNumber - 1);
         loadProblem();
     });
+
+    $("#show-skipped-button").click(function() {
+      toggleShowSkipped();
+    })
 
     $("#user-input").on("change keyup paste", function() {
         validateProblem()

@@ -64,6 +64,8 @@ main {
 	background-color: white;
 	border: solid 2px black;
 	padding: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .latex-button:hover {
@@ -160,12 +162,21 @@ main {
 }
 
 #user-input {
+	height: 100px;
+}
+
+.answer {
+	user-select: none;
+	text-align: left;
+	padding: 2px;
+}
+
+.latex-source {
 	font-family: 'Roboto Mono', monospace;
 	resize: none;
 	background-color: black;
 	font-size: 20px;
 	color: white;
-	height: 100px;
 	width: 100%;
 }
 
@@ -173,11 +184,11 @@ main {
 	height: 20px;
 }
 
-#problem-header {
+.problem-header {
 	font-size: 1.5em;
 }
 
-#problem-title {
+.title {
 	font-weight: bold;
 }
 
@@ -244,4 +255,8 @@ label {
 	top: 0px;
 	left: 3px;
 	color: black;
+}
+
+#skipped-problems {
+	display: none;
 }
