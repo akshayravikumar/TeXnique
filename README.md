@@ -6,4 +6,4 @@ A LaTeX speed-typesetting game. How many formulas can you recreate in three minu
 
 ## Contribution
 
-Contributors are welcome! If you'd like to contribute a problem, we'd appreciate it if you provided a screenshot of the rendered LaTeX; the front page of https://katex.org/ might be useful.
+Contributors are welcome! If you'd like to contribute a problem, you can do so via [this form](https://forms.gle/DXjPeTL5DbJBhKRv8) or submit a pull request to this repository directly.

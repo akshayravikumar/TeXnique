@@ -1,4 +1,4 @@
-// Have a problem to add? Feel free to submit a pull request!
+// Have a problem to add? Submit it here: https://forms.gle/DXjPeTL5DbJBhKRv8
 
 let problems = [
 	{
