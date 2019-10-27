@@ -1,7 +1,8 @@
-let TIMEOUT_SECONDS = 180;
+let TIMEOUT_SECONDS = 10;
 let TIMEOUT_STRING = "three minutes";
 let secondsRemaining = TIMEOUT_SECONDS;
 
+let username;
 let oldVal;
 let gameId;
 let currentScore;
@@ -276,7 +277,7 @@ function loadNextProblem(skipped, answer) {
 $(document).ready(function() {
     // Handlers
     $("#start-button").click(function() {
-        let username = $("#username-input").val();
+        username = $("#username-input").val();
         $.ajax({
             url: "/game",
             method: "POST", //First change type to method here
@@ -288,7 +289,7 @@ $(document).ready(function() {
                     $("#username-error").text(response.error);
                     setTimeout(function() {
                         $("#username-error").text("");
-                    }, 1000);
+                    }, 3000);
                     return;
                 }
                 console.log(response);
@@ -303,7 +304,29 @@ $(document).ready(function() {
     });
 
     $("#reset-button").click(function() {
-        startGame();
+        $.ajax({
+            url: "/game",
+            method: "POST", //First change type to method here
+            data: JSON.stringify({"username": username}), // Second add quotes on the value.
+            contentType: "application/json;charset=utf-8",
+            dataType: 'json',
+            success: function(response) {
+                if (response.error) {
+                    $("#ending-error").text(response.error);
+                    setTimeout(function() {
+                        $("#ending-error").text("");
+                    }, 3000);
+                    return;
+                }
+                console.log(response);
+                gameId = response.game_id;
+                startGame();
+                loadProblem(response.game_data, response.current_problem);
+            },
+            error: function() {
+                alert("Server Error")
+            }
+        });
     });
 
     $("#skip-button").click(function() {

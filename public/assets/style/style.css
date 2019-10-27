@@ -224,7 +224,7 @@ main {
 	align-items: center;
 }
 
-#username-error, #game-error {
+#username-error, #game-error, #ending-error {
 	height: 20px;
 	color: red;
 }
