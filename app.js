@@ -191,6 +191,7 @@ app.post('/game', function (req, res) {
         let getDoc = newGameRef.get()
             .then(doc => {
                 if (!doc.exists) {
+                    console.log("Game does not exist");
                     res.json({error: "Error starting game"});
                 } else {
                     let data = doc.data();
