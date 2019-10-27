@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // Initialize firebase
-const serviceAccount = JSON.parse(process.env.FIREBASE_ACCOUNT);
+const serviceAccount = require("./service-account.json");
 console.log(serviceAccount);
 const problems = require('./problems.js');
 let FieldValue = require('firebase-admin').firestore.FieldValue;
