@@ -1,4 +1,4 @@
-service-account.json
+.env
 # Logs
 logs
 *.log
