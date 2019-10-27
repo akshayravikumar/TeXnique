@@ -477,3 +477,11 @@ let problems = [
 		"latex": String.raw`\gamma = \lim_{n \to \infty} \left(\sum_{k=1}^n \frac{1}{k} - \ln n \right) = \int_1^\infty  \left(\frac{1}{\lfloor x \rfloor } - \frac{1}{x} \right) \mathrm dx`
 	}
 ];
+
+// Assign scores
+problems.forEach(problem => {
+	problem.points = Math.ceil(problem.latex.length/10.0);
+});
+
+module.exports = problems;
+

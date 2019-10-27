@@ -4,7 +4,8 @@
   "description": "A LaTeX Typesetting Game",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "firebase-admin": "^8.6.1"
   },
   "devDependencies": {},
   "scripts": {
