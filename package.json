@@ -1,0 +1,25 @@
+{
+  "name": "texnique",
+  "version": "1.0.0",
+  "description": "A LaTeX Typesetting Game",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase-admin": "^8.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshayravikumar/TeXnique.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akshayravikumar/TeXnique/issues"
+  },
+  "homepage": "https://github.com/akshayravikumar/TeXnique#readme"
+}

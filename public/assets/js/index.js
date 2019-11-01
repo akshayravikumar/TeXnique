@@ -1,13 +1,11 @@
-let TIMEOUT_SECONDS = 180;
+let TIMEOUT_SECONDS = 10;
 let TIMEOUT_STRING = "three minutes";
 let secondsRemaining = TIMEOUT_SECONDS;
 
+let username;
 let oldVal;
-let problemNumber = 0;
-let problemPoints = 0;
-let currentScore = 0;
-let numCorrect = 0;
-let problemsOrder;
+let gameId;
+let currentScore;
 let debug = false;
 let lastTarget = '';
 let mobile = false;
@@ -33,6 +31,29 @@ function displayLaTeXInBody() {
         options: {
             throwOnError: false,
             display: false
+        }
+    });
+}
+
+function createLeaderboard(elementId, limit) {
+    $.ajax({
+        url: "/leaderboard?limit=" + limit,
+        method: "GET", //First c
+        success: function(response) {
+            if (response.error) {
+                $("#" + elementId).text(response.error);
+            }
+            let leaders = response.leaders;
+            let content = "<table rules='rows' class='leaderboard-table'>";
+            content += "<tr><th>Username</th><th>Score</th></tr>";
+            leaders.forEach(function(leader) {
+                content += "<tr><td>" + leader.username + "</td><td>" + leader.score + "</td></tr>";
+            });
+            content += "</table>";
+            $("#" + elementId).html(content);
+        },
+        error: function() {
+            alert("Server Error")
         }
     });
 }
@@ -72,6 +93,8 @@ function showIntro() {
                      " Type as many formulas as you can in " + TIMEOUT_STRING + "!";
     $("#intro-text").text(introText);
 
+    createLeaderboard("leaderboard", 10);
+
     if (mobileCheck()) {
       $("#hint-list").prepend("<li><span style=\"color:red\"><b>Consider switching to a desktop browser</b></span></li>")
       mobile = true;
@@ -82,55 +105,40 @@ function showIntro() {
 }
 
 function endGame() {
-    $("#intro-window").hide();
-    $("#game-window").hide();
-    $("#ending-window").show();
-    displayLaTeXInBody();
-
-    let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
-    let endingText = "You finished " + problemsText + " in " + TIMEOUT_STRING +
-                     ", for a total score of " + currentScore;
-    $("#ending-text").text(endingText);
-    $("#ending-text").append("<a style='text-decoration: none;' href='https://www.reddit.com/r/unexpectedfactorial/'>!</a>");
-
-    skippedProblems.forEach(idx => {
-      let target = problems[problemsOrder[idx % problems.length]];
-      let targetId = 'skipTarget' + idx;
-      let skippedProblemsHtml = `
-        <p class="problem-header"><span class="title">${target.title}</span></p>
-        <div class="latex">
-          <div id="${targetId}"></div>
-        </div>
-        <br>
-        <div disabled class="latex-source answer">${target.latex}</div>
-        <br><br>
-      `;
-        $("#skipped-problems").append(skippedProblemsHtml);
-
-        katex.render(target.latex, $("#" + targetId)[0], {
-            throwOnError: false,
-            displayMode: true
-        });
+    $.ajax({
+        url: "/game/finish",
+        method: "POST", //First change type to method here
+        data: JSON.stringify({game_id: gameId}), // Second add quotes on the value.
+        contentType: "application/json;charset=utf-8",
+        dataType: 'json',
+        success: function(response) {
+            if (response.error) {
+                console.log("rip error " + response.error);
+                $("#game-error").text(response.error);
+                setTimeout(function() {
+                    $("#game-error").text("");
+                }, 3000);
+                return;
+            }
+            $("#intro-window").hide();
+            $("#game-window").hide();
+            $("#ending-window").show();
+            displayLaTeXInBody();
+            let numCorrect = response.game_data.num_correct;
+            let currentScore = response.game_data.score;
+            let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
+            let endingText = "You finished " + problemsText + " in " + TIMEOUT_STRING +
+                             ", for a total score of " + currentScore;
+            $("#ending-text").text(endingText);
+            $("#ending-text").append("<a style='text-decoration: none;' href='https://www.reddit.com/r/unexpectedfactorial/'>!</a>");
+        },
+        error: function() {
+            alert("Server Error")
+        }
     });
-    displayLaTeXInBody();
-
-    if (skippedProblems.length > 0) {
-      $("#show-skipped-button").show();
-    } else {
-      $("#show-skipped-button").hide();
-    }
 }
 
-
 function startGame() {
-    problemNumber = 0;
-    currentScore = 0;
-    numCorrect = 0;
-    oldVal = "";
-    problemsOrder = [...Array(problems.length).keys()];
-    shuffleArray(problemsOrder);
-    skippedProblems = [];
-
     $("#intro-window").hide();
     $("#ending-window").hide();
     $("#game-window").show();
@@ -144,13 +152,13 @@ function startGame() {
     displayTime(TIMEOUT_SECONDS);
 
     // Reset and start the timer
-    loadProblem();
     startTimer(function() {
-        endGame(currentScore);
+        endGame();
     });
 }
 
-function loadProblem() {
+function loadProblem(game_data, current_problem) {
+    console.log("hello world");
     // clear current work
     $('#out').empty();
     $('#user-input').val('');
@@ -162,17 +170,17 @@ function loadProblem() {
       $('#user-input').focus();
     }
 
+    currentScore = game_data.score;
+    $("#score").text(currentScore);
+
     // load problem
-    let target = problems[problemsOrder[problemNumber % problems.length]];
-    if (debug) {
-      target = problems[35];
-    }
-    problemNumber += 1;
+    let target = current_problem;
+    problemNumber = game_data.problem_index + 1;
 
     // load problem text
     let problemText = "Problem " + problemNumber + ": " + target.title;
     $("#problem-title").text(problemText);
-    problemPoints = Math.ceil(target.latex.length / 10.0);
+    problemPoints = target.points;
     let pointsText = "(" + problemPoints + ((problemPoints == 1) ? " point)" : " points)");
     $("#problem-points").text(pointsText);
 
@@ -242,19 +250,36 @@ function validateProblem() {
                 if (lastTarget == curTarget) {
                   return;
                 }
-                lastTarget = curTarget;
-                currentScore += problemPoints;
-                numCorrect += 1;
-
-                // Styling changes
                 $('#out').parent().addClass("correct");
                 $('#user-input').prop("disabled", true);
                 $("#score").text(currentScore);
-
-                // Load new problem
-                setTimeout(loadProblem, 1500);
+                loadNextProblem(false, currentVal);
             }
         });
+    });
+}
+
+function loadNextProblem(skipped, answer) {
+    $.ajax({
+        url: "/game/next",
+        method: "POST", // First change type to method here
+        data: JSON.stringify({game_id: gameId, answer: answer, skipped: skipped}), // Second add quotes on the value.
+        contentType: "application/json;charset=utf-8",
+        dataType: 'json',
+        success: function(response) {
+            if (response.error) {
+                console.log("rip error " + response.error);
+                $("#game-error").text(response.error);
+                setTimeout(function() {
+                    $("#game-error").text("");
+                }, 3000);
+                return;
+            }
+            loadProblem(response.game_data, response.current_problem);
+        },
+        error: function() {
+            alert("Server Error")
+        }
     });
 }
 
@@ -262,16 +287,61 @@ function validateProblem() {
 $(document).ready(function() {
     // Handlers
     $("#start-button").click(function() {
-        startGame();
+        username = $("#username-input").val();
+        $.ajax({
+            url: "/game",
+            method: "POST", //First change type to method here
+            data: JSON.stringify({"username": username}), // Second add quotes on the value.
+            contentType: "application/json;charset=utf-8",
+            dataType: 'json',
+            success: function(response) {
+                if (response.error) {
+                    $("#username-error").text(response.error);
+                    setTimeout(function() {
+                        $("#username-error").text("");
+                    }, 3000);
+                    return;
+                }
+                console.log(response);
+                gameId = response.game_id;
+                startGame();
+                loadProblem(response.game_data, response.current_problem);
+            },
+            error: function() {
+                alert("Server Error")
+            }
+        });
     });
 
     $("#reset-button").click(function() {
-        startGame();
+        $.ajax({
+            url: "/game",
+            method: "POST", //First change type to method here
+            data: JSON.stringify({"username": username}), // Second add quotes on the value.
+            contentType: "application/json;charset=utf-8",
+            dataType: 'json',
+            success: function(response) {
+                if (response.error) {
+                    $("#ending-error").text(response.error);
+                    setTimeout(function() {
+                        $("#ending-error").text("");
+                    }, 3000);
+                    return;
+                }
+                console.log(response);
+                gameId = response.game_id;
+                startGame();
+                loadProblem(response.game_data, response.current_problem);
+            },
+            error: function() {
+                alert("Server Error")
+            }
+        });
     });
 
     $("#skip-button").click(function() {
-        skippedProblems.push(problemNumber - 1);
-        loadProblem();
+      skippedProblems.push(problemNumber - 1);
+      loadNextProblem(true, null);
     });
 
     $("#show-skipped-button").click(function() {

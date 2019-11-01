@@ -31,7 +31,7 @@
     <script src="https://bundle.run/pixelmatch@5.0.2"></script>
 
     <!-- custom js -->
-    <script src="assets/js/problems.js"></script>
+    <!-- <script src="assets/js/problems.js"></script> -->
     <script src="assets/js/normalizations.js"></script>
     <script src="assets/js/index.js"></script>
 </head>
@@ -51,7 +51,11 @@
         <div id="intro-window">
             <p id="intro-text"></p>
 
-            <br><br>
+            <p id="username-error"></p>
+            <p> Enter a username (3-15 characters, only using letters, numbers, hyphens, and periods). </p>
+            <input id="username-input" maxlength="15" value="anonymous">
+
+            <br><br><br>
 
             <button id="start-button" class="latex-button">Start Game</button>
 
@@ -69,6 +73,8 @@
                 <li>Use <a href="http://detexify.kirelabs.org/classify.html">Detexify</a> to quickly look up unknown symbols</li>
               </ul>
             </div>
+
+            <div id="leaderboard"></div>
         </div>
 
         <div id="ending-window">
@@ -78,6 +84,7 @@
 
             <br><br>
 
+            <p id="ending-error"></p>
             <button id="reset-button" class="latex-button">Play Again</button>
             <button id="show-skipped-button" class="latex-button">Show Skipped</button>
 
@@ -94,6 +101,7 @@
 
             <br><br>
 
+            <p id="game-error"></p>
             <p class="problem-header"><span id="problem-title" class="title"></span>&nbsp;<span id="problem-points"></span></p>
 
             <p> Try to create the following formula: </p>
