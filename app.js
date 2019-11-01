@@ -11,8 +11,13 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // Initialize firebase
-const serviceAccount = require("./service-account.json");
-console.log(serviceAccount);
+let serviceAccount;
+try {
+    // a path we KNOW is totally bogus and not a module
+    serviceAccount = require('./.env/service-account.json');
+} catch (e) {
+    serviceAccount = JSON.parse(new Buffer(process.env.FIREBASE_ACCOUNT, 'base64'));
+}
 const problems = require('./problems.js');
 let FieldValue = require('firebase-admin').firestore.FieldValue;
 
@@ -216,4 +221,3 @@ app.post('/game', function (req, res) {
 app.use("/", router);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
