@@ -1,4 +1,4 @@
-let TIMEOUT_SECONDS = 10;
+let TIMEOUT_SECONDS = 180;
 let TIMEOUT_STRING = "three minutes";
 let secondsRemaining = TIMEOUT_SECONDS;
 
