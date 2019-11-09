@@ -411,16 +411,16 @@ let problems = [
 		"description": "how could i forget",
 		"latex": String.raw`f_{\text{rms}} = \sqrt{\frac{1}{T_2 - T_1} \int_{T_1}^{T_2} [f(t)]^2 \mathrm dt}`
 	},
-  {
-    "title": "The Harmonic Series",
-    "description": "Classic",
-    "latex": String.raw`\sum^\infty_{n=1} \frac{1}{n} = \infty`
-  },
-  {
-    "title": "Tupper's Self-Referential Formula",
-    "description": "Troll",
-    "latex": String.raw`\frac{1}{2}<\left\lfloor\bmod\left(\left\lfloor\frac{y}{17}\right\rfloor 2^{-17\lfloor x \rfloor - \bmod(\lfloor y \rfloor,17)},2\right)\right\rfloor`
-  },
+	{
+		"title": "The Harmonic Series",
+		"description": "Classic",
+		"latex": String.raw`\sum^\infty_{n=1} \frac{1}{n} = \infty`
+	},
+	{
+		"title": "Tupper's Self-Referential Formula",
+		"description": "Troll",
+		"latex": String.raw`\frac{1}{2}<\left\lfloor\bmod\left(\left\lfloor\frac{y}{17}\right\rfloor 2^{-17\lfloor x \rfloor - \bmod(\lfloor y \rfloor,17)},2\right)\right\rfloor`
+	},
 	{
 		"title": String.raw`H\(\ddot\textbf{o}\)lder's Inequality`,
 		"description": "Styled like the OTIS handouts by Evan Chen",
