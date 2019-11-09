@@ -475,5 +475,85 @@ let problems = [
 		"title": "Definition of the Euler-Mascheroni Constant",
 		"description": "Credit to /u/heropup",
 		"latex": String.raw`\gamma = \lim_{n \to \infty} \left(\sum_{k=1}^n \frac{1}{k} - \ln n \right) = \int_1^\infty  \left(\frac{1}{\lfloor x \rfloor } - \frac{1}{x} \right) \mathrm dx`
+	},
+	{
+		"title": "Mertens' therorem",
+		"description": "actually his third theorem",
+		"latex": String.raw`\prod_{p \in \mathbb P}^n \left(1-\frac 1 p \right)\sim \frac{e^{-\gamma}}{\log n}`
+	},
+	{
+		"title": "Green's First Identity",
+		"description": "Credit to Varge",
+		"latex": String.raw`\int_{\Omega} (\psi \Delta \varphi + \nabla \psi \cdot \nabla \varphi) \mathrm dV = \oint_{\partial \Omega} \psi(\nabla \varphi \cdot \mathbf{n}) \mathrm dS`
+	},
+	{
+		"title": "Cauchy-Riemann Equations",
+		"description": "complex analysis is best analysis (1); credit to blu_bird",
+		"latex": String.raw`\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}`
+	},
+	{
+		"title": "Cauchy's Integral Formula",
+		"description": "complex analysis is best analysis (2); credit to blu_bird",
+		"latex": String.raw`f(z_0) = \frac{1}{2\pi i}\oint_{\Gamma} \frac{f(z)}{z-z_0} \mathrm{d}z`
+	},
+	{
+		"title": "Cauchy's Differentiation Formula",
+		"description": "complex analysis is best analysis (3); credit to blu_bird",
+		"latex": String.raw`f^{(k)}(z_0) = \frac{k!}{2\pi i}\oint_{\Gamma} \frac{f(z)}{(z-z_0)^{k+1}} \mathrm{d}z`
+	},
+	{
+		"title": "Functional Equation for the Riemann-Zeta Function",
+		"description": "This is the simplest example of a functional equation in the Langlands program. Conjecturally all Hasse-Weil zeta functions have Euler factorizations and functional equations with the Riemann zeta function as just one example.",
+		"latex": String.raw`\pi^{-s/2}\Gamma\left(\frac{s}{2}\right)\zeta(s) = \pi^{-(1-s)/2}\Gamma\left(\frac{1-s}{2}\right)\zeta(1-s)`
+	},
+	{
+		"title": "Well-ordering Principle",
+		"description": "Classic. Credit to Eucrue",
+		"latex": String.raw`\forall M(M\subset \mathbb N \wedge M \ne \emptyset \implies \exists m_0 [ m_0 \in M \wedge \forall n (n \in M \implies m \le n)])`
+	},
+	{
+		"title": "Asymptotic Formula for the Dirichlet Divisor Function",
+		"description": "very cool dirichlet",
+		"latex": String.raw`\sum_{n \leq x} \tau(n) = x \log x + (2\gamma -1)x + O(\sqrt{x})`
+	},
+	{
+		"title": "Prime Number Theorem",
+		"description": "trivial",
+		"latex": String.raw`\pi(x) \sim \frac{x}{\log x}`
+	},
+	{
+		"title": "Cumulative Distribution Function of the Gaussian Distribution",
+		"description": "dense",
+		"latex": String.raw`\Phi(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^x e^{-t^2/2} \mathrm{d}t`
+	},
+	{
+		"title": "Chernoff Bound",
+		"description": "I never really learned what this was",
+		"latex": String.raw`\mathbb{P}(X \ge t) \leq \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda t}}`
+	},
+	{
+		"title": "Union Bound",
+		"description": "Never learned what this was either",
+		"latex": String.raw`\mathbb{P}\left(\bigcup_{i=1}^n X_i\right) \leq \sum_{i=1}^n \mathbb{P}(X_i)`
+	},
+	{
+		"title": "Law of Total Probability",
+		"description": "shrug",
+		"latex": String.raw`\mathbb{P}(A) = \sum_{i=1}^n \mathbb{P}(A| B_i)\mathbb{P}(B_i)`
+	},
+	{
+		"title": "Linear Least Squares Estimator",
+		"description": "i love regression analysis",
+		"latex": String.raw`L[X|Y] = \mathbb{E}[X] + \frac{\mathrm{cov}(X,Y)}{\mathrm{var}(Y)} (Y-\mathbb{E}[Y])`
+	},
+	{
+		"title": "Rademacher Complexity",
+		"description": "The empirical Rademacher complexity of a function class",
+		"latex": String.raw`\mathcal{R}_n(\mathcal{F}) = \mathbb{E}_{\varepsilon}\left[\sup_{f \in \mathcal{F}}\frac{1}{n}\sum_{i=1}^{n}\varepsilon_if(x_i) \right ]`
+	},
+	{
+		"title": "Definition of the Dilogarithm",
+		"description": "aka Spence's function. don't wanna be accused of sleeping on spence",
+		"latex": String.raw`\mathrm{Li}_2(z) = -\int_0^z \frac{\log(1-t)}{t}\mathrm{d}t, z \in \mathbb C`
 	}
 ];
