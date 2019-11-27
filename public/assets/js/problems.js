@@ -297,7 +297,7 @@ let problems = [
 		"latex": String.raw`\sin(2\theta) = 2\sin(\theta)\cos(\theta)`
 	},
 	{
-		"title": "Double Angle v2",
+		"title": "Double Angle for \cos",
 		"description": "back to basics",
 		"latex": String.raw`\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)`
 	},
