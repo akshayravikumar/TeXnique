@@ -555,5 +555,40 @@ let problems = [
 		"title": "Definition of the Dilogarithm",
 		"description": "aka Spence's function. don't wanna be accused of sleeping on spence",
 		"latex": String.raw`\mathrm{Li}_2(z) = -\int_0^z \frac{\log(1-t)}{t}\mathrm{d}t, z \in \mathbb C`
+	},
+	{
+		"title": "Leibniz's Determinant Formula",
+		"description": "Determinant of an n by n matrix",
+		"latex": String.raw`\det(A)=\sum_{\sigma\in S_n} \epsilon(\sigma)\prod_{i=1}^n A_{i,\sigma(i)}`
+	},
+	{
+		"title": "Euler-Lagrange Equations",
+		"description": "The basis for all of Lagrangian mechanics",
+		"latex": String.raw`\frac{\partial L}{\partial q_i}=\frac{\text d}{\text dt}\frac{\partial L}{\partial \dot{q_i}}`
+	},
+	{
+		"title": "Definition of the Euler Totient Function",
+		"description": "what does totient mean anyways?",
+		"latex": String.raw`\varphi(n)=|\{k\in\mathbb{N}_{\leq n}|\gcd(k,n)=1\}|=n\prod_{p|n}\left(1-\frac1p\right)`
+	},
+	{
+		"title": "Sum of Divisors",
+		"description": "i guess this person likes multiplicative functions",
+		"latex": String.raw`\sigma(n)=\sum_{d|n} d = \prod_{p^a||n}\left(\frac{p^{a+1}-1}{p-1}\right)`
+	},
+	{
+		"title": "Einstein Field Equations",
+		"description": "This form makes use of the Einstein tensor",
+		"latex": String.raw`G_{\mu\nu}+\Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}T_{\mu\nu}`
+	},
+	{
+		"title": "Second Fundamental Theorem of Calculus",
+		"description": "credit to VBG",
+		"latex": String.raw`\int_a^b f(x)\mathrm{d}x=[F(x)]_{a}^{b}=F(b)-F(a)`
+	},
+	{
+		"title": "Abel's Summation Formula",
+		"description": "unclear to me why this is at all useful tbh",
+		"latex": String.raw`\sum_{x < n \leq y} a(n)f(n) = A(y)f(y) - A(x)f(x) - \int_x^y A(t)f'(t) \mathrm dt`
 	}
 ];
