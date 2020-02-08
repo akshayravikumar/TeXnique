@@ -165,7 +165,7 @@ function loadProblem() {
     // load problem
     let target = problems[problemsOrder[problemNumber % problems.length]];
     if (debug) {
-      target = problems[35];
+      target = problems[problemNumber + 118];
     }
     problemNumber += 1;
 

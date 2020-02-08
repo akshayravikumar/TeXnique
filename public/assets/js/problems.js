@@ -590,5 +590,130 @@ let problems = [
 		"title": "Abel's Summation Formula",
 		"description": "unclear to me why this is at all useful tbh",
 		"latex": String.raw`\sum_{x < n \leq y} a(n)f(n) = A(y)f(y) - A(x)f(x) - \int_x^y A(t)f'(t) \mathrm dt`
+	},
+	{
+		"title": "Lagrange's Theorem",
+		"description": "more group theory",
+		"latex": String.raw`(G:H) = \frac{|G|}{|H|}`
+	},
+	{
+		"title": "Catalan Numbers",
+		"description": "A000108",
+		"latex": String.raw`C_n = \sum_{k=1}^{n-1} C_kC_{n-k-1} = \frac{1}{n+1}\binom{2n}{n}`
+	},
+	{
+		"title": "Ising Model Hamiltonian",
+		"description": "Mathematical model of ferromagnetism",
+		"latex": String.raw`H(\sigma )=-\sum _{\langle i,j\rangle }J_{ij}\sigma _{i}\sigma _{j}-\mu \sum _{j}h_{j}\sigma _{j}`
+	},
+	{
+		"title": "Borwein Integral",
+		"description": "The pattern famously breaks down after this integral.",
+		"latex": String.raw`\int_0^\infty \frac{\sin(x)}{x}\frac{\sin(x/3)}{x/3}\cdots\frac{\sin(x/13)}{x/13}\mathrm dx=\frac{\pi}{2}`
+	},
+	{
+		"title": "Wigner Semicircle Distribution",
+		"description": "Essentially just a semicircle scaled to be a probability distribution.",
+		"latex": String.raw`f(x)=\begin{cases}{2 \over \pi R^2}\sqrt{R^2-x^2}&-R\le x\le R\\ 0&|x|>R\end{cases}`
+	},
+	{
+		"title": "Parseval Gutzmer Formula",
+		"description": "Apply the Cauchy Integral Formula to derive",
+		"latex": String.raw`f(z)=\sum_{k=0}^\infty a_kz^k\implies \frac{1}{2\pi}\int_0^{2\pi}|f(re^{i\theta})|^2\mathrm d\theta=\sum_{k=0}^\infty |a_kr^k|^2`
+	},
+	{
+		"title": "Fubini's Theorem",
+		"description": "switching the order of integration ftw",
+		"latex": String.raw`\int _{X}\left(\int _{Y}f(x,y){\text{d}}y\right){\text{d}}x=\int _{Y}\left(\int _{X}f(x,y){\text{d}}x\right){\text{d}}y=\int _{{X\times Y}}f(x,y){\text{d}}(x,y)`
+	},
+	{
+		"title": "Coarea Formula",
+		"description": "A generalization of Fubini's theorem",
+		"latex": String.raw`\int _{\Omega }g(x)|\nabla u(x)|\mathrm dx=\int _{\mathbb {R} }\left(\int _{u^{-1}(t)}g(x)\mathrm dH_{n-1}(x)\right)\mathrm dt`
+	},
+	{
+		"title": "Equation of a Torus",
+		"description": "yum, donuts",
+		"latex": String.raw`(\sqrt{x^2 + y^2} - R)^2 + z^2 = r`
+	},
+	{
+		"title": "Ampère-Maxwell law",
+		"description": "credit to Andrija",
+		"latex": String.raw`\nabla \times \mathbf{B} = \mu_0\left(\mathbf{J} + \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t}\right)`
+	},
+	{
+		"title": "Gauss's Flux Theorem",
+		"description": "guess we're doing all of Maxwell's equations now huh",
+		"latex": String.raw`\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}`
+	},
+	{
+		"title": "Gauss's law for Magnetism",
+		"description": "I'll need to fix this once we discover magnetic monopoles.",
+		"latex": String.raw`\nabla \cdot \mathbf{B} = 0`
+	},
+	{
+		"title": "Maxwell–Faraday equation",
+		"description": "induction",
+		"latex": String.raw`\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}`
+	},
+	{
+		"title": "Eigenvalue Formula",
+		"description": "this yields the characteristic polynomial",
+		"latex": String.raw`\det(\mathbf{A} - \lambda \mathbf{I}) = 0`
+	},
+	{
+		"title": "Collatz Function",
+		"description": "The conjecture is that repeated applications of this function always hit 1.",
+		"latex": String.raw`f(n) = \begin{cases} n/2 & n \equiv 0 \pmod 2 \\ 3n + 1 & n \equiv 1 \pmod 2 \end{cases}`
+	},
+	{
+		"title": "Gamma Function",
+		"description": "A generalization of the factorial function",
+		"latex": String.raw`\Gamma(z) = \int_0^\infty x^{z - 1}e^{-x} \mathrm dx`
+	},
+	{
+		"title": "Laplace Transform",
+		"description": "signals and systems baby",
+		"latex": String.raw`\mathcal{L}\{f\}(s) = \int_0^\infty f(t) e^{-st} \mathrm dt`
+	},
+	{
+		"title": "Taylor Series",
+		"description": "When a = 0, it's a Maclaurin series",
+		"latex": String.raw`f(x) = \sum_{n = 0}^\infty \frac{f^{(n)}(a)}{n!} (x - a)^n`
+	},
+	{
+		"title": "Quaternion Multiplication Formula",
+		"description": "Hamilton famously carved this formula into the stone of a bridge when he came up with it.",
+		"latex": String.raw`\mathbf i^2 = \mathbf j^2 = \mathbf k^2 = \mathbf i\mathbf j\mathbf k = -1`
+	},
+	{
+		"title": "General Solution to First-Order Linear Differential Equations",
+		"description": "You can derive this with an integrating factor. ",
+		"latex": String.raw`y = e^{-\int P(x) \mathrm dx} \int Q(x) e^{\int P(x) \mathrm dx} \mathrm dx + Ce^{-\int P(x)\mathrm dx}`
+	},
+	{
+		"title": "Fibonacci Binomial Coefficients Identity",
+		"description": "Sum up the shallow diagonals of Pascal's triangle to make Fibonacci numbers",
+		"latex": String.raw`F_{n+1}=\binom n 0 +\binom {n-1}1+\binom{n-2}2+\cdots + \binom{n - \lfloor n/2 \rfloor }{\lfloor n/2 \rfloor}`
+	},
+	{
+		"title": "Bellman Optimality Equation",
+		"description": "Somehow connected to reinforcement learning! Credit to Constantine.",
+		"latex": String.raw`V^{\pi*}(s)=  \max_a \{ {R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^{\pi*}(s')} \}`
+	},
+	{
+		"title": "Definition of a Well-founded Relation",
+		"description": "R is well-founded iff every proper subset contains a minimal element with respect to R. Credit to Constantine.",
+		"latex": String.raw`(\forall S \subseteq X) [S \neq \emptyset \implies (\exists m \in S) (\forall s \in S) \lnot(sRm)]`
+	},
+	{
+		"title": "Estimation Lemma",
+		"description": "Credit to Ben Napier.",
+		"latex": String.raw`\left|\int_\gamma f(z) \mathrm dz\right|\leq L(\gamma) \sup_\gamma \lvert f \rvert`
+	},
+	{
+		"title": "Chaitin's Constant",
+		"description": "The probability that a randomly constructed program will halt.",
+		"latex": String.raw`\Omega_{F} = \sum_{p \in P_F} 2^{-|p|}`
 	}
 ];
