@@ -709,7 +709,7 @@ let problems = [
 	{
 		"title": "Estimation Lemma",
 		"description": "Credit to Ben Napier.",
-		"latex": String.raw`\left|\int_\gamma f(z) \mathrm dz\right|\leq L(\gamma) \sup_\gamma \lvert f \rvert`
+		"latex": String.raw`\left|\int_\gamma f(z) \mathrm dz\right|\leq L(\gamma) \sup_\gamma | f |`
 	},
 	{
 		"title": "Chaitin's Constant",
