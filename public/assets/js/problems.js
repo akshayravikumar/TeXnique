@@ -624,7 +624,7 @@ let problems = [
 	{
 		"title": "Fubini's Theorem",
 		"description": "switching the order of integration ftw",
-		"latex": String.raw`\int _{X}\left(\int _{Y}f(x,y){\text{d}}y\right){\text{d}}x=\int _{Y}\left(\int _{X}f(x,y){\text{d}}x\right){\text{d}}y=\int _{{X\times Y}}f(x,y){\text{d}}(x,y)`
+		"latex": String.raw`\int _{X}\left(\int _{Y}f(x,y) \mathrm dy\right) \mathrm dx=\int _{Y}\left(\int _{X}f(x,y) \mathrm dx\right) \mathrm dy=\int _{{X\times Y}}f(x,y)\mathrm d(x,y)`
 	},
 	{
 		"title": "Coarea Formula",
