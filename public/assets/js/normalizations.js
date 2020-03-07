@@ -34,6 +34,30 @@ let normalizations = [
   {
     "rule": /\\Longrightarrow(?!\w)/g,
     "replacement": String.raw`\implies`
+  },
+  {
+    "rule": /\\cdotp/gi,
+    "replacement": String.raw`\cdot`
+  },
+  {
+    "rule": /\\bullet/gi,
+    "replacement": String.raw`\cdot`
+  },
+  {
+    "rule": /\\textbullet/gi,
+    "replacement": String.raw`\cdot`
+  },
+  {
+    "rule": /\rightarrow/g,
+    "replacement": String.raw`\to`
+  },
+  {
+    "rule": /\\iff/g,
+    "replacement": String.raw`\Longleftrightarrow`
+  },
+  {
+    "rule": /\\implies/g,
+    "replacement": String.raw`\Longrightarrow`
   }
 ];
 

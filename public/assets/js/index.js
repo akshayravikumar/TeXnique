@@ -14,6 +14,7 @@ let mobile = false;
 let showShadow = false;
 let skippedProblems = [];
 let showSkipped = false;
+let target;
 
 function mobileCheck() {
   var check = false;
@@ -50,7 +51,7 @@ function startTimer(onTimeoutFunc) {
     let timer = setInterval(function() {
         secondsRemaining--;
         displayTime(secondsRemaining);
-        if (secondsRemaining == 0) {
+        if (secondsRemaining <= 0) {
             clearInterval(timer);
             onTimeoutFunc();
         }
@@ -94,20 +95,20 @@ function endGame() {
     $("#ending-text").append("<a style='text-decoration: none;' href='https://www.reddit.com/r/unexpectedfactorial/'>!</a>");
 
     skippedProblems.forEach(idx => {
-      let target = problems[problemsOrder[idx % problems.length]];
+      let failedTarget = problems[problemsOrder[idx % problems.length]];
       let targetId = 'skipTarget' + idx;
       let skippedProblemsHtml = `
-        <p class="problem-header"><span class="title">${target.title}</span></p>
+        <p class="problem-header"><span class="title">${failedTarget.title}</span></p>
         <div class="latex">
           <div id="${targetId}"></div>
         </div>
         <br>
-        <div disabled class="latex-source answer">${target.latex}</div>
+        <div disabled class="latex-source answer">${failedTarget.latex}</div>
         <br><br>
       `;
         $("#skipped-problems").append(skippedProblemsHtml);
 
-        katex.render(target.latex, $("#" + targetId)[0], {
+        katex.render(failedTarget.latex, $("#" + targetId)[0], {
             throwOnError: false,
             displayMode: true
         });
@@ -163,7 +164,7 @@ function loadProblem() {
     }
 
     // load problem
-    let target = problems[problemsOrder[problemNumber % problems.length]];
+    target = problems[problemsOrder[problemNumber % problems.length]];
     if (debug) {
       target = problems[problemNumber + 118];
     }
@@ -199,6 +200,10 @@ function normalize(input) {
   return input;
 }
 
+function render(latex) {
+  return katex.renderToString(latex, {throwOnError: false, output: "mathml", displayMode: true}).slice(0, -39 - latex.length);
+}
+
 function validateProblem() {
     let currentVal = normalize($("#user-input").val());
     if (currentVal == oldVal) {
@@ -217,45 +222,18 @@ function validateProblem() {
       return;
     }
 
+    if (render(normalize(target.latex)) == render(currentVal)) {
+      currentScore += problemPoints;
+      numCorrect += 1;
 
-    if ($("#target").width() != $("#out").width()) {
-        // Return if the element widths are different.
-        return;
+      // Styling changes
+      $('#out').parent().addClass("correct");
+      $('#user-input').prop("disabled", true);
+      $("#score").text(currentScore);
+
+      // Load new problem
+      setTimeout(loadProblem, 1500);
     }
-
-    html2canvas($('#target')[0], {}).then(function (targetCanvas) {
-        $('#out').parent().removeClass("correct");
-        let width = targetCanvas.width;
-        let height = targetCanvas.height;
-        let targetData = targetCanvas.getContext("2d").getImageData(0, 0, width, height);
-        let curTarget = $('#problem-title').text();
-        html2canvas($('#out')[0], {}).then(function (outCanvas) {
-            if (outCanvas.width != width || outCanvas.height != height) {
-              console.log("doesn't match");
-              return;
-            }
-            let outData = outCanvas.getContext("2d").getImageData(0, 0, width, height);
-            let diff = pixelmatch(targetData.data, outData.data, undefined, width, height, {threshold: 0.1});
-            let result = "";
-            console.log("diff is " + diff)
-            if (diff == 0) {
-                if (lastTarget == curTarget) {
-                  return;
-                }
-                lastTarget = curTarget;
-                currentScore += problemPoints;
-                numCorrect += 1;
-
-                // Styling changes
-                $('#out').parent().addClass("correct");
-                $('#user-input').prop("disabled", true);
-                $("#score").text(currentScore);
-
-                // Load new problem
-                setTimeout(loadProblem, 1500);
-            }
-        });
-    });
 }
 
 // Start by showing the intro.
