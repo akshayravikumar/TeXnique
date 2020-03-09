@@ -2,6 +2,7 @@ let TIMEOUT_SECONDS = 180;
 let TIMEOUT_STRING = "three minutes";
 let secondsRemaining = TIMEOUT_SECONDS;
 
+let gameTimer;
 let oldVal;
 let problemNumber = 0;
 let problemPoints = 0;
@@ -47,7 +48,7 @@ function displayTime(secs) {
 
 function startTimer(onTimeoutFunc) {
     secondsRemaining = TIMEOUT_SECONDS;
-    let timer = setInterval(function() {
+    gameTimer = setInterval(function() {
         secondsRemaining--;
         displayTime(secondsRemaining);
         if (secondsRemaining == 0) {
@@ -82,6 +83,8 @@ function showIntro() {
 }
 
 function endGame() {
+    clearTimeout(gameTimer);
+
     $("#intro-window").hide();
     $("#game-window").hide();
     $("#ending-window").show();
