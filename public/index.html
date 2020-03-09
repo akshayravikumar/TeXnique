@@ -53,7 +53,8 @@
 
             <br><br>
 
-            <button id="start-button" class="latex-button">Start Game</button>
+            <button id="start-button-timed" class="latex-button">Timed Game</button>
+            <button id="start-button-untimed" class="latex-button">Zen Mode</button>
 
             <br><br><br>
 
@@ -78,7 +79,19 @@
 
             <br><br>
 
-            <button id="reset-button" class="latex-button">Play Again</button>
+            Play again?
+
+            <br><br>
+
+            <button id="reset-button-timed" class="latex-button">Timed Game</button>
+            <button id="reset-button-untimed" class="latex-button">Zen Mode</button>
+
+            <br><br>
+
+            <span id="show-skipped-message">Check out the problems you skipped?</span> 
+
+            <br><br>
+
             <button id="show-skipped-button" class="latex-button">Show Skipped</button>
 
             <div id="skipped-problems">
@@ -87,7 +100,10 @@
 
         <div id="game-window">
             <div id="top-row">
-                <button id="skip-button" class="latex-button">Skip This Problem</button>
+                <span id="left-buttons">
+                    <button id="skip-button" class="latex-button">Skip This Problem</button>
+                    <button id="end-game-button" class="latex-button">End Game</button>
+                </span>
                 <span id="score-wrapper"> <b> Score: &nbsp; </b> <span id="score"></span></span>
                 <span id="timer-wrapper"> <b> Time: &nbsp;  </b> <span id="timer"></span></span>
             </div>
