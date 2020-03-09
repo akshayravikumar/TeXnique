@@ -84,21 +84,22 @@ main {
 }
 
 
-
-#skip-button {
+#left-buttons {
 	float: left;
-	margin-top: -10px;
 	display: inline-block;
 }
 
+#skip-button, #end-game-button {
+	margin-top: -10px;
+}
+
 #top-row {
-	text-align: center;
 }
 
 #score-wrapper {
 	display: inline-block;
   	width: 80px;
-  	left: 50% !important;
+  	margin-left: calc(50% - 315px);
 }
 
 #timer-wrapper {
