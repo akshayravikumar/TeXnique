@@ -150,10 +150,6 @@ function startGame(useTimer) {
 
     $("#score").text(0);
 
-    $("#end-game-button").click(function() {
-        endGame(currentScore);
-    });
-
     if (useTimer) {
         displayTime(TIMEOUT_SECONDS);
 
@@ -303,6 +299,10 @@ $(document).ready(function() {
     $("#show-skipped-button").click(function() {
       toggleShowSkipped();
     })
+
+    $("#end-game-button").click(function() {
+        endGame(currentScore);
+    });
 
     $("#user-input").on("change keyup paste", function() {
         validateProblem()
