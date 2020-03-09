@@ -45,6 +45,10 @@ function displayTime(secs) {
     $("#timer").text(displayText);
 }
 
+function displayInfiniteTime() {
+    katex.render(`\\infty`, $("#timer")[0]);
+}
+
 function startTimer(onTimeoutFunc) {
     secondsRemaining = TIMEOUT_SECONDS;
     let timer = setInterval(function() {
@@ -68,9 +72,9 @@ function showIntro() {
     $("#ending-window").hide();
     $("#intro-window").show();
 
-    let introText =  "This is a game to test your \\(\\LaTeX\\) skills." +
-                     " Type as many formulas as you can in " + TIMEOUT_STRING + "!";
-    $("#intro-text").text(introText);
+    let introText =  "This is a game to test your \\(\\LaTeX\\) skills. <br/> <br/>" +
+                     " Type as many formulas as you can in " + TIMEOUT_STRING + " (timed game), or play an untimed game (zen mode)!";
+    $("#intro-text").html(introText);
 
     if (mobileCheck()) {
       $("#hint-list").prepend("<li><span style=\"color:red\"><b>Consider switching to a desktop browser</b></span></li>")
@@ -115,14 +119,16 @@ function endGame() {
     displayLaTeXInBody();
 
     if (skippedProblems.length > 0) {
+      $("#show-skipped-message").show();
       $("#show-skipped-button").show();
     } else {
+      $("#show-skipped-message").hide();
       $("#show-skipped-button").hide();
     }
 }
 
 
-function startGame() {
+function startGame(useTimer) {
     problemNumber = 0;
     currentScore = 0;
     numCorrect = 0;
@@ -141,13 +147,22 @@ function startGame() {
 
     $("#score").text(0);
 
-    displayTime(TIMEOUT_SECONDS);
-
-    // Reset and start the timer
-    loadProblem();
-    startTimer(function() {
+    $("#end-game-button").click(function() {
         endGame(currentScore);
     });
+
+    if (useTimer) {
+        displayTime(TIMEOUT_SECONDS);
+
+        // Reset and start the timer
+        loadProblem();
+        startTimer(function() {
+            endGame(currentScore);
+        });
+    } else {
+        displayInfiniteTime();
+        loadProblem();
+    }
 }
 
 function loadProblem() {
@@ -261,12 +276,20 @@ function validateProblem() {
 // Start by showing the intro.
 $(document).ready(function() {
     // Handlers
-    $("#start-button").click(function() {
-        startGame();
+    $("#start-button-timed").click(function() {
+        startGame(true);
     });
 
-    $("#reset-button").click(function() {
-        startGame();
+    $("#start-button-untimed").click(function() {
+        startGame(false);
+    });
+
+    $("#reset-button-timed").click(function() {
+        startGame(true);
+    });
+
+    $("#reset-button-untimed").click(function() {
+        startGame(false);
     });
 
     $("#skip-button").click(function() {
