@@ -777,7 +777,7 @@ let problems = [
 		"latex": String.raw`P_{1} + \varrho gy_{1} + \frac{1}{2} \varrho v_{1}^{2} = P_{2} + \varrho gy_{2} + \frac{1}{2} \varrho v_{2}^{2}`
 	},
 	{
-		"title": "Relating Equilibrium Constants",
+		"title": String.raw`Relation between \(K_p\) and \(K_c\)`,
 		"description": "Credit to Freddie Bullard.",
 		"latex": String.raw`K_p = K_c(RT)^{\Delta n}`
 	},
@@ -797,7 +797,7 @@ let problems = [
 		"latex": String.raw`p(\lambda) = \det (\lambda \mathbf{I}_n - \mathbf{A}) \implies p(\mathbf{A}) = 0`
 	},
 	{
-		"title": "Chudnovsky's Formula",
+		"title": String.raw`Chudnovsky's Formula for \(\pi\)`,
 		"description": "This formula, based on a Ramanujan formula, was used to calculate pi to the tens of trillions of digits.",
 		"latex": String.raw`\frac{1}{\pi} = 12 \sum^\infty_{k=0} \frac{(-1)^k (6k)! (545140134k + 13591409)}{(3k)!(k!)^3 (640320)^{3k + 3/2}}`
 	},
