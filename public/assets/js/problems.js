@@ -38,8 +38,8 @@ let problems = [
 	},
 	{
 		"title": "Normal Distribution",
-		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`\Phi(x) = \frac{1}{\sqrt{2\pi \sigma}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}`
+		"description": "Thanks to Martin for correcting this!",
+		"latex": String.raw`\Phi(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}`
 	},
 	{
 		"title": "Fourier Transform",
@@ -642,7 +642,7 @@ let problems = [
 		"latex": String.raw`\nabla \times \mathbf{B} = \mu_0\left(\mathbf{J} + \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t}\right)`
 	},
 	{
-		"title": "Gauss's Flux Theorem",
+		"title": "Gauss's Flux Theorem (differential form)",
 		"description": "guess we're doing all of Maxwell's equations now huh",
 		"latex": String.raw`\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}`
 	},
@@ -715,5 +715,95 @@ let problems = [
 		"title": "Chaitin's Constant",
 		"description": "The probability that a randomly constructed program will halt.",
 		"latex": String.raw`\Omega_{F} = \sum_{p \in P_F} 2^{-|p|}`
+	},
+	{
+		"title": "Cauchy's Differentiation Formula",
+		"description": "Credit to epm",
+		"latex": String.raw`f^{(n)}(a) = \frac{n!}{2\pi i} \oint_{\gamma} \frac{f(z)}{(z-a)^{n+1}} \mathrm{d}z`
+	},
+	{
+		"title": "Defintion of the Quasi-Stationary Distribution",
+		"description": "Getting rid of absorbing states.",
+		"latex": String.raw`\forall B \in \mathcal{B}(\mathcal{X}^a), \forall t \ge 0, P_\nu(Y_t\in B, T > t) = \nu(B)P_\nu(T>t)`
+	},
+	{
+		"title": "Addition of Sound Levels in Decibels",
+		"description": "50dB + 50dB --> ~53dB!",
+		"latex": String.raw`L_{ab} = 10\log_{10}\left(10^{L_a/10}+10^{L_b/10}\right)`
+	},
+	{
+		"title": "Fast-Growing Hierarchy",
+		"description": "You wanna see some real speed?",
+		"latex": String.raw`f_\alpha(n)=\begin{cases}n+1&\alpha=0\\f_\beta(n)&\alpha=\beta+1\\f_{\alpha[n]}(n)&\text{else}\end{cases}`
+	},
+	{
+		"title": "Feigenbaum-Cvitanović Functional Equation",
+		"description": "Damn, that's a mouthful.",
+		"latex": String.raw`g(g(x)) = - \frac{1}{\alpha} g(\alpha x)`
+	},
+	{
+		"title": "Dirac Equation",
+		"description": "Relativistic wave equation. Credit to Leon.",
+		"latex": String.raw`i \hbar \gamma^\mu \partial_\mu \psi - mc \psi = 0 `
+	},
+	{
+		"title": "Feynman's Trick",
+		"description": "Essentially differentiating under the integral sign; the given problem is extremely difficult to solve otherwise. Credit to Aarsh Chotalia.",
+		"latex": String.raw`\int_0^\pi\ln(1-2\alpha\cos x+\alpha^2) \mathrm dx=2\pi\ln|\alpha|`
+	},
+	{
+		"title": "Lorentz Factor",
+		"description": "Time and length change by a factor of gamma when objects move near the speed of light.",
+		"latex": String.raw`\gamma = \frac{1}{\sqrt{1-\frac{v^{2}}{c^{2}}}}`
+	},
+	{
+		"title": "Time Dilation",
+		"description": "Clocks moving at high speed will be observed to tick slower.",
+		"latex": String.raw`\Delta t=\frac{\Delta t_{0}}{\sqrt{1-\frac{v^{2}}{c^{2}}}}`
+	},
+	{
+		"title": "Gauss's Flux Theorem (integral form)",
+		"description": "Use the divergence theorem to get to the differential form.",
+		"latex": String.raw`\oiint_S\mathbf{E}\cdot\mathrm{d}\mathbf{A}=\frac{Q}{\varepsilon_{0}}`
+	},
+	{
+		"title": "Doppler Effect",
+		"description": "beep beep beep",
+		"latex": String.raw`\frac{f_{o}}{f_{s}} = \frac{\lambda_{s}}{\lambda_{o}}= \frac{v\pm v_{o}}{v\mp v_{s}}`
+	},
+	{
+		"title": "Bernoulli's Equation",
+		"description": "I included just because it included this bonkers \varrho thingy. What was wrong with \rho??",
+		"latex": String.raw`P_{1} + \varrho gy_{1} + \frac{1}{2} \varrho v_{1}^{2} = P_{2} + \varrho gy_{2} + \frac{1}{2} \varrho v_{2}^{2}`
+	},
+	{
+		"title": "Relating Equilibrium Constants",
+		"description": "Credit to Freddie Bullard.",
+		"latex": String.raw`K_p = K_c(RT)^{\Delta n}`
+	},
+	{
+		"title": "Van der Waals Equation",
+		"description": "Generalization of the Ideal Gas Law.",
+		"latex": String.raw`\left (P + a \frac{n^2}{V^2} \right ) ( V - nb) = nRT`
+	},
+	{
+		"title": "Maxwell-Boltzmann Distribution",
+		"description": "Don't have enough statistical mechanics formulas.",
+		"latex": String.raw`f(v) = 4 \pi v^2 \left ( \frac {m}{2 \pi k T} \right )^{3/2} e^{-\frac{mv^2}{2k_BT}}`
+	},
+	{
+		"title": "Cayley-Hamilton Theorem",
+		"description": "Square matrices over commutative rings are annihilated by their own characteristic polynomial.",
+		"latex": String.raw`p(\lambda) = \det (\lambda \mathbf{I}_n - \mathbf{A}) \implies p(\mathbf{A}) = 0`
+	},
+	{
+		"title": "Chudnovsky's Formula",
+		"description": "This formula, based on a Ramanujan formula, was used to calculate pi to the tens of trillions of digits.",
+		"latex": String.raw`\frac{1}{\pi} = 12 \sum^\infty_{k=0} \frac{(-1)^k (6k)! (545140134k + 13591409)}{(3k)!(k!)^3 (640320)^{3k + 3/2}}`
+	},
+	{
+		"title": "Residue Theorem",
+		"description": "Q: Why did the mathematician name her dog Cauchy? A: Because it left a residue at every pole.",
+		"latex": String.raw`\frac{1}{2\pi i}\oint_\gamma f(z)\mathrm{d}z=\sum_{p\text{ pole}}\mathbf{I}(\gamma,p)\mathrm{Res}(f,p)`
 	}
 ];
