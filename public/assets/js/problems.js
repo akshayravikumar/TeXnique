@@ -805,5 +805,100 @@ let problems = [
 		"title": "Residue Theorem",
 		"description": "Q: Why did the mathematician name her dog Cauchy? A: Because it left a residue at every pole.",
 		"latex": String.raw`\frac{1}{2\pi i}\oint_\gamma f(z)\mathrm{d}z=\sum_{p\text{ pole}}\mathbf{I}(\gamma,p)\mathrm{Res}(f,p)`
+	},
+	{
+		"title": "Center of Mass",
+		"description": "In a uniform gravitation field, this is the same as the center of gravity.",
+		"latex": String.raw`\mathbf{R} = \frac 1M \iiint_Q \rho(\mathbf{r}) \mathbf{r} \mathrm dV`
+	},
+	{
+		"title": "The Fundamental Group of the Circle",
+		"description": "It's isomorphic to the group of integers. Credit to fish.",
+		"latex": String.raw`\pi_1(S^1) \cong \mathbb{Z}`
+	},
+	{
+		"title": "Definition of the Operator Norm on a Finite Dimensional Banach Space.",
+		"description": "Credit to Richik Chakraborty.",
+		"latex": String.raw`\left \{ \frac{\| T(x) \|'}{\| x \|} : x \neq 0, x \in X \right \} \equiv \left \{ \| T(x) \|' : \| x \| = 1,  x \in X \right\}`
+	},
+	{
+		"title": "Green's Theorem",
+		"description": "Credit to Facejo.",
+		"latex": String.raw`\oint_C (L \mathrm dx +M \mathrm  dy)=\iint_D \left(\frac{\partial M}{\partial x}-\frac{\partial L}{\partial y} \right) \mathrm dx \mathrm dy`
+	},
+	{
+		"title": "Portfolio Variance",
+		"description": "Used to compute the covariance of a portfolio made up of n different assets, if the single variances and covariances are known. Credit to Marco.",
+		"latex": String.raw`\sigma^2_z = \left (\sum_{i=1}^n w^2_i  \sigma^2_i \right )+ 2 \left ( \sum_{i=1}^{n-1}\sum_{j = i+1}^n w_i w_j \sigma_{i, j} \right )`
+	},
+	{
+		"title": "Newton's Method",
+		"description": "Credit to https://github.com/lucasalavapena.",
+		"latex": String.raw`x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}`
+	},
+	{
+		"title": "Shannon Entropy",
+		"description": "Credit to https://github.com/lucasalavapena.",
+		"latex": String.raw`H(X) = -\sum_{i=1}^n P(x_i) \log_2 P(x_i)`
+	},
+	{
+		"title": "Pinsker's inequality",
+		"description": "It's possible I'm off by a factor of two here.",
+		"latex": String.raw`\|\mu - \nu\|_{\mathrm{ TV}} \le \sqrt{2 D_{\rm KL}(\mu\|\nu)}`
+	},
+	{
+		"title": "Sackur-Tetrode equation",
+		"description": "Entropy of monatomic ideal gas. Credit to Haydn Gwyn.",
+		"latex": String.raw`\frac{S}{k_BN} = \ln\left[ \frac VN \left( \frac{4\pi m}{3h^2} \frac UN \right)^{3/2} \right] + \frac52`
+	},
+	{
+		"title": "Condtional Entropy",
+		"description": "The amount of information needed to describe the outcome of a random variable given the outcome of another variable.",
+		"latex": String.raw`\mathrm H (Y|X)=-\sum_{x \in \mathcal X, y \in \mathcal Y}p(x,y)\log{\frac{p(x,y)}{p(x)}}`
+	},
+	{
+		"title": "Force-Potential Relation",
+		"description": "Force is defined as the negative gradient of the potential energy function. Credit to Mayank Kumar.",
+		"latex": String.raw`\mathbf F=-\frac{\partial U}{\partial x}\hat{\mathbf i}-\frac{\partial U}{\partial y}\hat{\mathbf j}-\frac{\partial U}{\partial z}\hat{\mathbf k}=-\vec\nabla(U)`
+	},
+	{
+		"title": "Beta Function",
+		"description": "A special function that is closely related to the gamma function and to binomial coefficients. Credit to Salil Gokhale.",
+		"latex": String.raw`B(x,y)=\int_{0}^{1}t^{x-1}(1-t)^{y-1} \mathrm{d}t`
+	},
+	{
+		"title": "Moist Adiabatic Lapse Rate",
+		"description": "The rate that the temperature falls with respect to altitude in a wet environment.",
+		"latex": String.raw`\Gamma_{\mathrm{w}} = -\frac{\mathrm{d}T}{\mathrm{d}z} = g\frac{\left(1 + \frac{H_{\mathrm{v}} r}{R_{\mathrm{sd}} T}\right)}{\left(c_{\mathrm{pd}} + \frac{H_{\mathrm{v}}^2 r}{R_{\mathrm{sw}} T^2}\right)}`
+	},
+	{
+		"title": "Cardano's Formula",
+		"description": "Solution for a depressed cubic. Credit to TetanicRain7592.",
+		"latex": String.raw`\sqrt[3]{-\frac{q}{2} + \sqrt{\frac{q^{2}}{4} + \frac{p^{3}}{27}}} + \sqrt[3]{-\frac{q}{2} - \sqrt{\frac{q^{2}}{4} + \frac{p^{3}}{27}}}`
+	},
+	{
+		"title": "General Cubic Formula",
+		"description": "The deltas represents the cubic's discriminants. You must choose /any/ cube root and /any/ square root that doesn't result in C = 0. Credit to TetanicRain7592.",
+		"latex": String.raw`C = \sqrt[3]{\frac{\Delta_{1} \pm \sqrt{\Delta_{1}^{2} - 4\Delta_{0}^{3}}}{2}}`
+	},
+	{
+		"title": "Riemann Zeta Function",
+		"description": "This formula works when the real part of s is greater than 1. Other cases require analytic continuation.",
+		"latex": String.raw`\zeta(s)=\frac1{\Gamma (s)}\int_0^\infty\frac{x^{s-1}}{e^x-1}\mathrm dx`
+	},
+	{
+		"title": "Tangent Sum of Angles Formula",
+		"description": "Credit to TetanicRain7592.",
+		"latex": String.raw`\tan(\alpha \pm \beta) = \frac{\tan(\alpha) \pm \tan(\beta)}{1 \mp \tan(\alpha)\tan(\beta)}`
+	},
+	{
+		"title": "Inner Product of Continuous Complex Valued Functions",
+		"description": "Credit to Zeus Hernández.",
+		"latex": String.raw`\langle f,g\rangle=\int_{0}^{2\pi}f(t)\overline{g(t)}\mathrm{d}t`
+	},
+	{
+		"title": "Definition of a Psuedorandom Generator",
+		"description": "Crypto means Cryptography!",
+		"latex": String.raw`\left | \Pr_{x \leftarrow \{0,1\}^k} [\mathcal A (G(x)) = 1] - \Pr_{x \leftarrow \{0,1\}^{p(k)}} [\mathcal A (x) = 1]\right | < \mu(k)`
 	}
 ];
