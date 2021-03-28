@@ -120,6 +120,9 @@ function endGame() {
     });
     displayLaTeXInBody();
 
+    $("#skipped-problems").hide()
+    $("#show-skipped-button").text("Show Skipped");
+    showSkipped = false;
     if (skippedProblems.length > 0) {
       $("#show-skipped-message").show();
       $("#show-skipped-button").show();
