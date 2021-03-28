@@ -95,8 +95,7 @@ function endGame() {
     displayLaTeXInBody();
 
     let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
-    let endingText = "You finished " + problemsText + " in " + TIMEOUT_STRING +
-                     ", for a total score of " + currentScore;
+    let endingText = "You finished " + problemsText + " for a total score of " + currentScore;
     $("#ending-text").text(endingText);
     $("#ending-text").append("<a style='text-decoration: none;' href='https://www.reddit.com/r/unexpectedfactorial/'>!</a>");
 
@@ -156,7 +155,7 @@ function startGame(useTimer) {
         // Reset and start the timer
         loadProblem();
         startTimer(function() {
-            endGame(currentScore);
+            endGame();
         });
     } else {
         displayInfiniteTime();
@@ -301,7 +300,7 @@ $(document).ready(function() {
     })
 
     $("#end-game-button").click(function() {
-        endGame(currentScore);
+        endGame();
     });
 
     $("#user-input").on("change keyup paste", function() {
