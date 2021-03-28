@@ -179,7 +179,7 @@ function loadProblem() {
     // load problem
     let target = problems[problemsOrder[problemNumber % problems.length]];
     if (debug) {
-      target = problems[problemNumber + 159];
+      target = problems[problemNumber + 179];
     }
     problemNumber += 1;
 
