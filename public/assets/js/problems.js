@@ -564,7 +564,7 @@ let problems = [
 	{
 		"title": "Euler-Lagrange Equations",
 		"description": "The basis for all of Lagrangian mechanics",
-		"latex": String.raw`\frac{\partial L}{\partial q_i}=\frac{\text d}{\text dt}\frac{\partial L}{\partial \dot{q_i}}`
+		"latex": String.raw`\frac{\partial L}{\partial q_i}=\frac{\mathrm d}{\mathrm dt}\frac{\partial L}{\partial \dot{q_i}}`
 	},
 	{
 		"title": "Definition of the Euler Totient Function",
