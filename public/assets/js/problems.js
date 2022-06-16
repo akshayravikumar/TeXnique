@@ -79,7 +79,7 @@ let problems = [
 	{
 		"title": "Definition of the Derivative",
 		"description": "17 Equations That Changed the World.",
-		"latex": String.raw`\frac{\mathrm df}{\mathrm dx} = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h}`
+		"latex": String.raw`\frac{\mathrm df}{\mathrm dx} = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}`
 	},
 	{
 		"title": "Euler's Formula for Polyhedra",
