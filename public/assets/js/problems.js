@@ -900,5 +900,15 @@ let problems = [
 		"title": "Definition of a Psuedorandom Generator",
 		"description": "Crypto means Cryptography!",
 		"latex": String.raw`\left | \Pr_{x \leftarrow \{0,1\}^k} [\mathcal A (G(x)) = 1] - \Pr_{x \leftarrow \{0,1\}^{p(k)}} [\mathcal A (x) = 1]\right | < \mu(k)`
+	},
+	{
+		"title": "Generalized Stokes' theorem",
+		"description": "One theorem to rule them all",
+		"latex": String.raw`\int_{\partial M} \omega = \int_M \mathrm{d} \omega`
+	},
+	{
+		"title": "Cartan's magic formula",
+		"description": "A cool little magic trick",
+		"latex": String.raw`\mathcal{L}_X = \mathrm{d} \circ \iota_X + \iota_X \circ \mathrm{d}`
 	}
 ];
