@@ -110,8 +110,9 @@ function endGame() {
     skippedProblems.forEach(idx => {
       let target = problems[problemsOrder[idx % problems.length]];
       let targetId = 'skipTarget' + idx;
+      let skippedPoints = pluralize`(${problemScore(target)} ${"point"})`;
       let skippedProblemsHtml = `
-        <p class="problem-header"><span class="title">${target.title}</span></p>
+        <p class="problem-header"><span class="title">${target.title}</span>&nbsp;<span>${skippedPoints}</span></p>
         <div class="latex">
           <div id="${targetId}"></div>
         </div>
