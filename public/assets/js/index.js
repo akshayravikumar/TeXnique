@@ -22,6 +22,10 @@ function mobileCheck() {
   return check;
 };
 
+function problemScore(problem) {
+    return Math.ceil(problem.latex.length / 10.0);
+}
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -188,7 +192,7 @@ function loadProblem() {
     // load problem text
     let problemText = "Problem " + problemNumber + ": " + target.title;
     $("#problem-title").text(problemText);
-    problemPoints = Math.ceil(target.latex.length / 10.0);
+    problemPoints = problemScore(target);
     let pointsText = "(" + problemPoints + ((problemPoints == 1) ? " point)" : " points)");
     $("#problem-points").text(pointsText);
 
