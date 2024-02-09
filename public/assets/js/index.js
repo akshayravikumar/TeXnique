@@ -22,6 +22,10 @@ function mobileCheck() {
   return check;
 };
 
+function pluralize(strs, n, singular) {
+    return `${strs[0]}${n}${strs[1]}${singular + (n==1 ? "" : "s")}${strs[2]}`
+}
+
 function problemScore(problem) {
     return Math.ceil(problem.latex.length / 10.0);
 }
@@ -97,9 +101,9 @@ function endGame() {
     $("#game-window").hide();
     $("#ending-window").show();
     displayLaTeXInBody();
-
-    let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
-    let endingText = "You finished " + problemsText + " for a total score of " + currentScore;
+    
+    let problemsText = pluralize`${numCorrect} ${"problem"}`;
+    let endingText = `You finished ${problemsText} for a total score of ${currentScore}`;
     $("#ending-text").text(endingText);
     $("#ending-text").append("<a style='text-decoration: none;' href='https://www.reddit.com/r/unexpectedfactorial/'>!</a>");
 
@@ -190,10 +194,10 @@ function loadProblem() {
     problemNumber += 1;
 
     // load problem text
-    let problemText = "Problem " + problemNumber + ": " + target.title;
+    let problemText = `Problem ${problemNumber}: ${target.title}`;
     $("#problem-title").text(problemText);
     problemPoints = problemScore(target);
-    let pointsText = "(" + problemPoints + ((problemPoints == 1) ? " point)" : " points)");
+    let pointsText = pluralize`(${problemPoints} ${"point"})`;
     $("#problem-points").text(pointsText);
 
     displayLaTeXInBody();
