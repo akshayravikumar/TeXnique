@@ -46,8 +46,12 @@ function displayTime(secs) {
     $("#timer").text(displayText);
 }
 
-function displayInfiniteTime() {
-    katex.render(`\\infty`, $("#timer")[0]);
+function infiniteTimer() {
+    secondsElapsed = 0;
+    gameTimer = setInterval(function() {
+        secondsElapsed++;
+        displayTime(secondsElapsed);
+    }, 1000);
 }
 
 function startTimer(onTimeoutFunc) {
@@ -161,8 +165,11 @@ function startGame(useTimer) {
             endGame();
         });
     } else {
-        displayInfiniteTime();
+        displayTime(0);
+
+        // Reset and start the timer
         loadProblem();
+        infiniteTimer();
     }
 }
 
