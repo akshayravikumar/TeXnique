@@ -75,30 +75,34 @@
             </div>
         </div>
 
-        <div id="ending-window">
+        <div id="ending-window" style="display: none; text-align: center;">
+            <h1>Game Over!</h1>
             <p id="ending-text"></p>
-
-            <p>Have a cool idea for a formula we should add? Submit it <a href="https://forms.gle/C3uZSEvDjNuFRHa69" target="_blank">here</a>!</p>
-
-            <br><br>
-
-            Play again?
-
-            <br><br>
-
-            <button id="reset-button-timed" class="latex-button">Timed Game</button>
-            <button id="reset-button-untimed" class="latex-button">Zen Mode</button>
-
-            <br><br>
-
-            <span id="show-skipped-message">Check out the problems you skipped?</span>
-
-            <br><br>
-
-            <button id="show-skipped-button" class="latex-button">Show Skipped</button>
-
-            <div id="skipped-problems">
+            
+            <!-- Score submission form -->
+            <div id="score-submission" style="margin: 20px 0;">
+                <input type="text" id="player-name" maxlength="30" placeholder="Enter your name" style="margin-right: 10px;">
+                <button id="submit-score" class="latex-button">Submit Score</button>
             </div>
+
+            <!-- Leaderboard section -->
+            <div id="leaderboard-section">
+                <h2>Leaderboard</h2>
+                <div class="leaderboard-controls">
+                    <button id="today-scores" class="latex-button active">Today</button>
+                    <button id="month-scores" class="latex-button">This Month</button>
+                    <button id="all-time-scores" class="latex-button">All Time</button>
+                </div>
+                <div id="leaderboard-list">
+                    <!-- Leaderboard entries will be populated here -->
+                </div>
+            </div>
+
+            <p id="show-skipped-message" style="display: none;">Check out the problems you skipped?</p>
+            <button id="show-skipped-button" class="latex-button" style="display: none;">Show Skipped</button>
+            <div id="skipped-problems"></div>
+            <br><br>
+            <button id="play-again-button" class="latex-button">Play Again!</button>
         </div>
 
         <div id="game-window">

@@ -97,8 +97,10 @@ function endGame() {
     let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
     let endingText = "You finished " + problemsText + " for a total score of " + currentScore;
     $("#ending-text").text(endingText);
-    $("#ending-text").append("<a style='text-decoration: none;' href='https://www.reddit.com/r/unexpectedfactorial/'>!</a>");
-
+    
+    // Load initial leaderboard
+    loadLeaderboard('today');
+    
     skippedProblems.forEach(idx => {
       let target = problems[problemsOrder[idx % problems.length]];
       let targetId = 'skipTarget' + idx;
@@ -274,6 +276,63 @@ function validateProblem() {
     });
 }
 
+// Leaderboard functions
+async function submitScore(name, score) {
+    try {
+        await db.collection('leaderboard').add({
+            name: name.trim(),
+            score: score,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        loadLeaderboard('today'); // Refresh leaderboard after submission
+    } catch (error) {
+        console.error("Error submitting score:", error);
+    }
+}
+
+async function loadLeaderboard(timeRange) {
+    const leaderboardList = $("#leaderboard-list");
+    leaderboardList.empty();
+    
+    try {
+        let query = db.collection('leaderboard');
+        
+        // Add time constraints based on selected range
+        const now = new Date();
+        if (timeRange === 'today') {
+            const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            query = query.where('timestamp', '>=', startOfDay);
+        } else if (timeRange === 'month') {
+            const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+            query = query.where('timestamp', '>=', startOfMonth);
+        }
+        
+        const snapshot = await query.orderBy('score', 'desc').limit(10).get();
+        
+        if (snapshot.empty) {
+            leaderboardList.append('<p>No scores yet!</p>');
+            return;
+        }
+        
+        let rank = 1;
+        snapshot.forEach((doc) => {
+            const data = doc.data();
+            const scoreEntry = `
+                <div class="leaderboard-entry" style="margin: 5px 0;">
+                    <span class="rank">#${rank}</span>
+                    <span class="name">${data.name}</span>
+                    <span class="score">${data.score} points</span>
+                </div>
+            `;
+            leaderboardList.append(scoreEntry);
+            rank++;
+        });
+    } catch (error) {
+        console.error("Error loading leaderboard:", error);
+        leaderboardList.append('<p>Error loading leaderboard</p>');
+    }
+}
+
 // Start by showing the intro.
 $(document).ready(function() {
     // Handlers
@@ -321,5 +380,35 @@ $(document).ready(function() {
       }
     });
 
+    // Leaderboard handlers
+    $("#submit-score").click(function() {
+        const playerName = $("#player-name").val().trim();
+        if (playerName.length === 0) {
+            alert("Please enter your name");
+            return;
+        }
+        if (playerName.length > 30) {
+            alert("Name must be 30 characters or less");
+            return;
+        }
+        
+        submitScore(playerName, currentScore);
+        $("#score-submission").hide();
+    });
+    
+    $("#today-scores, #month-scores, #all-time-scores").click(function() {
+        const timeRange = $(this).attr('id').replace('-scores', '');
+        
+        // Update active button
+        $(".leaderboard-controls .button").removeClass('active');
+        $(this).addClass('active');
+        
+        loadLeaderboard(timeRange);
+    });
+    
+    $("#play-again-button").click(function() {
+        showIntro();
+    });
+    
     showIntro();
 });
