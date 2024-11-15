@@ -910,5 +910,10 @@ let problems = [
 		"title": "Cartan's magic formula",
 		"description": "A cool little magic trick",
 		"latex": String.raw`\mathcal{L}_X = \mathrm{d} \circ \iota_X + \iota_X \circ \mathrm{d}`
+	},
+    {
+		"title": "Quadratic reciprocity",
+		"description": "To compute Legendre symbol.",
+		"latex": String.raw`\left(\frac{p}{q}\right)\left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2}\frac{q-1}{2}}`
 	}
 ];
