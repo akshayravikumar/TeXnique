@@ -277,6 +277,16 @@ function validateProblem() {
     });
 }
 
+// Helper function to escape HTML special characters
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
 // Leaderboard functions
 async function submitScore(name, score) {
     try {
@@ -321,7 +331,7 @@ async function loadLeaderboard(timeRange) {
             const scoreEntry = `
                 <div class="leaderboard-entry" style="margin: 5px 0;">
                     <span class="rank">#${rank}</span>
-                    <span class="name">${data.name}</span>
+                    <span class="name">${escapeHtml(data.name)}</span>
                     <span class="score">${data.score} points</span>
                 </div>
             `;
