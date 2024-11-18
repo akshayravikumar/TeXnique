@@ -300,15 +300,21 @@ label {
 .leaderboard-entry .rank {
     font-weight: bold;
     width: 40px;
+    flex-shrink: 0;
 }
 
 .leaderboard-entry .name {
     flex: 1;
     margin: 0 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
 }
 
 .leaderboard-entry .score {
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 #player-name {

@@ -411,7 +411,7 @@ $(document).ready(function() {
         const timeRange = $(this).attr('id').replace('-scores', '');
         
         // Update active button
-        $(".leaderboard-controls .button").removeClass('active');
+        $(".leaderboard-controls .latex-button").removeClass('active');
         $(this).addClass('active');
         
         loadLeaderboard(timeRange);
