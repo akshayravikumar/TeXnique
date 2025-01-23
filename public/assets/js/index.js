@@ -85,6 +85,8 @@ function showIntro() {
 
     displayLaTeXInBody();
     $("#container").show();
+
+    loadTopScoresThisMonth();
 }
 
 function endGame() {
@@ -341,6 +343,46 @@ async function loadLeaderboard(timeRange) {
     } catch (error) {
         console.error("Error loading leaderboard:", error);
         leaderboardList.append('<p>Error loading leaderboard</p>');
+    }
+}
+
+async function loadTopScoresThisMonth() {
+    const leaderboardSection = $("#leaderboard-section");
+    leaderboardSection.empty();
+    
+    try {
+        let query = db.collection('leaderboard');
+        
+        // Add time constraints for the current month
+        const now = new Date();
+        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+        query = query.where('timestamp', '>=', startOfMonth);
+        
+        const snapshot = await query.orderBy('score', 'desc').limit(5).get();
+        
+        if (snapshot.empty) {
+            leaderboardSection.append('<p>No scores yet!</p>');
+            return;
+        }
+        
+        leaderboardSection.append('<h2>Top Scores This Month</h2>');
+        
+        let rank = 1;
+        snapshot.forEach((doc) => {
+            const data = doc.data();
+            const scoreEntry = `
+                <div class="leaderboard-entry" style="margin: 5px 0;">
+                    <span class="rank">#${rank}</span>
+                    <span class="name">${escapeHtml(data.name)}</span>
+                    <span class="score">${data.score} points</span>
+                </div>
+            `;
+            leaderboardSection.append(scoreEntry);
+            rank++;
+        });
+    } catch (error) {
+        console.error("Error loading top scores this month:", error);
+        leaderboardSection.append('<p>Error loading top scores</p>');
     }
 }
 
