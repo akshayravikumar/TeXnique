@@ -11,8 +11,3 @@ A LaTeX speed-typesetting game. How many formulas can you recreate in three minu
 ## Contribution
 
 Contributors are welcome! If you'd like to contribute a problem, you can do so via [this form](https://forms.gle/DXjPeTL5DbJBhKRv8) or submit a pull request to this repository directly.
-
-## Cascade queries
-After someone is done with the game, help me implement a feature where people can submit their scores to a leaderboard (by typing in their name, max 30 chars), and toggle between the top 10 from today, this month, and all-time. I added firebase boilerplate and I have a leaderboard collection with name, score, and timestamp. Please don't create new files. Thank you!
-
-Help me add a cute Wordle-style share button at the end of the game
