@@ -910,5 +910,35 @@ let problems = [
 		"title": "Cartan's magic formula",
 		"description": "A cool little magic trick",
 		"latex": String.raw`\mathcal{L}_X = \mathrm{d} \circ \iota_X + \iota_X \circ \mathrm{d}`
+	},
+	{
+		"title": "Skein Relation of the Jones Polynomial",
+		"description": "cf. Przytycki et al.",
+		"latex": String.raw`\frac{V_{L_+}}{t}-tV_{L_-}=\left(\sqrt t-\frac1{\sqrt t}\right)V_{L_0}`
+	},
+	{
+		"title": "Jones' Definition of the HOMFLY Polynomial",
+		"description": "cf. Hecke algebra representations by Jones",
+		"latex": String.raw`P_L(t,x)=\left(\frac{1-t^2}{tx}\right)^{n-1}\left(\frac{2t}{x+\sqrt{x^2+4}}\right)^{e}\operatorname{tr}(\pi(\alpha))`
+	},
+	{
+		"title": "Fine Structure Constant",
+		"description": "appears in USAPhO 2021 A3",
+		"latex": String.raw`\alpha=\frac{e^2}{4\pi\epsilon_0\hbar c}\approx\frac{1}{137}`
+	},
+	{
+		"title": "King's Rule of Integration",
+		"description": "lol",
+		"latex": String.raw`\int_a^b f(x)\mathrm dx=\int_a^b f(a+b-x)\mathrm dx`
+	},
+	{
+		"title": "Inner Product on 4-Momenta",
+		"description": "usapho stuff",
+		"latex": String.raw`\mathbf{P}_1\cdot\mathbf{P}_2=E_1E_2-\mathbf{p}_1\cdot\mathbf{p}_2`
+	},
+	{
+		"title": "Lagrange's Four Square Theorem",
+		"description": "uses minkowski set addition notation (4A = A + A + A + A)",
+		"latex": String.raw`4\{n^2\mid n\in\mathbb{N}\}=\mathbb{N}`
 	}
 ];
