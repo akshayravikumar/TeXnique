@@ -910,5 +910,20 @@ let problems = [
 		"title": "Cartan's magic formula",
 		"description": "A cool little magic trick",
 		"latex": String.raw`\mathcal{L}_X = \mathrm{d} \circ \iota_X + \iota_X \circ \mathrm{d}`
+	},
+	{
+		"title": "Ridge Regression",
+		"description": "Estimate coefficients of a regression with L2 regularization",
+		"latex": String.raw`\ell(\mathbf{w}) = \frac{1}{N} \| \mathbf{Xw} - \mathbf{y} \|_2^2 + \lambda \|\mathbf{w}\|_2^2`
+	},
+	{
+		"title": "Evidence Lower Bound (ELBO)",
+		"description": "Lower bound on the log-likelihood of observed data",
+		"latex": String.raw`L(\phi,\theta;x) = \mathbb{E}_{z \sim q_\phi\left(\cdot\mid x\right)} \left[ \ln\frac{p_\theta(x,z)}{q_\phi(z\mid x)} \right]`
+	},
+	{
+		"title": "Langevin Dynamics (Overdamped)",
+		"description": "Stochastic gradient flow with a deterministic potential and random noise",
+		"latex": String.raw`\mathrm{d}x_t = -\nabla U(x_t) \mathrm{d}t + \sqrt{2\beta^{-1}} \mathrm{d}W_t`
 	}
 ];
