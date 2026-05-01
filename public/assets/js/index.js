@@ -22,6 +22,14 @@ function mobileCheck() {
   return check;
 };
 
+function pluralize(strs, n, singular) {
+    return `${strs[0]}${n}${strs[1]}${singular + (n==1 ? "" : "s")}${strs[2]}`
+}
+
+function problemScore(problem) {
+    return Math.ceil(problem.latex.length / 10.0);
+}
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -94,9 +102,9 @@ function endGame() {
     $("#game-window").hide();
     $("#ending-window").show();
     displayLaTeXInBody();
-
-    let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
-    let endingText = "You finished " + problemsText + " for a total score of " + currentScore;
+    
+    let problemsText = pluralize`${numCorrect} ${"problem"}`;
+    let endingText = `You finished ${problemsText} for a total score of ${currentScore}`;
     $("#ending-text").text(endingText);
     
     // Load initial leaderboard
@@ -105,8 +113,9 @@ function endGame() {
     skippedProblems.forEach(idx => {
       let target = problems[problemsOrder[idx % problems.length]];
       let targetId = 'skipTarget' + idx;
+      let skippedPoints = pluralize`(${problemScore(target)} ${"point"})`;
       let skippedProblemsHtml = `
-        <p class="problem-header"><span class="title">${target.title}</span></p>
+        <p class="problem-header"><span class="title">${target.title}</span>&nbsp;<span>${skippedPoints}</span></p>
         <div class="latex">
           <div id="${targetId}"></div>
         </div>
@@ -189,10 +198,10 @@ function loadProblem() {
     problemNumber += 1;
 
     // load problem text
-    let problemText = "Problem " + problemNumber + ": " + target.title;
+    let problemText = `Problem ${problemNumber}: ${target.title}`;
     $("#problem-title").text(problemText);
-    problemPoints = Math.ceil(target.latex.length / 10.0);
-    let pointsText = "(" + problemPoints + ((problemPoints == 1) ? " point)" : " points)");
+    problemPoints = problemScore(target);
+    let pointsText = pluralize`(${problemPoints} ${"point"})`;
     $("#problem-points").text(pointsText);
 
     displayLaTeXInBody();
