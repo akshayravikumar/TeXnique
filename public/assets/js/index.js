@@ -387,7 +387,6 @@ $(document).ready(function () {
     
         if (isVimEnabled) {
             editor.setOption("keyMap", "vim");
-            // Add a visual indicator so the user knows they are in a modal editor
             editor.getWrapperElement().classList.add("vim-mode");
         } else {
             editor.setOption("keyMap", "default");
@@ -407,22 +406,6 @@ $(document).ready(function () {
     $("#end-game-button").click(function () {
         endGame();
     });
-
-    // $("#vim-checkbox").change(function () {
-    //     const isVimEnabled = $(this).is(":checked");
-    
-    //     if (isVimEnabled) {
-    //         editor.setOption("keyMap", "vim");
-    //         editor.getWrapperElement().classList.add("vim-mode");
-    //     } else {
-    //         editor.setOption("keyMap", "default");
-    //         editor.getWrapperElement().classList.remove("vim-mode");
-    //     }
-    
-    //     if (!mobile) {
-    //         editor.focus();
-    //     }
-    // });
 
     $("#shadow-checkbox").change(_ => {
         $("#shadow-target").toggle();
