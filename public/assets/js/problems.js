@@ -925,5 +925,51 @@ let problems = [
 		"title": "Langevin Dynamics (Overdamped)",
 		"description": "Stochastic gradient flow with a deterministic potential and random noise",
 		"latex": String.raw`\mathrm{d}x_t = -\nabla U(x_t) \mathrm{d}t + \sqrt{2\beta^{-1}} \mathrm{d}W_t`
+	},
+	{
+		"title": "Ramanujan’s Nested Radical",
+		"description": "Identity where an infinite, self-similar nesting of square roots.",
+		"latex": String.raw`\sqrt{1 + 2\sqrt{1 + 3\sqrt{1 + 4\sqrt{1 + \cdots}}}} = 3`
+	},
+	{
+		"title": "Frullani Integral",
+		"description": "Complex improper integral over an infinite domain into a simple, finite logarithmic expression.",
+		"latex": String.raw`\int_0^\infty \frac{f(ax) - f(bx)}{x} \, dx = (f(0) - f(\infty)) \ln\left(\frac{b}{a}\right)`
+	},	
+	{
+		"title": "Weierstrass Product for Sine",
+		"description": "The sine function represented as an infinite product of its roots",
+		"latex": String.raw`\sin(\pi x) = \pi x \prod_{n=1}^{\infty} \left(1 - \frac{x^2}{n^2}\right)`
+	},
+	{
+		"title": "Poisson Summation Formula",
+		"description": "Establishes a fundamental bridge between a function's discrete samples and its Fourier transform.",
+		"latex": String.raw`\sum_{n=-\infty}^{\infty} f(n) = \sum_{k=-\infty}^{\infty} \hat{f}(k)`
+	},
+	{
+		"title": "Baker-Campbell-Hausdorff (first terms)",
+		"description": "Calculates the error or difference caused by that specific order.",
+		"latex": String.raw`\log(e^X e^Y) = X + Y + \frac{1}{2}[X,Y] + \frac{1}{12}[X,[X,Y]] - \frac{1}{12}[Y,[X,Y]] + \cdots`
+	},
+	{
+		"title": "Kolmogorov Forward Equation (Fokker–Planck)",
+		"description": "How the probability distribution of a system's state evolves over time.",
+		"latex": String.raw`\frac{\partial p}{\partial t} = -\frac{\partial}{\partial x}(A(x)p) + \frac{1}{2}\frac{\partial^2}{\partial x^2}(B(x)p)`
+	},
+	{
+		"title": "Hadamard Three-Circle Theorem (log form)",
+		"description": "How the maximum modulus of a holomorphic function grows across concentric circles in the complex plane.",
+		"latex": String.raw`\log M(r) \le \frac{\log(r_2/r)}{\log(r_2/r_1)} \log M(r_1) + \frac{\log(r/r_1)}{\log(r_2/r_1)} \log M(r_2)`
+	},
+	{
+		"title": "Selberg Integral",
+		"description": "An n-dimensional generalization of the Beta integral and is fundamental to random matrix theory and multivariate statistics.",
+		"latex": String.raw`\int_0^1 \cdots \int_0^1 \prod_{i=1}^n x_i^{\alpha-1}(1-x_i)^{\beta-1} \prod_{i<j} |x_i - x_j|^{2\gamma} dx_i`
+	},
+	{
+		"title": "Kac’s Moment Formula (Brownian motion)",
+		"description": "A recursive way to calculate the moments of the total time a process spends in a specific set for Brownian motion or other Markov processes.",
+		"latex": String.raw`\mathbb{E}\left[\left(\int_0^t f(B_s)\,ds\right)^n\right] = n! \int_{0 \le t_1 \le \cdots \le t_n \le t} \mathbb{E}\left[f(B_{t_1}) \cdots f(B_{t_n})\right] dt_1 \cdots dt_n`
 	}
+
 ];
