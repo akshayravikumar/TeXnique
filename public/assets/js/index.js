@@ -380,6 +380,76 @@ $(document).ready(function() {
         validateProblem()
     });
 
+    const bracketPairs = { '(': ')', '[': ']', '{': '}' };
+    const closeBrackets = new Set(Object.values(bracketPairs));
+    $("#user-input").on("keydown", function(e) {
+        // Backspace: delete matching close bracket if cursor is between a pair
+        if (e.key === 'Backspace') {
+            const textarea = this;
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            if (start === end && start > 0) {
+                const val = textarea.value;
+                const charBefore = val[start - 1];
+                const charAfter = val[start];
+                if (charBefore in bracketPairs && bracketPairs[charBefore] === charAfter) {
+                    e.preventDefault();
+                    textarea.value = val.substring(0, start - 1) + val.substring(start + 1);
+                    textarea.selectionStart = start - 1;
+                    textarea.selectionEnd = start - 1;
+                    validateProblem();
+                }
+            }
+            return;
+        }
+
+        const open = e.key;
+        if (!(open in bracketPairs) && !closeBrackets.has(e.key)) return;
+
+        // Close bracket: skip over it if it's already the next character
+        if (closeBrackets.has(e.key)) {
+            const textarea = this;
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            if (start === end && textarea.value[start] === e.key) {
+                e.preventDefault();
+                textarea.selectionStart = start + 1;
+                textarea.selectionEnd = start + 1;
+            }
+            return;
+        }
+
+        if (!(open in bracketPairs)) return;
+        const close = bracketPairs[open];
+        const textarea = this;
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const val = textarea.value;
+        const textBefore = val.substring(0, start);
+        const precededByLeftBackslash = open === '{' && textBefore.endsWith('\\left\\');                    // "\left\}" case
+        const precededByLeft = !precededByLeftBackslash && textBefore.endsWith('\\left');                   // "\left" case but not "\left\"
+        const precededByBackslash = open === '{' && !precededByLeftBackslash && textBefore.endsWith('\\');  // "\" case for "{" but not "\left\{"
+        const closeStr = precededByLeftBackslash ? '\\right\\}' :       // "\left\}" -> "\right\}"
+                         precededByLeft         ? '\\right' + close :   // "\left?" -> "\right?"
+                         precededByBackslash    ? '\\}' :               // "\{" -> "\}"
+                                                  close;                // normal case: "(" -> ")", etc.
+        e.preventDefault();
+        if (start !== end) {
+            // Wrap the selection
+            const selected = val.substring(start, end);
+            textarea.value = val.substring(0, start) + open + selected + closeStr + val.substring(end);
+            textarea.selectionStart = start + 1;
+            textarea.selectionEnd = end + 1;
+        } else {
+            // Insert pair and place cursor between them
+            textarea.value = val.substring(0, start) + open + closeStr + val.substring(end);
+            textarea.selectionStart = start + 1;
+            textarea.selectionEnd = start + 1;
+        }
+
+        validateProblem();
+    });
+
     $("#shadow-checkbox").change(_ => {
         $("#shadow-target").toggle();
     });
