@@ -971,5 +971,4 @@ let problems = [
 		"description": "A recursive way to calculate the moments of the total time a process spends in a specific set for Brownian motion or other Markov processes.",
 		"latex": String.raw`\mathbb{E}\left[\left(\int_0^t f(B_s)\,ds\right)^n\right] = n! \int_{0 \le t_1 \le \cdots \le t_n \le t} \mathbb{E}\left[f(B_{t_1}) \cdots f(B_{t_n})\right] dt_1 \cdots dt_n`
 	}
-
 ];
