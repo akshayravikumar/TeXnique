@@ -403,6 +403,86 @@ $(document).ready(function() {
             return;
         }
 
+        // Handle special \left sequences and multi-char delimiter patterns
+        {
+            const textarea = this;
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const val = textarea.value;
+            const textBefore = val.substring(0, start);
+            const textAfter = val.substring(end);
+
+            // \left| -> |\right|
+            if (e.key === '|' && start === end && textBefore.endsWith('\\left')) {
+                e.preventDefault();
+                textarea.value = textBefore + '|\\right|' + textAfter;
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                validateProblem();
+                return;
+            }
+
+            // \left< -> <\right>
+            if (e.key === '<' && start === end && textBefore.endsWith('\\left')) {
+                e.preventDefault();
+                textarea.value = textBefore + '<\\right>' + textAfter;
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                validateProblem();
+                return;
+            }
+
+            // \lang -> \lang\rang (cursor between); \langl+e with \rang after -> \langle\rangle
+            if (e.key === 'g' && start === end && textBefore.endsWith('\\lan')) {
+                e.preventDefault();
+                textarea.value = textBefore + 'g\\rang' + textAfter;
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                validateProblem();
+                return;
+            }
+            if (e.key === 'e' && start === end && textBefore.endsWith('\\langl') && textAfter.startsWith('\\rang')) {
+                e.preventDefault();
+                textarea.value = textBefore + 'e\\rangle' + textAfter.substring('\\rang'.length);
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                validateProblem();
+                return;
+            }
+
+            // \lfloor / \left\lfloor -> \rfloor / \right\rfloor
+            if (e.key === 'r' && start === end) {
+                if (textBefore.endsWith('\\left\\lfloo')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 'r\\right\\rfloor' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+                if (textBefore.endsWith('\\lfloo')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 'r\\rfloor' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+            }
+
+            // \lceil / \left\lceil -> \rceil / \right\rceil
+            if (e.key === 'l' && start === end) {
+                if (textBefore.endsWith('\\left\\lcei')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 'l\\right\\rceil' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+                if (textBefore.endsWith('\\lcei')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 'l\\rceil' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+            }
+        }
+
         const open = e.key;
         if (!(open in bracketPairs) && !closeBrackets.has(e.key)) return;
 
