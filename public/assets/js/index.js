@@ -403,6 +403,28 @@ $(document).ready(function() {
             return;
         }
 
+        // Tab: skip past the next } or \end{xxx}
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const textarea = this;
+            const start = textarea.selectionStart;
+            if (start === textarea.selectionEnd) {
+                const val = textarea.value;
+                const textAfter = val.substring(start);
+                const endMatch = textAfter.match(/^\\end\{[^}]*\}/);
+                if (endMatch) {
+                    textarea.selectionStart = textarea.selectionEnd = start + endMatch[0].length;
+                    return;
+                }
+                const braceIdx = textAfter.indexOf('}');
+                if (braceIdx !== -1) {
+                    textarea.selectionStart = textarea.selectionEnd = start + braceIdx + 1;
+                    return;
+                }
+            }
+            return;
+        }
+
         // Handle special \left sequences and multi-char delimiter patterns
         {
             const textarea = this;
@@ -412,6 +434,15 @@ $(document).ready(function() {
             const textBefore = val.substring(0, start);
             const textAfter = val.substring(end);
 
+            // \left\| -> \left\|\right\|
+            if (e.key === '|' && start === end && textBefore.endsWith('\\left\\')) {
+                e.preventDefault();
+                textarea.value = textBefore + '|\\right\\|' + textAfter;
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                validateProblem();
+                return;
+            }
+
             // \left| -> |\right|
             if (e.key === '|' && start === end && textBefore.endsWith('\\left')) {
                 e.preventDefault();
@@ -419,6 +450,18 @@ $(document).ready(function() {
                 textarea.selectionStart = textarea.selectionEnd = start + 1;
                 validateProblem();
                 return;
+            }
+
+            // \| alone -> \|\| (double bar norm)
+            if (e.key === '|' && start === end && textBefore.endsWith('\\')) {
+                const charBeforeSlash = textBefore[textBefore.length - 2];
+                if (charBeforeSlash === undefined || !/[a-zA-Z]/.test(charBeforeSlash)) {
+                    e.preventDefault();
+                    textarea.value = textBefore + '|\\|' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
             }
 
             // \left< -> <\right>
@@ -440,7 +483,9 @@ $(document).ready(function() {
             }
             if (e.key === 'e' && start === end && textBefore.endsWith('\\langl') && textAfter.startsWith('\\rang')) {
                 e.preventDefault();
-                textarea.value = textBefore + 'e\\rangle' + textAfter.substring('\\rang'.length);
+                const isLeft = textBefore.endsWith('\\left\\langl');
+                const closeStr = isLeft ? '\\right\\rangle' : '\\rangle';
+                textarea.value = textBefore + 'e' + closeStr + textAfter.substring('\\rang'.length);
                 textarea.selectionStart = textarea.selectionEnd = start + 1;
                 validateProblem();
                 return;
@@ -476,6 +521,39 @@ $(document).ready(function() {
                 if (textBefore.endsWith('\\lcei')) {
                     e.preventDefault();
                     textarea.value = textBefore + 'l\\rceil' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+            }
+
+            // \lvert / \left\lvert -> \rvert / \right\rvert
+            // \lVert / \left\lVert -> \rVert / \right\rVert
+            if (e.key === 't' && start === end) {
+                if (textBefore.endsWith('\\left\\lver')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 't\\right\\rvert' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+                if (textBefore.endsWith('\\lver')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 't\\rvert' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+                if (textBefore.endsWith('\\left\\lVer')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 't\\right\\rVert' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+                if (textBefore.endsWith('\\lVer')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 't\\rVert' + textAfter;
                     textarea.selectionStart = textarea.selectionEnd = start + 1;
                     validateProblem();
                     return;
