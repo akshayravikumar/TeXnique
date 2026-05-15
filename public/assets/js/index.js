@@ -380,6 +380,253 @@ $(document).ready(function() {
         validateProblem()
     });
 
+    const bracketPairs = { '(': ')', '[': ']', '{': '}' };
+    const closeBrackets = new Set(Object.values(bracketPairs));
+    $("#user-input").on("keydown", function(e) {
+        // Backspace: delete matching close bracket if cursor is between a pair
+        if (e.key === 'Backspace') {
+            const textarea = this;
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            if (start === end && start > 0) {
+                const val = textarea.value;
+                const charBefore = val[start - 1];
+                const charAfter = val[start];
+                if (charBefore in bracketPairs && bracketPairs[charBefore] === charAfter) {
+                    e.preventDefault();
+                    textarea.value = val.substring(0, start - 1) + val.substring(start + 1);
+                    textarea.selectionStart = start - 1;
+                    textarea.selectionEnd = start - 1;
+                    validateProblem();
+                }
+            }
+            return;
+        }
+
+        // Tab: skip past the next } or \end{xxx}
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const textarea = this;
+            const start = textarea.selectionStart;
+            if (start === textarea.selectionEnd) {
+                const val = textarea.value;
+                const textAfter = val.substring(start);
+                const endMatch = textAfter.match(/^\\end\{[^}]*\}/);
+                if (endMatch) {
+                    textarea.selectionStart = textarea.selectionEnd = start + endMatch[0].length;
+                    return;
+                }
+                const braceIdx = textAfter.indexOf('}');
+                if (braceIdx !== -1) {
+                    textarea.selectionStart = textarea.selectionEnd = start + braceIdx + 1;
+                    return;
+                }
+            }
+            return;
+        }
+
+        // Handle special \left sequences and multi-char delimiter patterns
+        {
+            const textarea = this;
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const val = textarea.value;
+            const textBefore = val.substring(0, start);
+            const textAfter = val.substring(end);
+
+            // \left\| -> \left\|\right\|
+            if (e.key === '|' && start === end && textBefore.endsWith('\\left\\')) {
+                e.preventDefault();
+                textarea.value = textBefore + '|\\right\\|' + textAfter;
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                validateProblem();
+                return;
+            }
+
+            // \left| -> |\right|
+            if (e.key === '|' && start === end && textBefore.endsWith('\\left')) {
+                e.preventDefault();
+                textarea.value = textBefore + '|\\right|' + textAfter;
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                validateProblem();
+                return;
+            }
+
+            // \| alone -> \|\| (double bar norm)
+            if (e.key === '|' && start === end && textBefore.endsWith('\\')) {
+                const charBeforeSlash = textBefore[textBefore.length - 2];
+                if (charBeforeSlash === undefined || !/[a-zA-Z]/.test(charBeforeSlash)) {
+                    e.preventDefault();
+                    textarea.value = textBefore + '|\\|' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+            }
+
+            // \left< -> <\right>
+            if (e.key === '<' && start === end && textBefore.endsWith('\\left')) {
+                e.preventDefault();
+                textarea.value = textBefore + '<\\right>' + textAfter;
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                validateProblem();
+                return;
+            }
+
+            // \lang -> \lang\rang (cursor between); \langl+e with \rang after -> \langle\rangle
+            if (e.key === 'g' && start === end && textBefore.endsWith('\\lan')) {
+                e.preventDefault();
+                textarea.value = textBefore + 'g\\rang' + textAfter;
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                validateProblem();
+                return;
+            }
+            if (e.key === 'e' && start === end && textBefore.endsWith('\\langl') && textAfter.startsWith('\\rang')) {
+                e.preventDefault();
+                const isLeft = textBefore.endsWith('\\left\\langl');
+                const closeStr = isLeft ? '\\right\\rangle' : '\\rangle';
+                textarea.value = textBefore + 'e' + closeStr + textAfter.substring('\\rang'.length);
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                validateProblem();
+                return;
+            }
+
+            // \lfloor / \left\lfloor -> \rfloor / \right\rfloor
+            if (e.key === 'r' && start === end) {
+                if (textBefore.endsWith('\\left\\lfloo')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 'r\\right\\rfloor' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+                if (textBefore.endsWith('\\lfloo')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 'r\\rfloor' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+            }
+
+            // \lceil / \left\lceil -> \rceil / \right\rceil
+            if (e.key === 'l' && start === end) {
+                if (textBefore.endsWith('\\left\\lcei')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 'l\\right\\rceil' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+                if (textBefore.endsWith('\\lcei')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 'l\\rceil' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+            }
+
+            // \lvert / \left\lvert -> \rvert / \right\rvert
+            // \lVert / \left\lVert -> \rVert / \right\rVert
+            if (e.key === 't' && start === end) {
+                if (textBefore.endsWith('\\left\\lver')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 't\\right\\rvert' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+                if (textBefore.endsWith('\\lver')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 't\\rvert' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+                if (textBefore.endsWith('\\left\\lVer')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 't\\right\\rVert' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+                if (textBefore.endsWith('\\lVer')) {
+                    e.preventDefault();
+                    textarea.value = textBefore + 't\\rVert' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+            }
+
+            // \begin{ - do not auto-close the brace; let default insert { only
+            if (e.key === '{' && start === end && textBefore.endsWith('\\begin')) {
+                return;
+            }
+
+            // \begin{xxx} -> \begin{xxx}\end{xxx} with cursor between
+            if (e.key === '}' && start === end) {
+                const beginMatch = textBefore.match(/\\begin\{([^}]+)$/);
+                if (beginMatch) {
+                    const envName = beginMatch[1];
+                    e.preventDefault();
+                    textarea.value = textBefore + '}\\end{' + envName + '}' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+            }
+
+        }
+
+        const open = e.key;
+        if (!(open in bracketPairs) && !closeBrackets.has(e.key)) return;
+
+        // Close bracket: skip over it if it's already the next character
+        if (closeBrackets.has(e.key)) {
+            const textarea = this;
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            if (start === end && textarea.value[start] === e.key) {
+                e.preventDefault();
+                textarea.selectionStart = start + 1;
+                textarea.selectionEnd = start + 1;
+            }
+            return;
+        }
+
+        if (!(open in bracketPairs)) return;
+        const close = bracketPairs[open];
+        const textarea = this;
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const val = textarea.value;
+        const textBefore = val.substring(0, start);
+        const precededByLeftBackslash = open === '{' && textBefore.endsWith('\\left\\');                    // "\left\}" case
+        const precededByLeft = !precededByLeftBackslash && textBefore.endsWith('\\left');                   // "\left" case but not "\left\"
+        const precededByBackslash = open === '{' && !precededByLeftBackslash && textBefore.endsWith('\\');  // "\" case for "{" but not "\left\{"
+        const closeStr = precededByLeftBackslash ? '\\right\\}' :       // "\left\}" -> "\right\}"
+                         precededByLeft         ? '\\right' + close :   // "\left?" -> "\right?"
+                         precededByBackslash    ? '\\}' :               // "\{" -> "\}"
+                                                  close;                // normal case: "(" -> ")", etc.
+        e.preventDefault();
+        if (start !== end) {
+            // Wrap the selection
+            const selected = val.substring(start, end);
+            textarea.value = val.substring(0, start) + open + selected + closeStr + val.substring(end);
+            textarea.selectionStart = start + 1;
+            textarea.selectionEnd = end + 1;
+        } else {
+            // Insert pair and place cursor between them
+            textarea.value = val.substring(0, start) + open + closeStr + val.substring(end);
+            textarea.selectionStart = start + 1;
+            textarea.selectionEnd = start + 1;
+        }
+
+        validateProblem();
+    });
+
     $("#shadow-checkbox").change(_ => {
         $("#shadow-target").toggle();
     });
