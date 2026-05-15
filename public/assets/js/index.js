@@ -481,6 +481,25 @@ $(document).ready(function() {
                     return;
                 }
             }
+
+            // \begin{ - do not auto-close the brace; let default insert { only
+            if (e.key === '{' && start === end && textBefore.endsWith('\\begin')) {
+                return;
+            }
+
+            // \begin{xxx} -> \begin{xxx}\end{xxx} with cursor between
+            if (e.key === '}' && start === end) {
+                const beginMatch = textBefore.match(/\\begin\{([^}]+)$/);
+                if (beginMatch) {
+                    const envName = beginMatch[1];
+                    e.preventDefault();
+                    textarea.value = textBefore + '}\\end{' + envName + '}' + textAfter;
+                    textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    validateProblem();
+                    return;
+                }
+            }
+
         }
 
         const open = e.key;
