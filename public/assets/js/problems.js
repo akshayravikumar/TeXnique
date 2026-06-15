@@ -925,5 +925,55 @@ let problems = [
 		"title": "Langevin Dynamics (Overdamped)",
 		"description": "Stochastic gradient flow with a deterministic potential and random noise",
 		"latex": String.raw`\mathrm{d}x_t = -\nabla U(x_t) \mathrm{d}t + \sqrt{2\beta^{-1}} \mathrm{d}W_t`
+	},
+	{
+		"title": "Hamiltonian",
+		"description": "Legendre transformation between Lagrangian mechanics and Hamiltonian mechanics",
+		"latex": String.raw`H = \sum_i p_i\dot{q}_i - L`
+	},
+	{
+		"title": "Heat Equation",
+		"description": "Models diffusion of heat",
+		"latex": String.raw`\frac{\partial u}{\partial t} = D\nabla^2 u`
+	},
+	{
+		"title": "Fourier Series",
+		"description": "Sinusoidal Approximation to Periodic Functions",
+		"latex": String.raw`f(x) = \frac{a_0}{2} + \sum_{k=1}^\infty a_k\cos\left(\frac{k\pi x}{L}\right) +  \sum_{k=1}^\infty b_k\sin\left(\frac{k\pi x}{L}\right)`
+	},
+	{
+		"title": "Adjoint of a Linear Map",
+		"description": "Abstract Linear Algebra",
+		"latex": String.raw`\langle T(v), w\rangle _W = \langle v, T*(w)\rangle _V`
+	},
+	{
+		"title": "Expectation of a Continuous Random Variable",
+		"description": "Used to find the expected value of a continuous random variable X with probability density function f(x)",
+		"latex": String.raw`E(X) = \int_{-\infty}^{\infty}x f(x)dx`
+	},
+	{
+		"title": "Strong Law of Large Numbers",
+		"description": "Average of a sequence of i.i.d random variables converge to the mean with probability 1 as the number of trials approach infinity",
+		"latex": String.raw`\lim_{n \rightarrow \infty}\frac{\sum_{i = 1}^n X_i}{n} = \mu`
+	},
+	{
+		"title": "Chebyshev Inequality",
+		"description": "Bounds the probability that a random variable deviates from its mean",
+		"latex": String.raw`P\left(|X - \mu| \geq a\right) \leq \frac{\sigma^2}{a^2}`
+	},
+	{
+		"title": "Moment Generating Functions",
+		"description": "Uniquely determines the distribution of a random variable",
+		"latex": String.raw`M_X(t) = E\left(e^{tX}\right)`
+	},
+	{
+		"title": "Tsiolkovsky Rocket Equation",
+		"description": "Speed of a rocket",
+		"latex": String.raw`v(t) = u\ln\left(\frac{M_0}{M(t)}\right) + v_0`
+	},
+	{
+		"title": "Noether's Theorem",
+		"description": "Every continuous symmetry has a corresponding conservation law",
+		"latex": String.raw` Q = \sum_{i}\paren{\frac{\partial \lag}{\partial \dot{q}_i}\frac{\partial \bar{q}_i}{\partial \varepsilon}}|_{\varepsilon = 0} = \text{constant}`
 	}
 ];
