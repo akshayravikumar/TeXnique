@@ -102,6 +102,7 @@ function endGame() {
     // Load initial leaderboard
     loadLeaderboard('today');
     
+    skippedProblems.push(problemNumber);
     skippedProblems.forEach(idx => {
       let target = problems[problemsOrder[idx % problems.length]];
       let targetId = 'skipTarget' + idx;
