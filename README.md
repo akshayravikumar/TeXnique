@@ -1,13 +1,13 @@
 # TeXnique
 
-A LaTeX speed-typesetting game. How many formulas can you recreate in three minutes?
+Un juego de composición tipográfica rápida en LaTeX. ¿Cuántas fórmulas puedes recrear en tres minutos?
 
-"Here’s a game that puts the fun in ‘underfilled hbox’" --[The Aperiodical](https://aperiodical.com/2019/09/texnique-a-latex-typesetting-game/)
+"Aquí hay un juego que pone la diversión en ‘underfilled hbox’" --[The Aperiodical](https://aperiodical.com/2019/09/texnique-a-latex-typesetting-game/)
 
-[HackerNews discussion](https://news.ycombinator.com/item?id=20814774)
+[Discusión en HackerNews](https://news.ycombinator.com/item?id=20814774)
 
-[Reddit discussion](https://www.reddit.com/r/math/comments/czwusd/texnique_a_latex_typesetting_game/) 
+[Discusión en Reddit](https://www.reddit.com/r/math/comments/czwusd/texnique_a_latex_typesetting_game/) 
 
-## Contribution
+## Contribuciones
 
-Contributors are welcome! If you'd like to contribute a problem, you can do so via [this form](https://forms.gle/DXjPeTL5DbJBhKRv8) or submit a pull request to this repository directly.
+¡Las contribuciones son bienvenidas! Si deseas contribuir con un problema, puedes hacerlo a través de [este formulario](https://forms.gle/DXjPeTL5DbJBhKRv8) o enviar un pull request directamente a este repositorio.
