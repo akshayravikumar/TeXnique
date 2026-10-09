@@ -925,5 +925,30 @@ let problems = [
 		"title": "Langevin Dynamics (Overdamped)",
 		"description": "Stochastic gradient flow with a deterministic potential and random noise",
 		"latex": String.raw`\mathrm{d}x_t = -\nabla U(x_t) \mathrm{d}t + \sqrt{2\beta^{-1}} \mathrm{d}W_t`
+	},
+	{
+		"title": "De Moivre's Formula",
+		"description": "Connects complex numbers and trigonometry.",
+		"latex": String.raw`(\cos x + i \sin x)^n = \cos(nx) + i \sin(nx)`
+	},
+	{
+		"title": "Jensen's Inequality",
+		"description": "Relates the value of a convex function of an expectation to the expectation of the convex function.",
+		"latex": String.raw`\varphi(\mathbb{E}[X]) \le \mathbb{E}[\varphi(X)]`
+	},
+	{
+		"title": "Kullback-Leibler Divergence",
+		"description": "A measure of how one probability distribution diverges from a reference probability distribution.",
+		"latex": String.raw`D_{\mathrm{KL}}(P \| Q) = \sum_{x \in \mathcal{X}} P(x) \log \left(\frac{P(x)}{Q(x)}\right)`
+	},
+	{
+		"title": "Scaled Dot-Product Attention",
+		"description": "Attention is all you need.",
+		"latex": String.raw`\mathrm{Attention}(Q, K, V) = \mathrm{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V`
+	},
+	{
+		"title": "Brahmagupta's Formula",
+		"description": "Generalizes Heron's formula to the area of a cyclic quadrilateral.",
+		"latex": String.raw`K = \sqrt{(s-a)(s-b)(s-c)(s-d)}`
 	}
 ];
