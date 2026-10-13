@@ -950,5 +950,30 @@ let problems = [
 		"title": "Brahmagupta's Formula",
 		"description": "Generalizes Heron's formula to the area of a cyclic quadrilateral.",
 		"latex": String.raw`K = \sqrt{(s-a)(s-b)(s-c)(s-d)}`
+	},
+	{
+		"title": "Poisson Distribution",
+		"description": "Probability mass function of a Poisson random variable.",
+		"latex": String.raw`P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}`
+	},
+	{
+		"title": "Stefan-Boltzmann Law",
+		"description": "Total power radiated per unit area of a black body across all wavelengths.",
+		"latex": String.raw`j^* = \sigma T^4`
+	},
+	{
+		"title": "PageRank Algorithm",
+		"description": "The stationary distribution of a random surfer on the web graph.",
+		"latex": String.raw`\mathrm{PR}(u) = \frac{1-d}{N} + d \sum_{v \in B_u} \frac{\mathrm{PR}(v)}{L(v)}`
+	},
+	{
+		"title": "Hubble's Law",
+		"description": "Galaxies are moving away at speeds proportional to their distance.",
+		"latex": String.raw`v = H_0 D`
+	},
+	{
+		"title": "Categorical Cross-Entropy Loss",
+		"description": "Standard loss function for multi-class classification models.",
+		"latex": String.raw`\mathcal{L} = -\sum_{i=1}^C y_i \log(\hat{y}_i)`
 	}
 ];
