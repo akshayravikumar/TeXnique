@@ -975,5 +975,30 @@ let problems = [
 		"title": "Categorical Cross-Entropy Loss",
 		"description": "Standard loss function for multi-class classification models.",
 		"latex": String.raw`\mathcal{L} = -\sum_{i=1}^C y_i \log(\hat{y}_i)`
+	},
+	{
+		"title": "Snell's Law",
+		"description": "Describes the relationship between the angles of incidence and refraction of waves passing through a boundary between two media.",
+		"latex": String.raw`n_1 \sin \theta_1 = n_2 \sin \theta_2`
+	},
+	{
+		"title": "Wallis Product",
+		"description": "An infinite product representation for half of pi discovered by John Wallis in 1656.",
+		"latex": String.raw`\frac{\pi}{2} = \prod_{n=1}^\infty \frac{4n^2}{4n^2 - 1}`
+	},
+	{
+		"title": "Shannon-Hartley Theorem",
+		"description": "Maximum rate at which information can be transmitted over a communications channel of a specified bandwidth in the presence of noise.",
+		"latex": String.raw`C = B \log_2 \left(1 + \frac{S}{N}\right)`
+	},
+	{
+		"title": "Softmax Function",
+		"description": "Converts a vector of real numbers into a probability distribution.",
+		"latex": String.raw`\sigma(\mathbf{z})_i = \frac{e^{z_i}}{\sum_{j=1}^K e^{z_j}}`
+	},
+	{
+		"title": "Schwarzschild Radius",
+		"description": "Radius of the event horizon of a non-rotating black hole.",
+		"latex": String.raw`r_s = \frac{2GM}{c^2}`
 	}
 ];
