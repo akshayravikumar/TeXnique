@@ -1000,5 +1000,30 @@ let problems = [
 		"title": "Schwarzschild Radius",
 		"description": "Radius of the event horizon of a non-rotating black hole.",
 		"latex": String.raw`r_s = \frac{2GM}{c^2}`
+	},
+	{
+		"title": "Coulomb's Law",
+		"description": "Quantifies the amount of electrostatic force between two stationary, electrically charged particles.",
+		"latex": String.raw`F = k_e \frac{|q_1 q_2|}{r^2}`
+	},
+	{
+		"title": "de Broglie Wavelength",
+		"description": "Relates the wavelength of a matter wave to the momentum of the particle.",
+		"latex": String.raw`\lambda = \frac{h}{p}`
+	},
+	{
+		"title": "Logistic Map",
+		"description": "A polynomial mapping that demonstrates how chaotic behavior can arise from simple non-linear dynamical equations.",
+		"latex": String.raw`x_{n+1} = r x_n (1 - x_n)`
+	},
+	{
+		"title": "Bragg's Law",
+		"description": "Describes the condition for constructive interference of waves scattered by crystalline lattice planes.",
+		"latex": String.raw`2d \sin \theta = n \lambda`
+	},
+	{
+		"title": "Poisson Summation Formula",
+		"description": "Relates the sum of values of a function at integer points to the sum of values of its Fourier transform.",
+		"latex": String.raw`\sum_{n=-\infty}^\infty f(n) = \sum_{k=-\infty}^\infty \hat{f}(k)`
 	}
 ];
