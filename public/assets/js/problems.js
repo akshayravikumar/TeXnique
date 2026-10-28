@@ -1000,5 +1000,30 @@ let problems = [
 		"title": "Schwarzschild Radius",
 		"description": "Radius of the event horizon of a non-rotating black hole.",
 		"latex": String.raw`r_s = \frac{2GM}{c^2}`
+	},
+	{
+		"title": "Heat Equation",
+		"description": "Fundamental partial differential equation describing the distribution of heat over time.",
+		"latex": String.raw`\frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}`
+	},
+	{
+		"title": "Gauss-Bonnet Theorem",
+		"description": "Connects differential geometry of surfaces with their topological Euler characteristic.",
+		"latex": String.raw`\int_M K \, dA + \int_{\partial M} k_g \, ds = 2\pi \chi(M)`
+	},
+	{
+		"title": "Chebyshev's Inequality",
+		"description": "Upper bound on the probability that a random variable deviates from its mean.",
+		"latex": String.raw`P(|X - \mu| \ge k\sigma) \le \frac{1}{k^2}`
+	},
+	{
+		"title": "Wilson's Theorem",
+		"description": "A natural number greater than 1 is prime if and only if it divides (p-1)! + 1.",
+		"latex": String.raw`(p - 1)! \equiv -1 \pmod{p}`
+	},
+	{
+		"title": "L'Hôpital's Rule",
+		"description": "Evaluation of indeterminate limits using derivatives.",
+		"latex": String.raw`\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}`
 	}
 ];
