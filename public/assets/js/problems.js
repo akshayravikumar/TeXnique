@@ -1000,5 +1000,30 @@ let problems = [
 		"title": "Schwarzschild Radius",
 		"description": "Radius of the event horizon of a non-rotating black hole.",
 		"latex": String.raw`r_s = \frac{2GM}{c^2}`
+	},
+	{
+		"title": "Ideal Gas Law",
+		"description": "Equation of state of a hypothetical ideal gas.",
+		"latex": String.raw`PV = nRT`
+	},
+	{
+		"title": "Heat Equation",
+		"description": "Describes how heat diffuses through a medium over time.",
+		"latex": String.raw`\frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}`
+	},
+	{
+		"title": "Gauss-Bonnet Theorem",
+		"description": "Connects the differential geometry of surfaces with their topology.",
+		"latex": String.raw`\int_M K \, dA + \int_{\partial M} k_g \, ds = 2\pi \chi(M)`
+	},
+	{
+		"title": "Chebyshev's Inequality",
+		"description": "Upper bound on the probability that a random variable deviates from its mean.",
+		"latex": String.raw`\mathbb{P}(|X - \mu| \ge k\sigma) \le \frac{1}{k^2}`
+	},
+	{
+		"title": "Wilson's Theorem",
+		"description": "A natural number greater than 1 is a prime if and only if it satisfies this congruence.",
+		"latex": String.raw`(p - 1)! \equiv -1 \pmod{p}`
 	}
 ];
