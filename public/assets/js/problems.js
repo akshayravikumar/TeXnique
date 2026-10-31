@@ -1025,5 +1025,30 @@ let problems = [
 		"title": "Wilson's Theorem",
 		"description": "A natural number greater than 1 is a prime if and only if it satisfies this congruence.",
 		"latex": String.raw`(p - 1)! \equiv -1 \pmod{p}`
+	},
+	{
+		"title": "Coulomb's Law",
+		"description": "Quantifies the electrostatic force between two stationary, electrically charged particles.",
+		"latex": String.raw`F = k_e \frac{|q_1 q_2|}{r^2}`
+	},
+	{
+		"title": "Lorentz Force",
+		"description": "Combination of electric and magnetic force on a point charge due to electromagnetic fields.",
+		"latex": String.raw`\mathbf{F} = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})`
+	},
+	{
+		"title": "Bragg's Law",
+		"description": "Condition for constructive interference of waves scattered by crystalline lattice planes.",
+		"latex": String.raw`2d \sin\theta = n\lambda`
+	},
+	{
+		"title": "Kepler's Third Law",
+		"description": "The square of the orbital period of a planet is directly proportional to the cube of the semi-major axis of its orbit.",
+		"latex": String.raw`\frac{T^2}{a^3} = \frac{4\pi^2}{G(M + m)}`
+	},
+	{
+		"title": "Markov's Inequality",
+		"description": "Upper bound on the probability that a non-negative random variable exceeds a positive constant.",
+		"latex": String.raw`\mathbb{P}(X \ge a) \le \frac{\mathbb{E}[X]}{a}`
 	}
 ];
