@@ -1025,5 +1025,30 @@ let problems = [
 		"title": "Wilson's Theorem",
 		"description": "A natural number greater than 1 is a prime if and only if it satisfies this congruence.",
 		"latex": String.raw`(p - 1)! \equiv -1 \pmod{p}`
+	},
+	{
+		"title": "Lorentz Force Law",
+		"description": "Describes the force exerted on a charged particle moving through electric and magnetic fields.",
+		"latex": String.raw`\mathbf{F} = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})`
+	},
+	{
+		"title": "Euler's Reflection Formula",
+		"description": "Relates the gamma function at complementary values.",
+		"latex": String.raw`\Gamma(z)\Gamma(1-z) = \frac{\pi}{\sin(\pi z)}`
+	},
+	{
+		"title": "Markov's Inequality",
+		"description": "Upper bound on the probability that a non-negative random variable exceeds a threshold.",
+		"latex": String.raw`\mathbb{P}(X \ge a) \le \frac{\mathbb{E}[X]}{a}`
+	},
+	{
+		"title": "Sigmoid Function",
+		"description": "Standard activation function mapping real numbers to probabilities in the interval (0, 1).",
+		"latex": String.raw`\sigma(x) = \frac{1}{1 + e^{-x}}`
+	},
+	{
+		"title": String.raw`Leibniz Formula for \(\pi\)`,
+		"description": "Infinite alternating series representation for pi.",
+		"latex": String.raw`\frac{\pi}{4} = \sum_{n=0}^\infty \frac{(-1)^n}{2n+1}`
 	}
 ];
