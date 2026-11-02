@@ -23,15 +23,23 @@
 
   <!-- custom css -->
   <link rel="stylesheet" href="assets/style/style.css">
+  <link rel="stylesheet" href="assets/lib/codemirror5/lib/codemirror.css"/>
+  <link rel="stylesheet" href="assets/lib/codemirror5/theme/gruvbox-dark.css">
 
   <!-- js lib -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script defer src="assets/lib/katex/katex.min.js"></script>
   <script defer src="assets/lib/katex/contrib/auto-render.min.js"></script>
   <script defer src="assets/lib/html2canvas.min.js"></script>
+  <script type="module" src="assets/lib/codemirror5/src/edit/main.js"></script>
   <script src="https://bundle.run/pixelmatch@5.0.2"></script>
   <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js"></script>
+  <script type="module"/>
+    import { CodeMirror } from './assets/lib/codemirror5/src/edit/main.js';
+    window.CodeMirror = CodeMirror;
+    </script>
+<script type="module" src="assets/lib/codemirror5/keymap/vim.js"></script>
 
   <!-- custom js -->
   <script src="assets/js/firebase-config.js"></script>
@@ -199,11 +207,18 @@
         <br><br>
 
         <div id="options-container">
+        <div id="option-container">
           <input type="checkbox" class="checkbox" id="shadow-checkbox"></input>
           <label id="l-shadow-checkbox" for="shadow-checkbox" tabindex="0"></label>
           <p id="toggle-shadow-desc">Toggle Shadow</p>
         </div>
+        <div id="option-container">
+            <input type="checkbox" class="checkbox" id="vim-checkbox"></input>
+            <label id="l-vim-checkbox" for="vim-checkbox" tabindex="0"></label>
+            <p id="toggle-vim-desc">Toggle Vim Mode</p>
+          </div>
       </div>
+    </div>
     </div>
   </main>
 </body>
