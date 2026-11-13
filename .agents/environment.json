@@ -1,0 +1,3 @@
+{
+  "install": "mkdir -p \"$HOME/.npm-global\" && npm config set prefix \"$HOME/.npm-global\" && export PATH=\"$HOME/.npm-global/bin:$PATH\" && (touch \"$HOME/.bashrc\"; sed -i '/case \\$- in/,/esac/d' \"$HOME/.bashrc\" 2>/dev/null || true) && (grep -qxF 'export PATH=\"$HOME/.npm-global/bin:$PATH\"' \"$HOME/.bashrc\" || echo 'export PATH=\"$HOME/.npm-global/bin:$PATH\"' >> \"$HOME/.bashrc\") && (command -v firebase >/dev/null 2>&1 || npm install -g --no-fund --no-audit firebase-tools) && firebase --version && for f in public/assets/js/*.js; do node --check \"$f\"; done"
+}
